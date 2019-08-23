@@ -556,7 +556,7 @@ def check_payments():
                                 verify_payment(uid, p, currency, amt)
                                 amt -= sums[i]
                 dump(s, open("payments.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
-    pprint(response)
+    #pprint(response)
 
 
 def verify_payment(uid, plan, currency, amt):
