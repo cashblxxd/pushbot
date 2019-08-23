@@ -254,5 +254,9 @@ tr = {
     "Промокод успешно создан": "Promocode created successfully",
     "Таблица успешно привязана": "Spreadsheet linked successfully",
     "Ежедневная статистика, присылаемая администратору бота": "Stats daily sent to bot admin",
-    "Ещё": "More"
+    "Ещё": "More",
+    "Пожалуйста, не меняйте комментарий и сумму перевода, иначе оплата может быть не учтена. (откройте ссылку в браузере)\n\n": "Please don't change amount and comment, as otherwise your purchase could not be registered. (open lonk in browser)\n\n",
+    "Пожалуйста, напишите клиентскому боту ": "Please, send a message to ",
+    " без этого он не сможет отправить Вам статистику": " as otherwise he can not send you usage stats.",
+    "Ссылка": "Link"
 }

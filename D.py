@@ -1,8 +1,9 @@
 # coding=utf-8
 import re
+import requests
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-import logging
+#import logging
 from pprint import pprint
 from uuid import uuid4
 from datetime import date
@@ -68,13 +69,13 @@ def successful_payment_callback(update, context):
 
 
 def sender(bot, job_data, bot_id, uid, lang):
-    print("alive!")
+    #print("alive!")
     if datetime.strptime(job_data["date"], '%Y-%m-%d') <= datetime.now() and check_task_active(bot_id, uid, job_data["id"]):
         if datetime.strptime(job_data["end_date"], '%Y-%m-%d') < datetime.now():
             return schedule.CancelJob
         if job_data["state"] == "pending":
             return 1
-        pprint(job_data)
+        #pprint(job_data)
         d = {
             "each_days": 1,
             "two_days": 2,
@@ -108,16 +109,20 @@ def sender(bot, job_data, bot_id, uid, lang):
                 "sa_week": 6,
                 "su_week": 7
             }
-            if datetime.now().weekday() in [d[i] for i in job_data['selected_week']]:
+            if datetime.now().weekday() + 1 in [d[i] for i in job_data['selected_week']]:
                 send_msg(bot_id, job_data["chat_id"], job_data["desc"], uid)
         elif job_data['frequency'] == "month_end_days":
             r = datetime.now()
             if r.day == monthrange(r.year, r.month)[1]:
                 send_msg(bot_id, job_data["chat_id"], job_data["desc"], uid)
         elif job_data['frequency'] == "custom_days":
-            if datetime.now() in job_data["selected_days"]:
+            if str(datetime.now().day) in job_data["selected_days"]:
                 send_msg(bot_id, job_data["chat_id"], job_data["desc"], uid)
-        print("al2")
+        #print("al2")
+
+
+def get_link(currency, uid, price):
+    return f"https://qiwi.com/payment/form/99?amountFraction=0.0&currency={currency}&extra['account']=79258550898&extra['comment']={uid + '+' + '+'.join(str(datetime.now()).split())}&amountInteger={price}"
 
 
 def create_message(bot, job_data, bot_id, uid, lang, from_main=False):
@@ -134,9 +139,9 @@ def create_message(bot, job_data, bot_id, uid, lang, from_main=False):
         dump(s, open("request.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
     with open("request.log") as f:
         s = load(f)
-        pprint(s)
-    print("task created successfully")
-    print(schedule.jobs)
+        #pprint(s)
+    #print("task created successfully")
+    #print(schedule.jobs)
 
 
 def delete_task(bot_id, uid, job_id):
@@ -146,6 +151,11 @@ def delete_task(bot_id, uid, job_id):
 def commit(update, context, type):
     bot_id = str(context.bot.id)
     user_data = {**load_db(), **context.user_data}
+    with open("payments.log") as f:
+        s = load(f)
+        if "payments" not in s:
+            s["payments"] = []
+            dump(s, open('payments.log', 'w+', encoding='utf-8'), ensure_ascii=False, indent=4)
     if "stats" not in user_data:
         user_data["stats"] = {
             "admin": {
@@ -198,10 +208,13 @@ def commit(update, context, type):
             notify(context.bot, uid)
             dump(s, open("users.json", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
     with open("muted_chats.json") as f:
+        #print(1)
         s = load(f)
+        #print(s)
+        #print(2)
         if uid not in s:
             s[uid] = {}
-        dump(s, open('muted_chats.json', 'w+', encoding='utf-8'), ensure_ascii=False, indent=4)
+            dump(s, open('muted_chats.json', 'w+', encoding='utf-8'), ensure_ascii=False, indent=4)
     with open("request.log") as f:
         s = load(f)
         if not s:
@@ -260,8 +273,8 @@ def notify(bot, uid):
 TOKEN = "906875872:AAEXcMx1uKl_Wy4Sw9Lc5hOENBAjOs9cDzk"
 admin_id = TOKEN.split(":")[0]
 admin_user_id = ["640028321", "106052"]
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-logger = logging.getLogger(__name__)
+#logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+#logger = logging.getLogger(__name__)
 
 
 def load_db():
@@ -277,7 +290,7 @@ def start(update, context):
     context.user_data = commit(update, context, "command")
     uid = str(update.message.from_user.id)
     bot_id = str(context.bot.id)
-    if len(context.user_data[uid]["bot_list"]) > 1:
+    if len(context.user_data[uid]["bot_list"]) > 0:
         update.message.reply_text(get_translation("Вы уже зарегистрированы!:)", context.user_data[admin_id][uid]["lang"]), reply_markup=get_menu(context.user_data[admin_id][uid]["lang"], uid in admin_user_id, uid == context.user_data[bot_id]["owner"]))
     else:
         update.message.reply_text('Hi!', reply_markup=InlineKeyboardMarkup([[
@@ -337,7 +350,8 @@ def to_text(job_data, lang, bot_id):
 
 
 def error(update, context):
-    logger.warning('Update "%s" caused error "%s"', update, error)
+    pass
+    #logger.warning('Update "%s" caused error "%s"', update, error)
 
 
 def new_chat(update, context):
@@ -349,11 +363,10 @@ def new_chat(update, context):
         context.user_data[bot_id]["chat_list"][update.message.chat_id] = {
             'title': update.message.chat.title
         }
-        update.message.reply_text(get_translation('Всем работягам привет!', lang))
         ##pprint(context.user_data[bot_id][uid])
         with open("muted_chats.json") as f:
             s = load(f)
-            s[context.user_data[bot_id]["owner"]] = {**s[context.user_data[bot_id]["owner"]], **{update.message.chat_id: {'title': update.message.chat.title, 'muted': 0}}}
+            s[context.user_data[bot_id]["owner"]] = {**s[context.user_data[bot_id]["owner"]], **{str(update.message.chat_id): {'title': update.message.chat.title, 'muted': 0}}}
             dump(s, open('muted_chats.json', 'w+', encoding='utf-8'), ensure_ascii=False, indent=4)
     context.user_data = commit(update, context, "message")
 
@@ -447,8 +460,134 @@ def update_admin_stats(update=0, context=0, type=0, data=0):
             for uid in s["requests_sent_usr"]:
                 data["stats"][uid]["requests_sent"] = len(s["requests_sent_usr"][uid])
         dump(s, open("request.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
-        print("success")
+        #print("success")
         return data
+
+
+def check_payments():
+    headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 5dfbbde1e4636936c7786ad1553d58d1',
+    }
+
+    params = (
+        ('rows', '50'),
+        ("operations", "IN")
+    )
+
+    response = requests.get('https://edge.qiwi.com/payment-history/v2/persons/79258550898/payments', headers=headers,
+                            params=params).json()
+    for i in response["data"]:
+        if i["status"] == "SUCCESS" and i["comment"]:
+            comment = i["comment"].split()
+            if len(comment) == 3 and comment[0].isdigit():
+                with open("payments.log") as f:
+                    s = load(f)
+                    if ' '.join(comment) not in s["payments"]:
+                        s["payments"].append(' '.join(comment))
+                        uid, date, time = comment
+                        #print(i["total"]["currency"])
+                        currency = {
+                            643: "RUB"
+                        }[i["total"]["currency"]]
+                        amt = i["total"]["amount"]
+                        #print(currency, amt)
+                        if currency == "RUB":
+                            #print(1)
+                            plan = {
+                                290: "1months",
+                                740: "3months",
+                                1392: "6months",
+                                2436: "12months",
+                                4500: "-1"
+                            }
+                            sums = [290, 740, 1392, 2436, 4500, -1]
+                            if amt < 290:
+                                #print(2)
+                                continue
+                            while amt >= 290:
+                                for i in range(len(sums) - 1):
+                                    if sums[i + 1] > amt or sums[i + 1] == -1:
+                                        break
+                                #print(sums[i])
+                                p = plan[sums[i]]
+                                #print(p)
+                                verify_payment(uid, p, currency, amt)
+                                amt -= sums[i]
+                        elif currency == "EUR":
+                            plan = {
+                                8.9: "1months",
+                                22.7: "3months",
+                                42.7: "6months",
+                                74.8: "12months",
+                                135: "-1"
+                            }
+                            sums = [8.9, 22.7, 42.7, 74.8, 135, -1]
+                            if amt < 8.9:
+                                continue
+                            while amt >= 8.9:
+                                for i in range(len(sums) - 1):
+                                    if sums[i + 1] > amt or sums[i + 1] == -1:
+                                        break
+                                #print(sums[i])
+                                p = plan[sums[i]]
+                                #print(p)
+                                verify_payment(uid, p, currency, amt)
+                                amt -= sums[i]
+                        elif currency == "USD":
+                            plan = {
+                                9.90: "1months",
+                                25.25: "3months",
+                                47.52: "6months",
+                                83.16: "12months",
+                                155: "-1"
+                            }
+                            sums = [9.90, 25.25, 47.52, 83.16, 155, -1]
+                            if amt < 9.90:
+                                continue
+                            while amt >= 9.90:
+                                for i in range(len(sums) - 1):
+                                    if sums[i + 1] > amt or sums[i + 1] == -1:
+                                        break
+                                #print(sums[i])
+                                p = plan[sums[i]]
+                                #print(p)
+                                verify_payment(uid, p, currency, amt)
+                                amt -= sums[i]
+                dump(s, open("payments.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
+    #pprint(response)
+
+
+def verify_payment(uid, plan, currency, amt):
+    #print(3)
+    d = {
+        "1months": relativedelta(months=1),
+        "3months": relativedelta(months=3),
+        "6months": relativedelta(months=6),
+        "12months": relativedelta(months=12),
+         "-1": -1,
+    }
+    with open("dumpp.json") as f:
+        s = load(f)
+        if s[admin_id][uid]["referrer"]:
+            rfid = s[admin_id][uid]["referrer"]
+            if s[admin_id][rfid]["subscription_end"] != -1:
+                s[admin_id][rfid]["subscription_end"] = str(datetime.strptime(s[admin_id][rfid]["subscription_end"], '%Y-%m-%d') + relativedelta(months=1)).split()[0]
+            if s[admin_id][uid]["subscription_end"] != -1:
+                s[admin_id][uid]["subscription_end"] = str(datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d') + relativedelta(months=1)).split()[0]
+            s[admin_id][rfid]["referrals"][uid]["payment_date"] = str(date.today())
+        if d[plan] == -1:
+            s[admin_id][uid]["subscription_end"] = -1
+        else:
+            if s[admin_id][uid]["subscription_end"] != -1:
+                s[admin_id][uid]["subscription_end"] = str(datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d') + d[plan]).split()[0]
+        #print(s[admin_id][uid]["subscription_end"])
+        s[uid]["checkouts_count"] += 1
+        s[uid]["checkouts_sum"][currency] += amt
+        s["stats"]["admin"]["checkout_count"] += 1
+    dump(s, open("dumpp.json", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
+
 
 
 def button(update, context):
@@ -591,6 +730,15 @@ def button(update, context):
             #print(data)
             if data in ["back::start", "back::buy", "back::lang", "back::referrer", "back::my_bots", "back::gtable"]:
                 update.callback_query.edit_message_text(get_menu_text(update, context, uid, admin_id, lang), reply_markup=get_menu(lang, uid in admin_user_id))
+            elif data == "back::currency":
+                update.callback_query.edit_message_text(
+                    get_translation("Премиум доступ", lang) + "\n" + get_buy_text(lang),
+                    reply_markup=InlineKeyboardMarkup([[
+                        InlineKeyboardButton("🔙", callback_data="back::referral"),
+                        InlineKeyboardButton("🏡", callback_data="::home::")
+                    ], [InlineKeyboardButton("₽", callback_data="RUB::currency")],
+                        [InlineKeyboardButton("💶", callback_data="EUR::currency")],
+                        [InlineKeyboardButton("💲", callback_data="USD::currency")]]))
             elif data in ["back::promocode", "back::referral", "back::help"]:
                 update.callback_query.edit_message_text(text=get_translation("Главное меню", lang),
                                                         reply_markup=InlineKeyboardMarkup([
@@ -931,7 +1079,7 @@ def button(update, context):
                             InlineKeyboardButton("🔙", callback_data="back::messages"),
                             InlineKeyboardButton("🏡", callback_data="::home::")
                         ]]))
-                    for i in context.user_data[bot_idt][uid]["id"]:
+                    for i in context.user_data[bot_idt][uid]:
                         if i.isdigit():
                             res = to_text(context.user_data[bot_idt][uid][i], lang, bot_idt)
                             if context.user_data[bot_idt][uid][i]["state"] == "running":
@@ -1070,7 +1218,7 @@ def button(update, context):
                                          provider_token, start_parameter, currency, prices)
                 except Exception as e:
                     traceback.print_stack()
-                    print(e)
+                    #print(e)
 
             elif data == "menu::add_task":
                 keyboard = [
@@ -1151,30 +1299,58 @@ def button(update, context):
                                                             ]))
         elif data.endswith("::currency"):
             data = data.strip("::currency")
-            provider_token = "381764678:TEST:11072"
-            '''
-            c = CurrencyConverter()
-            print(ceil(c.convert(249, "RUB", data)))
-            print(ceil(c.convert(635, "RUB", data)))
-            print(ceil(c.convert(1195, "RUB", data)))
-            print(ceil(c.convert(2092, "RUB", data)))
-            print(ceil(c.convert(4500, "RUB", data)))
-            LabeledPrice(, ceil(c.convert(249, "RUB", data))),
-                LabeledPrice(get_translation("3 месяца (15% скидка)", lang), ceil(c.convert(635, "RUB", data))),
-                LabeledPrice(get_translation("6 месяцев(20% скидка)", lang), ceil(c.convert(1195, "RUB", data))),
-                LabeledPrice(get_translation("12 месяцев (30% скидка)", lang), ceil(c.convert(2092, "RUB", data))),
-                LabeledPrice(get_translation("На всю жизнь", lang), ceil(c.convert(4500, "RUB", data)))
-            print(data)'''
-            prices = [
-                LabeledPrice("1 месяц", 249),
-                LabeledPrice("3 месяца (15% скидка)", 635),
-                LabeledPrice("6 месяцев(20% скидка", 1195),
-                LabeledPrice("12 месяцев (30% скидка)", 2092),
-                LabeledPrice("На всю жизнь", 4500)
-            ]
-            print("here", data)
-            context.bot.send_invoice(uid, get_translation("Премиум доступ", lang), get_buy_text(lang), uid,
-                                     provider_token, 'start_parameter', data, prices)
+            if data == "RUB":
+                a = []
+                for i, j in [
+                    (get_translation("1 месяц", lang), 290),
+                    (get_translation("3 месяца (15% скидка)", lang), 740),
+                    (get_translation("6 месяцев(20% скидка", lang), 1392),
+                    (get_translation("12 месяцев (30% скидка)", lang), 2436),
+                    (get_translation("На всю жизнь", lang), 4500)
+                ]:
+                    a.append(f"{i} ({j}‎₽): [{get_translation('Ссылка', lang)}]({get_link(data, uid, j)})")
+                update.callback_query.edit_message_text(get_translation("Пожалуйста, не меняйте комментарий и сумму перевода, иначе оплата может быть не учтена. (откройте ссылку в браузере)\n\n", lang) + "\n\n".join(a),
+                                                        reply_markup=InlineKeyboardMarkup([[
+                                                            InlineKeyboardButton("🔙",
+                                                                                 callback_data="back::start"),
+                                                            InlineKeyboardButton("🏡", callback_data="::home::")
+                                                        ]]), parse_mode=ParseMode.MARKDOWN)
+            elif data == "EUR":
+                a = []
+                for i, j in [
+                    (get_translation("1 месяц", lang), 8.9),
+                    (get_translation("3 месяца (15% скидка)", lang), 22.7),
+                    (get_translation("6 месяцев(20% скидка", lang), 42.7),
+                    (get_translation("12 месяцев (30% скидка)", lang), 74.8),
+                    (get_translation("На всю жизнь", lang), 135)
+                ]:
+                    a.append(f"{i} ({j}‎€): [{get_translation('Ссылка', lang)}]({get_link(data, uid, j)})")
+                update.callback_query.edit_message_text(get_translation(
+                    "Пожалуйста, не меняйте комментарий и сумму перевода, иначе оплата может быть не учтена.\n\n",
+                    lang) + "\n\n".join(a),
+                                                        reply_markup=InlineKeyboardMarkup([[
+                                                            InlineKeyboardButton("🔙",
+                                                                                 callback_data="back::start"),
+                                                            InlineKeyboardButton("🏡", callback_data="::home::")
+                                                        ]]), parse_mode=ParseMode.MARKDOWN)
+            elif data == "USD":
+                a = []
+                for i, j in [
+                    (get_translation("1 месяц", lang), 9.90),
+                    (get_translation("3 месяца (15% скидка)", lang), 25.25),
+                    (get_translation("6 месяцев(20% скидка", lang), 47.52),
+                    (get_translation("12 месяцев (30% скидка)", lang), 83.16),
+                    (get_translation("На всю жизнь", lang), 155)
+                ]:
+                    a.append(f"{i} ({j}‎💲): [{get_translation('Ссылка', lang)}]({get_link(data, uid, j)})")
+                update.callback_query.edit_message_text(get_translation(
+                    "Пожалуйста, не меняйте комментарий и сумму перевода, иначе оплата может быть не учтена.\n\n",
+                    lang) + "\n\n".join(a),
+                                                        reply_markup=InlineKeyboardMarkup([[
+                                                            InlineKeyboardButton("🔙",
+                                                                                 callback_data="back::start"),
+                                                            InlineKeyboardButton("🏡", callback_data="::home::")
+                                                        ]]), parse_mode=ParseMode.MARKDOWN)
         elif data.startswith("lang::"):
             data = data.strip("lang::")
             context.user_data[admin_id][uid]["lang"] = data
@@ -1267,10 +1443,11 @@ def button(update, context):
             if data == "confirm_week":
                 context.user_data[uid]["state"] = 'time'
                 update.callback_query.edit_message_text(text=get_translation("Выберите часы отправки:", lang), reply_markup=time_hours(lang))
-            elif data in context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['selected_week']:
-                context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['selected_week'].pop(context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['selected_week'].index(data))
             else:
-                context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['selected_week'].append(data)
+                if data in context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['selected_week']:
+                    context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['selected_week'].pop(context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['selected_week'].index(data))
+                else:
+                    context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['selected_week'].append(data)
                 update.callback_query.edit_message_text(text=get_translation("Выберите дни недели:", lang), reply_markup=week(context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['selected_week'], lang))
         elif data.endswith("_day") and data.strip("_day").isdigit():
             data = data.strip("_day")
@@ -1327,7 +1504,7 @@ def texter(update, context):
                                       ]]))
             context.user_data[uid]["state"] = "pending"
         except Exception as e:
-            print(e)
+            #print(e)
             update.message.reply_text(get_translation(
                 f"Бот не может получить доступ к таблице. Пожалуйста, проверьте настройки на spreadsheets.google.com и попробуйте ещё раз({GSPREAD_ACCOUNT_EMAIL})",
                 lang),
@@ -1357,15 +1534,15 @@ def texter(update, context):
             credentials = ServiceAccountCredentials.from_json_keyfile_name(
                 'client_secret.json', scope)
             gc = gspread.authorize(credentials)
-            sh = gc.open_by_url(sheet_link)
+            sh = gc.open_by_url(sheet_link).sheet1
             context.user_data[uid]["sheet"] = sheet_link
             update.message.reply_text(get_translation("Таблица успешно привязана", lang), reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton("🏡", callback_data="::home::")
                 ]]))
             context.user_data[uid]["state"] = "pending"
         except Exception as e:
-            print(e)
-            update.message.reply_text(get_translation(f"Бот не может получить доступ к таблице. Пожалуйста, проверьте настройки на spreadsheets.google.com и попробуйте ещё раз{GSPREAD_ACCOUNT_EMAIL}", lang),
+            #print(e)
+            update.message.reply_text(get_translation(f"Бот не может получить доступ к таблице. Пожалуйста, проверьте настройки на spreadsheets.google.com и попробуйте ещё раз ({GSPREAD_ACCOUNT_EMAIL})", lang),
                                       reply_markup=InlineKeyboardMarkup([[
                                           InlineKeyboardButton("🏡", callback_data="::home::")
                                       ]]))
@@ -1445,14 +1622,16 @@ def texter(update, context):
                                                         InlineKeyboardButton("🏡", callback_data="::home::")
                                                     ]]))
                     except Exception as e:
-                        print(e)
+                        pass
+                        #print(e)
         else:
             try:
                 bots[admin_id].send_message(data.lstrip('send_message::'), update.message.text, reply_markup=InlineKeyboardMarkup([[
                                                         InlineKeyboardButton("🏡", callback_data="::home::")
                                                     ]]))
             except Exception as e:
-                print(e)
+                pass
+                #print(e)
         update.message.reply_text(get_translation("Рассылка прошла успешно", lang),
                                   reply_markup=InlineKeyboardMarkup([[
                                       InlineKeyboardButton("🏡", callback_data="::home::")
@@ -1511,19 +1690,19 @@ def reply_handler(update, context):
             gc = gspread.authorize(credentials)
             sh = gc.open_by_url(sheet_link)
             name = f"{get_translation('Ответы', lang)}_{context.bot.first_name} (@{context.bot.username})"
-            print(name)
+            #print(name)
             for i in sh.worksheets():
                 if i.title == name:
                     worksheet = sh.worksheet(name)
-                    print(worksheet.title)
+                    #print(worksheet.title)
                     break
             else:
                 sh.add_worksheet(title=name, rows="1000", cols="20")
                 worksheet = sh.worksheet(name)
-                print(worksheet.title)
+                #print(worksheet.title)
                 worksheet.insert_row([get_translation("Дата и время ответа", lang), get_translation("Ответ", lang), get_translation("Дата и время запроса", lang), get_translation("Запрос", lang), get_translation("Пользователь", lang), get_translation("Чат", lang)], 1)
             worksheet.insert_row([answer_time, answer_text, query_time, query_text, answer_from, chat_name], 2)
-            print("done")
+            #print("done")
             name = f"{get_translation('Реакции', lang)}_{context.bot.first_name} (@{context.bot.username})"
             for i in sh.worksheets():
                 if i.title == name:
@@ -1537,13 +1716,13 @@ def reply_handler(update, context):
                         "Чтобы пометить реакцию как стандартную, напишите в графе \"Ответ пользователя\" \"другое\"")],
                                      1)
             reactions = worksheet.get_all_values()
-            print(reactions)
+            #print(reactions)
             lang = "ru"
             if reactions and reactions[0][0] == "Bot query":
                 lang = "en"
             otr = "другое" if lang == "ru" else "other"
             reactions = [i for i in reactions if i[0] == query_text]
-            print(reactions)
+            #print(reactions)
             if not answer_text.isdigit():
                 for i in reactions:
                     if otr.lower() == i[1].lower():
@@ -1558,7 +1737,7 @@ def reply_handler(update, context):
                     else:
                         a.append((i[1], i[2]))
                 a = [(0, "")] + list(sorted(a)) + [(float('inf'), "")]
-                print(a)
+                #print(a)
                 amt = int(answer_text)
                 for j in range(1, len(a) - 1):
                     if int(a[j - 1][0]) < amt <= int(a[j][0]):
@@ -1572,8 +1751,14 @@ def reply_handler(update, context):
 def send_stats_user(bot, uid):
     with open("dumpp.json") as f:
         s = load(f)
+        if s[admin_id][uid]["subscription_end"] == -1 or datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d') >= datetime.now():
+            try:
+                if s[uid]["bot_list"].index(str(bot.id)) != 0:
+                    return
+            except Exception:
+                return
         sheet_link = s[uid]["sheet"]
-        lang = s[admin_id][uid["lang"]]
+        lang = s[admin_id][uid]["lang"]
         if not sheet_link:
             return
         scope = ['https://spreadsheets.google.com/feeds']
@@ -1581,9 +1766,17 @@ def send_stats_user(bot, uid):
             'client_secret.json', scope)
         gc = gspread.authorize(credentials)
         sh = gc.open_by_url(sheet_link)
-        bot.send_message(uid, get_translation("Ежедневная статистика, присылаемая администратору бота", lang), reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("🏡", callback_data="::home::")
-        ]]))
+        try:
+            bot.send_message(uid, get_translation("Ежедневная статистика, присылаемая администратору бота", lang), reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("🏡", callback_data="::home::")
+            ]]))
+        except Exception as e:
+            bots[admin_id].send_message(uid, get_translation("Пожалуйста, напишите клиентскому боту ",
+                                                             lang) + f"@{bot.username}" + get_translation(
+                " без этого он не сможет отправить Вам статистику"), reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("🏡", callback_data="::home::")
+            ]]))
+            return
         with open("muted_chats.json") as f:
             muted = load(f)[uid]
         for i in sh.worksheets():
@@ -1593,16 +1786,23 @@ def send_stats_user(bot, uid):
                 cell_list = set(j.row for j in i.findall(re.compile(str(date.today()) + "*")))
                 for j in cell_list:
                     vals = i.row_values(j)
+                    #print(vals)
                     mtd = False
-                    for i in muted:
-                        if i["title"] == vals[-1]:
-                            mtd = i["muted"]
+                    for j in muted:
+                        if muted[j]["title"] == vals[-1]:
+                            mtd = muted[j]["muted"]
                             break
                     if not mtd:
                         a = '\n'.join([f"{keys[i]}: {vals[i]}" for i in range(min(len(keys), len(vals)))])
-                        bot.send_message(uid, a, reply_markup=InlineKeyboardMarkup([[
-                            InlineKeyboardButton("🏡", callback_data="::home::")
-                        ]]))
+                        try:
+                            bot.send_message(uid, a, reply_markup=InlineKeyboardMarkup([[
+                                InlineKeyboardButton("🏡", callback_data="::home::")
+                            ]]))
+                        except Exception as e:
+                            bots[admin_id].send_message(uid, get_translation("Пожалуйста, напишите клиентскому боту ", lang) + f"@{bot.username}" + get_translation(" без этого он не сможет отправить Вам статистику"), reply_markup=InlineKeyboardMarkup([[
+                                InlineKeyboardButton("🏡", callback_data="::home::")
+                            ]]))
+                            return
 
 
 def add_bot(token, from_main=False, uid=""):
@@ -1638,18 +1838,17 @@ def add_bot(token, from_main=False, uid=""):
                     if k.isdigit():
                         if s[str(bot.id)][uid][k]["state"] == "running":
                             create_message(bot, s[str(bot.id)][uid][k], str(bot.id), uid, s[admin_id][uid]["lang"], True)
-        schedule.every().day.at("17:29").do(send_stats_user, bot, s[str(bot.id)]["owner"])
+        schedule.every(20).minutes.do(send_stats_user, bot, s[str(bot.id)]["owner"])
     else:
-        if str(bot.id) not in s:
-            s[str(bot.id)] = {"owner": uid, "chat_list": {}}
-        dump(s, open("dumpp.json", 'w+', encoding="utf-8"), ensure_ascii=False, indent=4)
+        s[str(bot.id)] = {"owner": uid, "chat_list": {}}
+    dump(s, open("dumpp.json", 'w+', encoding="utf-8"), ensure_ascii=False, indent=4)
     if not from_main:
         return f"@{bot.username}"
 
 
 def dump_admin():
     with open("dumpp.json") as f:
-        print("start")
+        #print("start")
         s = load(f)
         scope = ['https://spreadsheets.google.com/feeds']
         credentials = ServiceAccountCredentials.from_json_keyfile_name(
@@ -1679,19 +1878,19 @@ def dump_admin():
             sh.add_worksheet(title=name, rows="1000", cols="20")
             worksheet = sh.worksheet(name)
             worksheet.insert_row(["id", "@username", "Дата регистрации", "Боты", "Количество запросов за последний месяц",
-             "Количество софрмированных запросов", "Тариф", "Количество оплат", "Сумма оплат", "Промокоды",
+             "Количество софрмированных запросов", "Тариф", "Количество оплат RUB", "Количество оплат EUR", "Количество оплат USD", "Сумма оплат", "Промокоды",
              "Рефералы", "Когда закончится полный период"], 1)
         for uid in s[admin_id]:
             if uid.isdigit():
-                print(uid)
-                bot_list = ', '.join(["@" + bots[i].username for i in s[uid]["bot_list"]])
+                #print(uid)
+                bot_list = ', '.join(["@" + bots[i].username for i in s[uid]["bot_list"] if i != admin_id])
                 plan = "Платный" if (s[admin_id][uid]["subscription_end"] == -1 or datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d') >= datetime.now()) else "Бесплатный"
-                payments = f"{s[uid]['checkouts_sum']['EUR']} EUR + {s[uid]['checkouts_sum']['RUB']} RUB + {s[uid]['checkouts_sum']['USD']} USD"
+                payments = [s[uid]['checkouts_sum']['EUR'], s[uid]['checkouts_sum']['RUB'], s[uid]['checkouts_sum']['USD']]
                 promocodes = ", ".join(s[uid]['promocodes'])
                 referrals = []
                 for i in s[admin_id][uid]["referrals"]:
                     try:
-                        referrals.append(bots[admin_id].get_chat(i).username)
+                        referrals.append(bots[admin_id].get_chat(i).username if bots[admin_id].get_chat(i).username else "hidden")
                     except Exception:
                         referrals.append("hidden")
                 referrals = ", ".join(referrals)
@@ -1699,15 +1898,15 @@ def dump_admin():
                 k = worksheet.findall(uid)
                 if k:
                     k = k[0].row
-                    print(k)
-                    cell_list = worksheet.range(f'A{k}:L{k}')
+                    #print(k)
+                    cell_list = worksheet.range(f'A{k}:N{k}')
                     try:
                         name = bots[admin_id].get_chat(uid).username
                     except Exception:
                         name = "hidden"
                     for i, val in enumerate([uid, name,
                                   s[uid]["date_registered"], bot_list, s["stats"][uid]["requests_created"], s["stats"][uid]["requests_sent"],
-                                  plan, s[uid]['checkouts_count'], payments, promocodes, referrals, end_date]):
+                                  plan, s[uid]['checkouts_count'], *payments, promocodes, referrals, end_date]):
                         cell_list[i].value = val
                     worksheet.update_cells(cell_list)
                 else:
@@ -1717,7 +1916,7 @@ def dump_admin():
                         name = "hidden"
                     worksheet.insert_row([uid, name,
                                   s[uid]["date_registered"], bot_list, s["stats"][uid]["requests_created"], s["stats"][uid]["requests_sent"],
-                                  plan, s[uid]['checkouts_count'], payments, promocodes, referrals, end_date], 2)
+                                  plan, s[uid]['checkouts_count'], *payments, promocodes, referrals, end_date], 2)
         name = "Промокоды"
         for i in sh.worksheets():
             if i.title == name:
@@ -1739,7 +1938,32 @@ def dump_admin():
                     worksheet.update_cells(cell_list)
                 else:
                     worksheet.insert_row([i, t[i]["activated"]], 2)
-        print("all-in")
+        #print("all-in")
+
+
+def activate(update, context):
+    context.user_data = commit(update, context, "command")
+    username = ' '.join(update.message.text.split()[1:]).lstrip("@")
+    if str(update.message.from_user.id) not in admin_user_id:
+        update.message.reply_text("Этой командой может пользоваться только администратор", reply_markup=InlineKeyboardMarkup([[
+                                                        InlineKeyboardButton("🏡", callback_data="::home::")
+                                                    ]]))
+    else:
+        with open("users.json") as f:
+            s = load(f)
+            if username not in s:
+                update.message.reply_text("Такой пользователь ещё у нас не зарегистрирован",
+                                          reply_markup=InlineKeyboardMarkup([[
+                                              InlineKeyboardButton("🏡", callback_data="::home::")
+                                          ]]))
+            else:
+                context.user_data[admin_id][s[username]]["subscription_end"] = -1
+                context.user_data = commit(update, context, "command")
+                update.message.reply_text("Пользователю успешно подключен безлимит.",
+                                          reply_markup=InlineKeyboardMarkup([[
+                                              InlineKeyboardButton("🏡", callback_data="::home::")
+                                          ]]))
+
 
 
 def main():
@@ -1749,11 +1973,13 @@ def main():
         for i in s:
             #print(i)
             add_bot(i, True, "")
+    schedule.every().minute.do(check_payments).run()
     updater = Updater(TOKEN, use_context=True)
     dp = updater.dispatcher
     bot = updater.bot
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("menu", menu))
+    dp.add_handler(CommandHandler("activate", activate))
     dp.add_handler(CallbackQueryHandler(button))
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, new_chat))
     dp.add_handler(MessageHandler(Filters.reply, reply_handler))
@@ -1769,10 +1995,10 @@ def main():
         for uid in s[str(bot.id)]:
             if uid.isdigit():
                 notify(bot, uid)
-    print("loaded messages")
-    schedule.every().hour.at(":27").do(dump_admin)
+    #print("loaded messages")
+    schedule.every(15).minutes.do(dump_admin)
     while True:
-        print(schedule.jobs)
+        #print(schedule.jobs)
         schedule.run_pending()
         sleep(1)
 
