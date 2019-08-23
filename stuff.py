@@ -252,5 +252,7 @@ tr = {
     "Задач пока нет. Создайте их!:)": "No tasks yet. Try create them!:)",
     "Реакции": "Responses",
     "Промокод успешно создан": "Promocode created successfully",
-    "Таблица успешно привязана": "Spreadsheet linked successfully"
+    "Таблица успешно привязана": "Spreadsheet linked successfully",
+    "Ежедневная статистика, присылаемая администратору бота": "Stats daily sent to bot admin",
+    "Ещё": "More"
 }
