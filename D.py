@@ -375,7 +375,7 @@ def get_menu(lang, is_admin=False, is_local=False):
         [InlineKeyboardButton(get_translation("Настройка уведомлений из чатов💬", lang), callback_data="menu::chat_push")],
         [InlineKeyboardButton(get_translation("Мои боты🤖", lang), callback_data="menu::my_bots")],
         [InlineKeyboardButton(get_translation("Оплата💸", lang), callback_data="menu::buy")],
-        [InlineKeyboardButton(get_translation("Ещё🎁", lang), callback_data="menu::more")]
+        [InlineKeyboardButton(get_translation("Ещё", lang), callback_data="menu::more")]
     ]
     if is_admin:
         keyboard.insert(0, [InlineKeyboardButton(get_translation("АДМИНИСТРАТОРСКАЯ ПАНЕЛЬ", lang), callback_data="menu::admin_panel")])
@@ -594,8 +594,7 @@ def button(update, context):
             elif data in ["back::promocode", "back::referral", "back::help"]:
                 update.callback_query.edit_message_text(text=get_translation("Главное меню", lang),
                                                         reply_markup=InlineKeyboardMarkup([
-                                                            [InlineKeyboardButton(
-                                                                get_translation("Активировать промокод🎁", lang),
+                                                            [InlineKeyboardButton("🔙",
                                                                 callback_data="menu::less")],
                                                             [InlineKeyboardButton(
                                                                 get_translation("Активировать промокод🎁", lang),
@@ -843,8 +842,7 @@ def button(update, context):
             if data == "menu::more":
                 update.callback_query.edit_message_text(text=get_translation("Главное меню", lang),
                                                         reply_markup=InlineKeyboardMarkup([
-                                                            [InlineKeyboardButton(
-                                                                get_translation("Активировать промокод🎁", lang),
+                                                            [InlineKeyboardButton("🔙",
                                                                 callback_data="menu::less")],
                 [InlineKeyboardButton(get_translation("Активировать промокод🎁", lang), callback_data="menu::promocode")],
                 [InlineKeyboardButton(get_translation("Мои рефералы📣", lang), callback_data="menu::my_referrals")],
@@ -1513,6 +1511,20 @@ def reply_handler(update, context):
             gc = gspread.authorize(credentials)
             sh = gc.open_by_url(sheet_link)
             name = f"{get_translation('Ответы', lang)}_{context.bot.first_name} (@{context.bot.username})"
+            print(name)
+            for i in sh.worksheets():
+                if i.title == name:
+                    worksheet = sh.worksheet(name)
+                    print(worksheet.title)
+                    break
+            else:
+                sh.add_worksheet(title=name, rows="1000", cols="20")
+                worksheet = sh.worksheet(name)
+                print(worksheet.title)
+                worksheet.insert_row([get_translation("Дата и время ответа", lang), get_translation("Ответ", lang), get_translation("Дата и время запроса", lang), get_translation("Запрос", lang), get_translation("Пользователь", lang), get_translation("Чат", lang)], 1)
+            worksheet.insert_row([answer_time, answer_text, query_time, query_text, answer_from, chat_name], 2)
+            print("done")
+            name = f"{get_translation('Реакции', lang)}_{context.bot.first_name} (@{context.bot.username})"
             for i in sh.worksheets():
                 if i.title == name:
                     worksheet = sh.worksheet(name)
@@ -1520,23 +1532,14 @@ def reply_handler(update, context):
             else:
                 sh.add_worksheet(title=name, rows="1000", cols="20")
                 worksheet = sh.worksheet(name)
-                worksheet.insert_row([get_translation("Дата и время ответа", lang), get_translation("Ответ", lang), get_translation("Дата и время запроса", lang), get_translation("Запрос", lang), get_translation("Пользователь", lang), get_translation("Чат", lang)], 1)
-            worksheet.insert_row([answer_time, answer_text, query_time, query_text, answer_from, chat_name], 2)
-            name = f"{get_translation('Реакции', lang)}_{context.bot.first_name} (@{context.bot.username})"
-            for i in sh.worksheets():
-                if i.title == name:
-                    break
-            else:
-                sh.add_worksheet(title=name, rows="1000", cols="20")
                 worksheet.insert_row([get_translation("Запрос бота", lang), get_translation("Ответ пользователя", lang),
                                       get_translation("Реакция", lang), get_translation(
                         "Чтобы пометить реакцию как стандартную, напишите в графе \"Ответ пользователя\" \"другое\"")],
                                      1)
-            worksheet = sh.worksheet(name)
             reactions = worksheet.get_all_values()
             print(reactions)
             lang = "ru"
-            if reactions[0][0] == "Bot query":
+            if reactions and reactions[0][0] == "Bot query":
                 lang = "en"
             otr = "другое" if lang == "ru" else "other"
             reactions = [i for i in reactions if i[0] == query_text]
@@ -1615,7 +1618,6 @@ def add_bot(token, from_main=False, uid=""):
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("menu", menu))
     dp.add_handler(CallbackQueryHandler(button))
-    dp.add_handler(InlineQueryHandler(inlinequery))
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, new_chat))
     dp.add_handler(MessageHandler(Filters.reply, reply_handler))
     dp.add_handler(MessageHandler(Filters.text, texter))
@@ -1768,7 +1770,7 @@ def main():
             if uid.isdigit():
                 notify(bot, uid)
     print("loaded messages")
-    schedule.every().hour.at(":00").do(dump_admin)
+    schedule.every().hour.at(":27").do(dump_admin)
     while True:
         print(schedule.jobs)
         schedule.run_pending()
