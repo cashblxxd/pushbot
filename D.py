@@ -487,6 +487,10 @@ def check_payments():
                     if ' '.join(comment) not in s["payments"]:
                         s["payments"].append(' '.join(comment))
                         uid, date, time = comment
+                        with open("dumpp.json") as f:
+                            k = load(f)
+                            if uid not in k:
+                                continue
                         print(i["total"]["currency"])
                         currency = {
                             643: "RUB"
@@ -1673,7 +1677,7 @@ def texter(update, context):
             else:
                 d = get_translation(d, lang)
             update.message.reply_text(d)
-            update.message.reply_text(get_translation("Теперь создадим запрос\nПросто зайдите в пункт меню “Создать запрос” и там все поймете.", lang), reply_markup=get_menu(lang, str(update.message.chat_id) in admin_user_id))
+            update.message.reply_text(get_translation("Теперь создадим запрос\nПросто зайдите в пункт меню “Добавить задачу” и там все поймете.", lang), reply_markup=get_menu(lang, str(update.message.chat_id) in admin_user_id))
     context.user_data = commit(update, context, "message")
 
 
@@ -1833,7 +1837,6 @@ def add_bot(token, from_main=False, uid=""):
     #print("received token:", token)
     updater = Updater(token, use_context=True)
     dp = updater.dispatcher
-    bot = updater.bot
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("menu", menu))
     dp.add_handler(CallbackQueryHandler(button))
@@ -1842,6 +1845,8 @@ def add_bot(token, from_main=False, uid=""):
     dp.add_handler(MessageHandler(Filters.text, texter))
     dp.add_error_handler(error)
     updater.start_polling()
+    bot = updater.bot
+    print(bots, token)
     bots[str(bot.id)] = bot
     #updater.idle()
     if not from_main:
@@ -2015,7 +2020,7 @@ def main():
             if uid.isdigit():
                 notify(bot, uid)
     #print("loaded messages")
-    schedule.every(15).minutes.do(dump_admin)
+    schedule.every(15).minutes.do(dump_admin).run()
     while True:
         #print(schedule.jobs)
         schedule.run_pending()
@@ -2024,3 +2029,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

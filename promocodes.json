@@ -1,1 +1,22 @@
-{}
+{
+    "Red": {
+        "duration": "1weeks",
+        "activated": 1,
+        "expiration_date": "2019-08-30"
+    },
+    "Blue": {
+        "duration": "1weeks",
+        "activated": 1,
+        "expiration_date": "2019-08-30"
+    },
+    "Black": {
+        "duration": "2weeks",
+        "activated": 1,
+        "expiration_date": "2019-08-30"
+    },
+    "Redmil": {
+        "duration": "1weeks",
+        "activated": 1,
+        "expiration_date": "2019-08-30"
+    }
+}
