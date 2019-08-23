@@ -225,7 +225,7 @@ tr = {
     "Привязать другую": "Change link",
     "У вас пока нет действующей таблицы (spreadsheets.google.com). Привяжите её, чтобы начать получать ответы сотрудников.": "You haven't linked a spreadsheet yet (spreadsheets.google.com). Link one to start receiving employee answers.",
     "Привязать таблицу": "Link a spreadsheet",
-    "Введите ссылку на Вашу таблицу. Не забудьте открыть доступ ": "Enter your spreadsheet link. Don't forget to open it to  ️",
+    "Введите ссылку на Вашу таблицу. Не забудьте открыть доступ ": "Enter your spreadsheet link. Don't forget to open it for editing for  ️",
     " на редактирование⚠️": " for editing⚠",
     "Бот не может получить доступ к таблице. Пожалуйста, проверьте настройки на spreadsheets.google.com и попробуйте ещё раз": "Our bot can not get access to your spreadsheet. Please, check permissions at spreadsheets.google.com and try again.",
     'Извините, задачи может смотреть только администратор бота': "Only bot admin can view bot tasks.",
@@ -258,5 +258,8 @@ tr = {
     "Пожалуйста, не меняйте комментарий и сумму перевода, иначе оплата может быть не учтена. (откройте ссылку в браузере)\n\n": "Please don't change amount and comment, as otherwise your purchase could not be registered. (open lonk in browser)\n\n",
     "Пожалуйста, напишите клиентскому боту ": "Please, send a message to ",
     " без этого он не сможет отправить Вам статистику": " as otherwise he can not send you usage stats.",
-    "Ссылка": "Link"
+    "Ссылка": "Link",
+    "Не забудьте открыть доступ ": "Don't forget to open it to editing for ",
+    " (все остальные задачи будут временно приостановлены, приобретите полную версию, чтобы иметь сразу несколько активных задач)": " (all other tasks will be temporarily paused, buy subscription to run multiple tasks in parallel)",
+    "Получить доступ": "Get full access"
 }

@@ -487,14 +487,14 @@ def check_payments():
                     if ' '.join(comment) not in s["payments"]:
                         s["payments"].append(' '.join(comment))
                         uid, date, time = comment
-                        #print(i["total"]["currency"])
+                        print(i["total"]["currency"])
                         currency = {
                             643: "RUB"
                         }[i["total"]["currency"]]
                         amt = i["total"]["amount"]
-                        #print(currency, amt)
+                        print(currency, amt)
                         if currency == "RUB":
-                            #print(1)
+                            print(1)
                             plan = {
                                 290: "1months",
                                 740: "3months",
@@ -504,15 +504,15 @@ def check_payments():
                             }
                             sums = [290, 740, 1392, 2436, 4500, -1]
                             if amt < 290:
-                                #print(2)
+                                print(2)
                                 continue
                             while amt >= 290:
                                 for i in range(len(sums) - 1):
                                     if sums[i + 1] > amt or sums[i + 1] == -1:
                                         break
-                                #print(sums[i])
+                                print(sums[i])
                                 p = plan[sums[i]]
-                                #print(p)
+                                print(p)
                                 verify_payment(uid, p, currency, amt)
                                 amt -= sums[i]
                         elif currency == "EUR":
@@ -530,9 +530,9 @@ def check_payments():
                                 for i in range(len(sums) - 1):
                                     if sums[i + 1] > amt or sums[i + 1] == -1:
                                         break
-                                #print(sums[i])
+                                print(sums[i])
                                 p = plan[sums[i]]
-                                #print(p)
+                                print(p)
                                 verify_payment(uid, p, currency, amt)
                                 amt -= sums[i]
                         elif currency == "USD":
@@ -550,17 +550,18 @@ def check_payments():
                                 for i in range(len(sums) - 1):
                                     if sums[i + 1] > amt or sums[i + 1] == -1:
                                         break
-                                #print(sums[i])
+                                print(sums[i])
                                 p = plan[sums[i]]
-                                #print(p)
+                                print(p)
                                 verify_payment(uid, p, currency, amt)
                                 amt -= sums[i]
                 dump(s, open("payments.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
-    #pprint(response)
+    pprint(response)
 
 
 def verify_payment(uid, plan, currency, amt):
-    #print(3)
+    print(3)
+    print(uid, plan, currency, amt)
     d = {
         "1months": relativedelta(months=1),
         "3months": relativedelta(months=3),
@@ -636,7 +637,7 @@ def button(update, context):
                                                         ]]))
         elif data.startswith("admin::"):
             if data == "admin::gtable":
-                update.callback_query.edit_message_text(admin_gspread_link,
+                update.callback_query.edit_message_text(f"(Ссылка){admin_gspread_link}",
                                                         reply_markup=InlineKeyboardMarkup([[
                                                             InlineKeyboardButton("🔙", callback_data="back::to_admin"),
                                                             InlineKeyboardButton("Поменять таблицу", callback_data="gpread::admin::change"),
@@ -649,9 +650,9 @@ def button(update, context):
                 for i in context.user_data[admin_id]:
                     if i.isdigit():
                         c = bots[admin_id].get_chat(i)
-                        p = c.username
+                        p = c.username if c.username else "hidden"
                         if c.first_name:
-                            p += '\n' + c.first_name
+                            p += '\n' + (c.first_name if c.first_name else "hidden")
                         keyboard.append([InlineKeyboardButton(p, callback_data="send_message::" + i)])
                 update.callback_query.edit_message_text(get_translation('Выберите чат:', lang),
                                           reply_markup=InlineKeyboardMarkup(keyboard))
@@ -734,7 +735,7 @@ def button(update, context):
                 update.callback_query.edit_message_text(
                     get_translation("Премиум доступ", lang) + "\n" + get_buy_text(lang),
                     reply_markup=InlineKeyboardMarkup([[
-                        InlineKeyboardButton("🔙", callback_data="back::referral"),
+                        InlineKeyboardButton("🔙", callback_data="back::lang"),
                         InlineKeyboardButton("🏡", callback_data="::home::")
                     ], [InlineKeyboardButton("₽", callback_data="RUB::currency")],
                         [InlineKeyboardButton("💶", callback_data="EUR::currency")],
@@ -758,11 +759,11 @@ def button(update, context):
             elif data == "back::to_gtable":
                 context.user_data[uid]["state"] = "pending"
                 if context.user_data[uid]["sheet"]:
-                    update.callback_query.edit_message_text(get_translation("Ваша таблица: ", lang) + context.user_data[uid]["sheet"],
+                    update.callback_query.edit_message_text(get_translation("Ваша таблица: ", lang) + f"[{get_translation('Ссылка', lang)}]({context.user_data[uid]['sheet']})\n{get_translation('Не забудьте открыть доступ ')}{GSPREAD_ACCOUNT_EMAIL}",
                             reply_markup=InlineKeyboardMarkup([[
                                 InlineKeyboardButton("🔙", callback_data=f"back::gtable"),
                                 InlineKeyboardButton("🏡", callback_data="::home::")
-                            ], [InlineKeyboardButton(get_translation("Привязать другую", lang), callback_data="gtable::change")]]))
+                            ], [InlineKeyboardButton(get_translation("Привязать другую", lang), callback_data="gtable::change")]]), parse_mode=ParseMode.MARKDOWN)
                 else:
                     update.callback_query.edit_message_text(
                         get_translation("У вас пока нет действующей таблицы (spreadsheets.google.com). Привяжите её, чтобы начать получать ответы сотрудников.", lang) + context.user_data[uid]["sheet"],
@@ -1114,11 +1115,11 @@ def button(update, context):
                                                  ]]))
             elif data == "menu::gtable":
                 if context.user_data[uid]["sheet"]:
-                    update.callback_query.edit_message_text(get_translation("Ваша таблица: ", lang) + context.user_data[uid]["sheet"],
+                    update.callback_query.edit_message_text(get_translation("Ваша таблица: ", lang) + f"[{get_translation('Ссылка', lang)}]({context.user_data[uid]['sheet']})\n{get_translation('Не забудьте открыть доступ ')}{GSPREAD_ACCOUNT_EMAIL}",
                             reply_markup=InlineKeyboardMarkup([[
                                 InlineKeyboardButton("🔙", callback_data=f"back::gtable"),
                                 InlineKeyboardButton("🏡", callback_data="::home::")
-                            ], [InlineKeyboardButton(get_translation("Привязать другую", lang), callback_data="gtable::change")]]))
+                            ], [InlineKeyboardButton(get_translation("Привязать другую", lang), callback_data="gtable::change")]]), parse_mode=ParseMode.MARKDOWN)
                 else:
                     update.callback_query.edit_message_text(
                         get_translation("У вас пока нет действующей таблицы (spreadsheets.google.com). Привяжите её, чтобы начать получать ответы сотрудников.", lang) + context.user_data[uid]["sheet"],
@@ -1135,7 +1136,7 @@ def button(update, context):
                                                                 InlineKeyboardButton("🔙",
                                                                                      callback_data=f"back::add_bot::{from_action}"),
                                                                 InlineKeyboardButton("🏡", callback_data="::home::")
-                                                            ]]))
+                                                            ], [InlineKeyboardButton(get_translation("Получить доступ", lang), callback_data="menu::buy")]]))
                 else:
                     context.user_data[bot_id][uid]['state'] = "token"
                     update.callback_query.edit_message_text(get_translation("Введите токен (@BotFather):", lang),
@@ -1193,7 +1194,7 @@ def button(update, context):
                     update.callback_query.edit_message_text(get_translation("Ваши боты", lang), reply_markup=InlineKeyboardMarkup(a))
             elif data == "menu::buy":
                 update.callback_query.edit_message_text(get_translation("Премиум доступ", lang) + "\n" + get_buy_text(lang), reply_markup=InlineKeyboardMarkup([[
-                    InlineKeyboardButton("🔙", callback_data="back::referral"),
+                    InlineKeyboardButton("🔙", callback_data="back::buy"),
                     InlineKeyboardButton("🏡", callback_data="::home::")
                 ], [InlineKeyboardButton("₽", callback_data="RUB::currency")],
                 [InlineKeyboardButton("💶", callback_data="EUR::currency")],
@@ -1284,8 +1285,7 @@ def button(update, context):
                                 [InlineKeyboardButton(get_translation("Возобновить", lang),
                                                       callback_data=f"messages::resume::{bot_idt}::{uid}::{job_id}"),
                                  InlineKeyboardButton(get_translation("Удалить", lang),
-                                                      callback_data=f"messages::delete::{bot_idt}::{uid}::{job_id}")]
-                            ]))
+                                                      callback_data=f"messages::delete::{bot_idt}::{uid}::{job_id}")], [InlineKeyboardButton(get_translation("Получить доступ💸", lang), callback_data="menu::buy")]]))
                 else:
                     context.user_data[bot_idt][uid][job_id]["state"] = "running"
                     update.callback_query.edit_message_text(to_text(context.user_data[bot_idt][uid][job_id], lang, bot_idt),
@@ -1312,7 +1312,7 @@ def button(update, context):
                 update.callback_query.edit_message_text(get_translation("Пожалуйста, не меняйте комментарий и сумму перевода, иначе оплата может быть не учтена. (откройте ссылку в браузере)\n\n", lang) + "\n\n".join(a),
                                                         reply_markup=InlineKeyboardMarkup([[
                                                             InlineKeyboardButton("🔙",
-                                                                                 callback_data="back::start"),
+                                                                                 callback_data="back::currency"),
                                                             InlineKeyboardButton("🏡", callback_data="::home::")
                                                         ]]), parse_mode=ParseMode.MARKDOWN)
             elif data == "EUR":
@@ -1384,15 +1384,27 @@ def button(update, context):
                 context.user_data[uid]["state"] = 'pending'
                 if not check_subscription(update, context, "callback"):
                     for bid in context.user_data[uid]["bot_list"]:
+                        if uid not in context.user_data[bid]:
+                            context.user_data[bid][uid] = {"id": 0, "state": "pending",
+                                                      "subscription_end": str(datetime.now()).split()[0], "lang": "ru",
+                                                      "referrer": "", "referrals": {}, "task_bot": admin_id}
                         for i in context.user_data[bid][uid]:
                             if i.isdigit():
                                 if context.user_data[bid][uid][i]["state"] == "running":
                                     context.user_data[bid][uid][i]["state"] = "paused"
                 context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]["state"] = "running"
                 create_message(bots[bot_idd], context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])], bot_idd, uid, context.user_data[admin_id][uid]["lang"])
-                update.callback_query.edit_message_text(get_translation('Рассылка успешно создана!', lang), reply_markup=InlineKeyboardMarkup([[
-                    InlineKeyboardButton("🏡", callback_data="::home::")
-                ]]))
+                if not check_subscription(update, context, "callback"):
+                    update.callback_query.edit_message_text(get_translation('Рассылка успешно создана!', lang) + get_translation(" (все остальные задачи будут временно приостановлены, приобретите полную версию, чтобы иметь сразу несколько активных задач)", lang),
+                                                            reply_markup=InlineKeyboardMarkup([[
+                        InlineKeyboardButton("🏡", callback_data="::home::")
+                    ], [InlineKeyboardButton(get_translation("Оплата💸", lang), callback_data="menu::buy")]]))
+                else:
+                    update.callback_query.edit_message_text(
+                        get_translation('Рассылка успешно создана!', lang),
+                        reply_markup=InlineKeyboardMarkup([[
+                            InlineKeyboardButton("🏡", callback_data="::home::")
+                        ]]))
                 context.user_data[bot_idd][uid]["id"] += 1
             else:
                 context.user_data[uid]["state"] = 'frequency'
@@ -1701,7 +1713,7 @@ def reply_handler(update, context):
                 worksheet = sh.worksheet(name)
                 #print(worksheet.title)
                 worksheet.insert_row([get_translation("Дата и время ответа", lang), get_translation("Ответ", lang), get_translation("Дата и время запроса", lang), get_translation("Запрос", lang), get_translation("Пользователь", lang), get_translation("Чат", lang)], 1)
-            worksheet.insert_row([answer_time, answer_text, query_time, query_text, answer_from, chat_name], 2)
+            worksheet.insert_row([answer_time, answer_text.strip("'"), query_time, query_text, answer_from, chat_name], 2)
             #print("done")
             name = f"{get_translation('Реакции', lang)}_{context.bot.first_name} (@{context.bot.username})"
             for i in sh.worksheets():
@@ -1724,10 +1736,17 @@ def reply_handler(update, context):
             reactions = [i for i in reactions if i[0] == query_text]
             #print(reactions)
             if not answer_text.isdigit():
+                answered = False
                 for i in reactions:
-                    if otr.lower() == i[1].lower():
+                    if answer_text.lower() in i[1].lower():
                         update.message.reply_text(i[2])
+                        answered = True
                         break
+                if not answered:
+                    for i in reactions:
+                        if otr.lower() == i[1].lower() or answer_text.lower() in i[1].lower():
+                            update.message.reply_text(i[2])
+                            break
             else:
                 a = []
                 other = ""
@@ -1838,7 +1857,7 @@ def add_bot(token, from_main=False, uid=""):
                     if k.isdigit():
                         if s[str(bot.id)][uid][k]["state"] == "running":
                             create_message(bot, s[str(bot.id)][uid][k], str(bot.id), uid, s[admin_id][uid]["lang"], True)
-        schedule.every(20).minutes.do(send_stats_user, bot, s[str(bot.id)]["owner"])
+        schedule.every().day.at("23:00").do(send_stats_user, bot, s[str(bot.id)]["owner"])
     else:
         s[str(bot.id)] = {"owner": uid, "chat_list": {}}
     dump(s, open("dumpp.json", 'w+', encoding="utf-8"), ensure_ascii=False, indent=4)

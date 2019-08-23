@@ -1,11 +1,11 @@
 {
     "stats": {
         "admin": {
-            "users_count": 3,
-            "checkout_count": 4,
+            "users_count": 6,
+            "checkout_count": 6,
             "promocode_usage_count": 0,
-            "tasks_created_day": 3,
-            "tasks_sent_day": 2
+            "tasks_created_day": 23,
+            "tasks_sent_day": 9
         },
         "640028321": {
             "requests_created": 0,
@@ -24,6 +24,10 @@
             "requests_sent": 0
         },
         "509442287": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "259569383": {
             "requests_created": 0,
             "requests_sent": 0
         }
@@ -89,6 +93,15 @@
             "referrer": "106052",
             "referrals": {},
             "task_bot": "977943502"
+        },
+        "259569383": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-10-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872"
         }
     },
     "640028321": {
@@ -96,7 +109,7 @@
             "906875872",
             "924007308"
         ],
-        "state": "pending",
+        "state": "promocode",
         "sheet": "https://docs.google.com/spreadsheets/d/1B0_iirzerj352AWzLG1JziBKor2PfOsiThrIAoX6lFA/edit?usp=sharing",
         "date_registered": "2019-08-23",
         "promocodes": [],
@@ -199,7 +212,7 @@
         "bot_list": [
             "968575792"
         ],
-        "state": "pending",
+        "state": "send_message::259569383",
         "sheet": "https://docs.google.com/spreadsheets/d/1-cRLEx9uAgLz5JPSI9KRCIZ38yUJmEVWppANOhEgouw/edit#gid=1260755688",
         "date_registered": "2019-08-23",
         "promocodes": [],
@@ -447,5 +460,19 @@
             "referrals": {},
             "task_bot": "906875872"
         }
+    },
+    "259569383": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-08-23",
+        "promocodes": [],
+        "checkouts_count": 2,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 580,
+            "USD": 0
+        },
+        "timezone": 0
     }
 }
