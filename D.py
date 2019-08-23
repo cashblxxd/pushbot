@@ -484,6 +484,8 @@ def check_payments():
             if len(comment) == 3 and comment[0].isdigit():
                 with open("payments.log") as f:
                     s = load(f)
+                    if "payments" not in s:
+                        s["payments"] = []
                     if ' '.join(comment) not in s["payments"]:
                         s["payments"].append(' '.join(comment))
                         uid, date, time = comment

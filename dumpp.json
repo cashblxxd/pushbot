@@ -1,1 +1,451 @@
-{}
+{
+    "stats": {
+        "admin": {
+            "users_count": 3,
+            "checkout_count": 4,
+            "promocode_usage_count": 0,
+            "tasks_created_day": 3,
+            "tasks_sent_day": 2
+        },
+        "640028321": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "814961422": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "106052": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "255241485": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "509442287": {
+            "requests_created": 0,
+            "requests_sent": 0
+        }
+    },
+    "906875872": {
+        "owner": "640028321",
+        "chat_list": {},
+        "640028321": {
+            "id": 0,
+            "state": "token",
+            "subscription_end": -1,
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {
+                "814961422": {
+                    "date_added": "2019-08-23 15:46:30.774341",
+                    "payment_date": "2019-08-23"
+                }
+            },
+            "task_bot": "924007308"
+        },
+        "814961422": {
+            "id": 0,
+            "state": "token",
+            "subscription_end": "2019-10-23",
+            "lang": "ru",
+            "referrer": "640028321",
+            "referrals": {},
+            "task_bot": "728670125"
+        },
+        "106052": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-09-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {
+                "255241485": {
+                    "date_added": "2019-08-23 18:27:21.032885",
+                    "payment_date": -1
+                },
+                "509442287": {
+                    "date_added": "2019-08-23 20:18:05.712233",
+                    "payment_date": -1
+                }
+            },
+            "task_bot": "968575792"
+        },
+        "255241485": {
+            "id": 0,
+            "state": "token",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "106052",
+            "referrals": {},
+            "task_bot": "687692025"
+        },
+        "509442287": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "106052",
+            "referrals": {},
+            "task_bot": "977943502"
+        }
+    },
+    "640028321": {
+        "bot_list": [
+            "906875872",
+            "924007308"
+        ],
+        "state": "pending",
+        "sheet": "https://docs.google.com/spreadsheets/d/1B0_iirzerj352AWzLG1JziBKor2PfOsiThrIAoX6lFA/edit?usp=sharing",
+        "date_registered": "2019-08-23",
+        "promocodes": [],
+        "checkouts_count": 2,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 1160,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "924007308": {
+        "owner": "640028321",
+        "chat_list": {
+            "-350004291": {
+                "title": "Тест чат"
+            }
+        },
+        "640028321": {
+            "id": 9,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872",
+            "8": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "8",
+                "desc": "Тест месяц",
+                "date": "2019-08-01",
+                "frequency": "custom_days",
+                "selected_days": [
+                    "23",
+                    "24",
+                    "18"
+                ],
+                "selected_hr": "20",
+                "selected_min": "6",
+                "end_date": "2019-08-31"
+            }
+        },
+        "814961422": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872"
+        }
+    },
+    "814961422": {
+        "bot_list": [
+            "875315094",
+            "728670125"
+        ],
+        "state": "pending",
+        "sheet": "https://docs.google.com/spreadsheets/d/14ONRMxpfrj02ygF_1HLE7Xz9vM4VNXgYxJsreIPO09M/edit#gid=0",
+        "date_registered": "2019-08-23",
+        "promocodes": [],
+        "checkouts_count": 1,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 290,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "875315094": {
+        "owner": "814961422",
+        "chat_list": {
+            "-350004291": {
+                "title": "Тест чат"
+            }
+        },
+        "814961422": {
+            "id": 1,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872",
+            "0": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "0",
+                "desc": "Сколько рефереров?",
+                "date": "2019-08-01",
+                "frequency": "each_days",
+                "selected_hr": "15",
+                "selected_min": "50",
+                "end_date": "2019-08-31"
+            }
+        }
+    },
+    "106052": {
+        "bot_list": [
+            "968575792"
+        ],
+        "state": "pending",
+        "sheet": "https://docs.google.com/spreadsheets/d/1-cRLEx9uAgLz5JPSI9KRCIZ38yUJmEVWppANOhEgouw/edit#gid=1260755688",
+        "date_registered": "2019-08-23",
+        "promocodes": [],
+        "checkouts_count": 1,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 290,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "968575792": {
+        "owner": "106052",
+        "chat_list": {
+            "-350004291": {
+                "title": "Тест чат"
+            }
+        },
+        "640028321": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872"
+        },
+        "106052": {
+            "id": 6,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872",
+            "0": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "0",
+                "desc": "Привет",
+                "date": "2019-08-23",
+                "frequency": "each_days",
+                "selected_hr": "16",
+                "selected_min": "47",
+                "end_date": "2019-08-31"
+            },
+            "1": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "1",
+                "desc": "Привет, что сделал сегодня?",
+                "date": "2019-08-23",
+                "frequency": "custom_days",
+                "selected_days": [
+                    "23",
+                    "28"
+                ],
+                "selected_hr": "17",
+                "selected_min": "23",
+                "end_date": "2019-08-31"
+            },
+            "2": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "2",
+                "desc": "привет",
+                "date": "2019-08-23",
+                "frequency": "each_days",
+                "selected_hr": "17",
+                "selected_min": "26",
+                "end_date": "2019-08-31"
+            },
+            "3": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "3",
+                "desc": "2 рассылка",
+                "date": "2019-08-23",
+                "frequency": "custom_days",
+                "selected_days": [
+                    "23",
+                    "24"
+                ],
+                "selected_hr": "17",
+                "selected_min": "30",
+                "end_date": "2019-08-31"
+            },
+            "4": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "4",
+                "desc": "првиет",
+                "date": "2019-08-23",
+                "frequency": "custom_week_days",
+                "selected_week": [
+                    "fr_week",
+                    "sa_week"
+                ],
+                "selected_hr": "17",
+                "selected_min": "34",
+                "end_date": "2019-08-31"
+            },
+            "5": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "5",
+                "desc": "привет привет",
+                "date": "2019-08-23",
+                "frequency": "busy_days",
+                "selected_hr": "17",
+                "selected_min": "37",
+                "end_date": "2019-08-31"
+            }
+        }
+    },
+    "255241485": {
+        "bot_list": [
+            "687692025",
+            "825592711"
+        ],
+        "state": "pending",
+        "sheet": "https://docs.google.com/spreadsheets/d/1RLaYzyN6z1Q-Qi8Y3rh9ShEpWfeCn_I592PA2taDmm0/edit?usp=sharing",
+        "date_registered": "2019-08-23",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "825592711": {
+        "owner": "255241485",
+        "chat_list": {},
+        "255241485": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872"
+        }
+    },
+    "728670125": {
+        "owner": "814961422",
+        "chat_list": {
+            "-350004291": {
+                "title": "Тест чат"
+            }
+        },
+        "814961422": {
+            "id": 2,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872",
+            "0": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "0",
+                "desc": "Тест",
+                "date": "2019-08-01",
+                "frequency": "each_days",
+                "selected_hr": "21",
+                "selected_min": "59",
+                "end_date": "2019-08-31"
+            },
+            "1": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "1",
+                "desc": "Тест",
+                "date": "2019-08-01",
+                "frequency": "each_days",
+                "selected_hr": "22",
+                "selected_min": "1",
+                "end_date": "2019-08-31"
+            }
+        },
+        "640028321": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872"
+        },
+        "106052": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872"
+        }
+    },
+    "509442287": {
+        "bot_list": [
+            "977943502"
+        ],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-08-23",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "687692025": {
+        "owner": "255241485",
+        "chat_list": {
+            "-255471560": {
+                "title": "Diamond Dogs"
+            }
+        },
+        "255241485": {
+            "id": 5,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872"
+        }
+    },
+    "977943502": {
+        "owner": "509442287",
+        "chat_list": {},
+        "509442287": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-08-23",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "906875872"
+        }
+    }
+}
