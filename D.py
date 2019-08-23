@@ -294,10 +294,8 @@ def start(update, context):
         update.message.reply_text(get_translation("Вы уже зарегистрированы!:)", context.user_data[admin_id][uid]["lang"]), reply_markup=get_menu(context.user_data[admin_id][uid]["lang"], uid in admin_user_id, uid == context.user_data[bot_id]["owner"]))
     else:
         update.message.reply_text('Hi!', reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("🔙", callback_data="back::start"),
             InlineKeyboardButton("🇺🇸🇪🇺", callback_data="start::en"),
-            InlineKeyboardButton("🇷🇺", callback_data="start::ru"),
-            InlineKeyboardButton("🏡", callback_data="::home::")
+            InlineKeyboardButton("🇷🇺", callback_data="start::ru")
         ]]))
     context.user_data = commit(update, context, "command")
 
