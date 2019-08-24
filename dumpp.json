@@ -1,1 +1,75 @@
-{}
+{
+    "stats": {
+        "admin": {
+            "users_count": 1,
+            "checkout_count": 0,
+            "promocode_usage_count": 1,
+            "tasks_created_day": 5,
+            "tasks_sent_day": 0
+        },
+        "640028321": {
+            "requests_created": 0,
+            "requests_sent": 0
+        }
+    },
+    "202011111": {
+        "owner": "640028321",
+        "chat_list": {},
+        "640028321": {
+            "id": 0,
+            "state": "token",
+            "subscription_end": "2019-08-31",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "924007308"
+        }
+    },
+    "640028321": {
+        "bot_list": [
+            "924007308",
+            "202011111"
+        ],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-08-24",
+        "promocodes": [
+            "Test"
+        ],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "924007308": {
+        "owner": "640028321",
+        "chat_list": {
+            "-350004291": {
+                "title": "Тест чат"
+            }
+        },
+        "640028321": {
+            "id": 12,
+            "state": "pending",
+            "subscription_end": "2019-08-24",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "202011111",
+            "11": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "11",
+                "desc": "Тест хост",
+                "date": "2019-08-01",
+                "frequency": "each_days",
+                "selected_hr": "14",
+                "selected_min": "14",
+                "end_date": "2019-08-31"
+            }
+        }
+    }
+}

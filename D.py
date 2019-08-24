@@ -49,6 +49,7 @@ def check_task_active(bot_id, uid, job_id):
 
 
 def send_msg(bot_id, cid, msg, uid):
+    print("alivv")
     with open("request.log") as f:
         s = load(f)
         s["requests_sent"].append(str(datetime.now()))
@@ -69,13 +70,13 @@ def successful_payment_callback(update, context):
 
 
 def sender(bot, job_data, bot_id, uid, lang):
-    #print("alive!")
+    print("alive!")
     if datetime.strptime(job_data["date"], '%Y-%m-%d') <= datetime.now() and check_task_active(bot_id, uid, job_data["id"]):
         if datetime.strptime(job_data["end_date"], '%Y-%m-%d') < datetime.now():
             return schedule.CancelJob
         if job_data["state"] == "pending":
             return 1
-        #pprint(job_data)
+        pprint(job_data)
         d = {
             "each_days": 1,
             "two_days": 2,
@@ -118,7 +119,7 @@ def sender(bot, job_data, bot_id, uid, lang):
         elif job_data['frequency'] == "custom_days":
             if str(datetime.now().day) in job_data["selected_days"]:
                 send_msg(bot_id, job_data["chat_id"], job_data["desc"], uid)
-        #print("al2")
+        print("al2")
 
 
 def get_link(currency, uid, price):
@@ -126,6 +127,8 @@ def get_link(currency, uid, price):
 
 
 def create_message(bot, job_data, bot_id, uid, lang, from_main=False):
+    print("set go")
+    pprint(job_data)
     with open("dumpp.json") as f:
         s = load(f)
         job_data["selected_hr"] = str(int(job_data["selected_hr"]) + s[uid]["timezone"])
@@ -140,8 +143,8 @@ def create_message(bot, job_data, bot_id, uid, lang, from_main=False):
     with open("request.log") as f:
         s = load(f)
         #pprint(s)
-    #print("task created successfully")
-    #print(schedule.jobs)
+    print("task created successfully")
+    print(schedule.jobs)
 
 
 def delete_task(bot_id, uid, job_id):
@@ -270,7 +273,7 @@ def notify(bot, uid):
     schedule.every().day.do(check_payment_notify, bot, uid)
 
 
-TOKEN = "906875872:AAEXcMx1uKl_Wy4Sw9Lc5hOENBAjOs9cDzk"
+TOKEN ="202011111:AAHOPgcC_ZRHewrM3SYUX2loKMS9M7urUSk"
 admin_id = TOKEN.split(":")[0]
 admin_user_id = ["640028321", "106052"]
 #logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -2019,10 +2022,11 @@ def main():
         for uid in s[str(bot.id)]:
             if uid.isdigit():
                 notify(bot, uid)
-    #print("loaded messages")
+    print("loaded messages")
     schedule.every(15).minutes.do(dump_admin).run()
     while True:
-        #print(schedule.jobs)
+        print(schedule.jobs)
+        print(datetime.now())
         schedule.run_pending()
         sleep(1)
 
