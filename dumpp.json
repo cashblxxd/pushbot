@@ -1,13 +1,21 @@
 {
     "stats": {
         "admin": {
-            "users_count": 1,
-            "checkout_count": 0,
+            "users_count": 3,
+            "checkout_count": 1,
             "promocode_usage_count": 1,
-            "tasks_created_day": 5,
-            "tasks_sent_day": 0
+            "tasks_created_day": 2,
+            "tasks_sent_day": 2
         },
         "640028321": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "220142491": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "106052": {
             "requests_created": 0,
             "requests_sent": 0
         }
@@ -23,6 +31,24 @@
             "referrer": "",
             "referrals": {},
             "task_bot": "924007308"
+        },
+        "220142491": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-08-29",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "202011111"
+        },
+        "106052": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-09-29",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "202011111"
         }
     },
     "640028321": {
@@ -52,7 +78,7 @@
             }
         },
         "640028321": {
-            "id": 12,
+            "id": 16,
             "state": "pending",
             "subscription_end": "2019-08-24",
             "lang": "ru",
@@ -69,7 +95,68 @@
                 "selected_hr": "14",
                 "selected_min": "14",
                 "end_date": "2019-08-31"
+            },
+            "13": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "13",
+                "desc": "Тер",
+                "date": "2019-08-01",
+                "frequency": "each_days",
+                "selected_hr": "17",
+                "selected_min": "34",
+                "end_date": "2019-08-31"
+            },
+            "14": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "14",
+                "desc": "Тест бека",
+                "date": "2019-08-01",
+                "frequency": "each_days",
+                "selected_hr": "17",
+                "selected_min": "36",
+                "end_date": "2019-08-31"
+            },
+            "15": {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "15",
+                "desc": "А",
+                "date": "2019-08-01",
+                "frequency": "each_days",
+                "selected_hr": "13",
+                "selected_min": "5",
+                "end_date": "2019-08-31"
             }
         }
+    },
+    "220142491": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-08-29",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "106052": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-08-29",
+        "promocodes": [],
+        "checkouts_count": 1,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 290,
+            "USD": 0
+        },
+        "timezone": 0
     }
 }
