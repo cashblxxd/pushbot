@@ -1,3 +1,18 @@
 {
-    "to_send": []
+    "to_send": [
+        [
+            {
+                "chat_id": "-350004291",
+                "state": "running",
+                "id": "15",
+                "desc": "Тест",
+                "date": "2019-10-01",
+                "frequency": "each_days",
+                "selected_hr": "22",
+                "selected_min": "31",
+                "end_date": "2019-10-31"
+            },
+            "640028321"
+        ]
+    ]
 }

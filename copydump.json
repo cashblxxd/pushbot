@@ -4,7 +4,7 @@
             "users_count": 99,
             "checkout_count": 3,
             "promocode_usage_count": 16,
-            "tasks_created_day": 4,
+            "tasks_created_day": 2,
             "tasks_sent_day": 6
         },
         "640028321": {
@@ -3275,7 +3275,7 @@
             }
         },
         "640028321": {
-            "id": 16,
+            "id": 15,
             "state": "token",
             "subscription_end": "2019-09-03",
             "lang": "ru",
@@ -3302,17 +3302,6 @@
                 "frequency": "each_days",
                 "selected_hr": "14",
                 "selected_min": "59",
-                "end_date": "2019-10-31"
-            },
-            "15": {
-                "chat_id": "-350004291",
-                "state": "running",
-                "id": "15",
-                "desc": "Тест",
-                "date": "2019-10-01",
-                "frequency": "each_days",
-                "selected_hr": "22",
-                "selected_min": "31",
                 "end_date": "2019-10-31"
             }
         },
