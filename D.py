@@ -1,5 +1,4 @@
 import re
-import json
 import requests
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -51,20 +50,14 @@ def check_task_active(bot_id, uid, job_id):
 def send_msg(bot_id, cid, msg, uid):
     print(bot_id, cid, msg, uid)
     print("alivv", str(datetime.now()))
-    try:
-        with open("request.log", encoding="utf-8") as f:
-            s = load(f)
-            s["requests_sent"].append(str(datetime.now()))
-            if uid not in s["requests_sent_usr"]:
-                s["requests_sent_usr"][uid] = []
-            s["requests_sent_usr"][uid].append(str(datetime.now()))
-            dump(s, open("request.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
-    except Exception as e:
-        print("wasted")
-    try:
-        bots[bot_id].send_message(cid, msg)
-    except Exception as e:
-        print("hell no!")
+    with open("request.log", encoding="utf-8") as f:
+        s = load(f)
+        s["requests_sent"].append(str(datetime.now()))
+        if uid not in s["requests_sent_usr"]:
+            s["requests_sent_usr"][uid] = []
+        s["requests_sent_usr"][uid].append(str(datetime.now()))
+        dump(s, open("request.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
+    bots[bot_id].send_message(cid, msg)
 
 
 def precheckout_callback(update, context):
@@ -364,18 +357,8 @@ admin_user_id = ["640028321", "106052"]
 
 
 def load_db():
-    try:
-        with open('dumpp.json', 'r+', encoding='utf-8') as f:
-            return load(f)
-    except json.JSONDecodeError as err:
-        # grab a reasonable section, say 40 characters.
-        start, stop = max(0, err.pos - 20), err.pos + 20
-        snippet = err.doc[start, stop]
-        if err.pos < 20:
-            snippet = '... ' + snippet
-        if err.pos + 20 < len(err.doc): snippet += ' ...'
-        print(err)
-        print(snippet)
+    with open('dumpp.json', 'r+', encoding='utf-8') as f:
+        return load(f)
 
 
 def dump_db(context):
@@ -500,7 +483,6 @@ def get_menu(lang, is_admin=False, is_local=False):
 
 
 def menu(update, context):
-    print("MENU!")
     context.user_data = commit(update, context, "message")
     lang = context.user_data[admin_id][str(update.message.from_user.id)]["lang"]
     update.message.reply_text(get_menu_text(update, context, str(update.message.from_user.id), admin_id, lang), reply_markup=get_menu(lang, str(update.message.chat_id) in admin_user_id))
@@ -570,6 +552,7 @@ def update_admin_stats(update=0, context=0, type=0, data=0):
 
 
 def check_payments():
+    print("checking...")
     headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -586,9 +569,12 @@ def check_payments():
     for i in response["data"]:
         if i["status"] == "SUCCESS" and i["comment"]:
             comment = i["comment"].split()
+            print("started")
+            print(comment)
             if len(comment) == 3 and comment[0].isdigit():
                 with open("payments.log", encoding="utf-8") as f:
                     s = load(f)
+                    print(s)
                     if "payments" not in s:
                         s["payments"] = []
                     if ' '.join(comment) not in s["payments"]:
@@ -667,6 +653,7 @@ def check_payments():
                                 verify_payment(uid, p, currency, amt)
                                 amt -= sums[i]
                 dump(s, open("payments.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
+    print("done there!")
     #pprint(response)
 
 
@@ -1613,7 +1600,9 @@ def button(update, context):
                         reply_markup=InlineKeyboardMarkup([[
                             InlineKeyboardButton("🏡", callback_data="::home::")
                         ]]))
+                print(1)
                 add_task_to_gspread(bots[bot_idd], context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])], bot_idd, uid, context.user_data[admin_id][uid]["lang"], True)
+                print(2)
                 context.user_data[bot_idd][uid]["id"] += 1
             else:
                 context.user_data[uid]["state"] = 'frequency'
@@ -2291,10 +2280,6 @@ def main():
                 notify(bot, uid)
     print("loaded messages")
     try:
-        schedule.every().minute.do(check_payments).run()
-    except Exception as e:
-        print(e)
-    try:
         schedule.every().hour.do(dump_admin).run()
     except Exception as e:
         print(e)
@@ -2305,10 +2290,14 @@ def main():
     print('whatttt')
     while True:
         try:
-            #print(schedule.jobs)
             print(datetime.now())
-            schedule.run_pending()
-            sleep(1)
+            for i in schedule.jobs:
+                try:
+                    if i.should_run:
+                        i.run()
+                except Exception as e:
+                    traceback.print_exc()
+            sleep(5)
         except Exception as e:
             print(e)
 
