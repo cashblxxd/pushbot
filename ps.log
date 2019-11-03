@@ -2084,3 +2084,304 @@ Mon Oct 28 08:38:01 MSK 2019
 Mon Oct 28 09:38:01 MSK 2019
 13826 ?        00:00:29 python3 <defunct>
 Mon Oct 28 10:38:01 MSK 2019
+15946 ?        00:00:07 python3
+Mon Oct 28 11:38:01 MSK 2019
+16241 ?        00:00:30 python3 <defunct>
+Mon Oct 28 12:38:01 MSK 2019
+17078 ?        00:00:29 python3 <defunct>
+Mon Oct 28 13:38:01 MSK 2019
+18163 ?        00:00:30 python3 <defunct>
+Mon Oct 28 14:38:01 MSK 2019
+18957 ?        00:00:37 python3
+Mon Oct 28 15:38:01 MSK 2019
+19765 ?        00:00:28 python3
+Mon Oct 28 16:38:01 MSK 2019
+20539 ?        00:00:29 python3
+Mon Oct 28 17:38:01 MSK 2019
+21321 ?        00:00:34 python3
+Mon Oct 28 18:38:01 MSK 2019
+22162 ?        00:00:31 python3
+Mon Oct 28 19:38:01 MSK 2019
+22986 ?        00:00:36 python3
+Mon Oct 28 20:38:01 MSK 2019
+23792 ?        00:00:27 python3 <defunct>
+Mon Oct 28 21:38:01 MSK 2019
+24569 ?        00:00:34 python3
+Mon Oct 28 22:38:01 MSK 2019
+25378 ?        00:00:32 python3
+Mon Oct 28 23:38:01 MSK 2019
+26214 ?        00:00:26 python3 <defunct>
+Tue Oct 29 00:38:01 MSK 2019
+27059 ?        00:00:27 python3 <defunct>
+Tue Oct 29 01:38:01 MSK 2019
+27871 ?        00:00:28 python3 <defunct>
+Tue Oct 29 02:38:01 MSK 2019
+Tue Oct 29 03:38:01 MSK 2019
+29478 ?        00:00:29 python3
+Tue Oct 29 04:38:01 MSK 2019
+30675 ?        00:00:29 python3
+Tue Oct 29 05:38:01 MSK 2019
+Tue Oct 29 06:38:01 MSK 2019
+32439 ?        00:00:29 python3
+Tue Oct 29 07:38:01 MSK 2019
+  798 ?        00:00:29 python3
+Tue Oct 29 08:38:01 MSK 2019
+ 1663 ?        00:00:33 python3
+Tue Oct 29 09:38:01 MSK 2019
+ 2529 ?        00:00:29 python3 <defunct>
+Tue Oct 29 10:38:01 MSK 2019
+ 3308 ?        00:00:29 python3 <defunct>
+Tue Oct 29 11:38:01 MSK 2019
+ 4078 ?        00:00:30 python3 <defunct>
+Tue Oct 29 12:38:01 MSK 2019
+ 4882 ?        00:00:28 python3 <defunct>
+Tue Oct 29 13:38:01 MSK 2019
+ 5694 ?        00:00:32 python3 <defunct>
+Tue Oct 29 14:38:01 MSK 2019
+ 6483 ?        00:00:39 python3
+Tue Oct 29 15:38:01 MSK 2019
+ 7259 ?        00:00:32 python3
+Tue Oct 29 16:38:01 MSK 2019
+ 8173 ?        00:00:29 python3 <defunct>
+Tue Oct 29 17:38:01 MSK 2019
+ 8961 ?        00:00:31 python3
+Tue Oct 29 18:38:01 MSK 2019
+ 9776 ?        00:00:29 python3
+Tue Oct 29 19:38:01 MSK 2019
+10619 ?        00:00:39 python3
+Tue Oct 29 20:38:01 MSK 2019
+11421 ?        00:00:28 python3 <defunct>
+Tue Oct 29 21:38:01 MSK 2019
+12290 ?        00:00:33 python3
+Tue Oct 29 22:38:01 MSK 2019
+13073 ?        00:00:34 python3
+Tue Oct 29 23:38:01 MSK 2019
+13888 ?        00:00:40 python3 <defunct>
+Wed Oct 30 00:38:01 MSK 2019
+14844 ?        00:00:29 python3 <defunct>
+Wed Oct 30 01:38:01 MSK 2019
+15654 ?        00:00:30 python3 <defunct>
+Wed Oct 30 02:38:01 MSK 2019
+16479 ?        00:00:26 python3 <defunct>
+Wed Oct 30 03:38:01 MSK 2019
+17291 ?        00:00:29 python3 <defunct>
+Wed Oct 30 04:38:01 MSK 2019
+18101 ?        00:00:29 python3 <defunct>
+Wed Oct 30 05:38:01 MSK 2019
+18907 ?        00:00:31 python3 <defunct>
+Wed Oct 30 06:38:01 MSK 2019
+19827 ?        00:00:27 python3 <defunct>
+Wed Oct 30 07:38:01 MSK 2019
+21061 ?        00:00:30 python3 <defunct>
+Wed Oct 30 08:38:01 MSK 2019
+21885 ?        00:00:35 python3
+Wed Oct 30 09:38:01 MSK 2019
+22783 ?        00:00:30 python3 <defunct>
+Wed Oct 30 10:38:01 MSK 2019
+23590 ?        00:00:29 python3 <defunct>
+Wed Oct 30 11:38:01 MSK 2019
+25210 ?        00:00:13 python3
+Wed Oct 30 12:38:01 MSK 2019
+25640 ?        00:00:32 python3 <defunct>
+Wed Oct 30 13:38:01 MSK 2019
+26489 ?        00:01:51 python3
+Wed Oct 30 14:38:01 MSK 2019
+27287 ?        00:00:52 python3
+Wed Oct 30 15:38:01 MSK 2019
+28109 ?        00:00:33 python3
+Wed Oct 30 16:38:01 MSK 2019
+28987 ?        00:00:32 python3
+Wed Oct 30 17:38:01 MSK 2019
+29823 ?        00:00:47 python3
+Wed Oct 30 18:38:01 MSK 2019
+30645 ?        00:00:34 python3 <defunct>
+Wed Oct 30 19:38:02 MSK 2019
+31498 ?        00:01:07 python3
+Wed Oct 30 20:38:01 MSK 2019
+32333 ?        00:00:40 python3
+Wed Oct 30 21:38:01 MSK 2019
+  744 ?        00:00:49 python3
+Wed Oct 30 22:38:01 MSK 2019
+ 1602 ?        00:00:54 python3
+Wed Oct 30 23:38:01 MSK 2019
+ 2473 ?        00:00:33 python3 <defunct>
+Thu Oct 31 00:38:01 MSK 2019
+ 3350 ?        00:00:35 python3 <defunct>
+Thu Oct 31 01:38:01 MSK 2019
+ 4160 ?        00:00:34 python3 <defunct>
+Thu Oct 31 02:38:01 MSK 2019
+ 5427 ?        00:00:33 python3 <defunct>
+Thu Oct 31 03:38:01 MSK 2019
+ 6239 ?        00:00:32 python3
+Thu Oct 31 04:38:01 MSK 2019
+ 7063 ?        00:00:34 python3
+Thu Oct 31 05:38:01 MSK 2019
+ 7889 ?        00:00:35 python3 <defunct>
+Thu Oct 31 06:38:01 MSK 2019
+ 8744 ?        00:00:32 python3
+Thu Oct 31 07:38:01 MSK 2019
+10402 ?        00:00:32 python3 <defunct>
+Thu Oct 31 08:38:01 MSK 2019
+11237 ?        00:00:47 python3
+Thu Oct 31 09:38:02 MSK 2019
+12132 ?        00:00:36 python3 <defunct>
+Thu Oct 31 10:38:01 MSK 2019
+12960 ?        00:00:33 python3 <defunct>
+Thu Oct 31 11:38:01 MSK 2019
+13828 ?        00:00:34 python3 <defunct>
+Thu Oct 31 12:38:01 MSK 2019
+16731 pts/0    00:00:06 python3
+Thu Oct 31 13:38:01 MSK 2019
+17061 ?        00:00:51 python3
+Thu Oct 31 14:38:01 MSK 2019
+17916 ?        00:00:40 python3
+Thu Oct 31 15:38:01 MSK 2019
+18822 ?        00:00:40 python3
+Thu Oct 31 16:38:01 MSK 2019
+19674 ?        00:00:34 python3
+Thu Oct 31 17:38:01 MSK 2019
+20503 ?        00:00:45 python3
+Thu Oct 31 18:38:01 MSK 2019
+21642 pts/0    00:00:35 python3
+Thu Oct 31 19:38:01 MSK 2019
+22542 ?        00:00:40 python3
+Thu Oct 31 20:38:01 MSK 2019
+23481 ?        00:00:34 python3
+Thu Oct 31 21:38:01 MSK 2019
+24324 ?        00:00:43 python3
+Thu Oct 31 22:38:02 MSK 2019
+25148 ?        00:01:55 python3
+Thu Oct 31 23:38:01 MSK 2019
+25980 ?        00:00:33 python3
+Fri Nov 1 00:38:01 MSK 2019
+26866 ?        00:00:40 python3
+Fri Nov 1 01:38:01 MSK 2019
+27700 ?        00:00:34 python3
+Fri Nov 1 02:38:01 MSK 2019
+28529 ?        00:00:35 python3
+Fri Nov 1 03:38:01 MSK 2019
+Fri Nov 1 04:38:01 MSK 2019
+30213 ?        00:00:32 python3
+Fri Nov 1 05:38:01 MSK 2019
+31065 ?        00:00:31 python3
+Fri Nov 1 06:38:01 MSK 2019
+Fri Nov 1 07:38:01 MSK 2019
+  423 ?        00:00:35 python3
+Fri Nov 1 08:38:01 MSK 2019
+ 1299 ?        00:00:38 python3
+Fri Nov 1 09:38:01 MSK 2019
+ 2246 ?        00:00:34 python3
+Fri Nov 1 10:38:01 MSK 2019
+ 3118 ?        00:00:36 python3
+Fri Nov 1 11:38:01 MSK 2019
+ 4016 ?        00:00:36 python3
+Fri Nov 1 12:38:01 MSK 2019
+ 4864 ?        00:00:37 python3
+Fri Nov 1 13:38:01 MSK 2019
+ 5705 ?        00:00:42 python3
+Fri Nov 1 14:38:01 MSK 2019
+ 6576 ?        00:00:35 python3
+Fri Nov 1 15:38:01 MSK 2019
+ 7399 ?        00:00:37 python3
+Fri Nov 1 16:38:01 MSK 2019
+ 8219 ?        00:00:34 python3
+Fri Nov 1 17:38:01 MSK 2019
+ 9104 ?        00:00:40 python3
+Fri Nov 1 18:38:01 MSK 2019
+10350 ?        00:00:36 python3
+Fri Nov 1 19:38:01 MSK 2019
+11175 ?        00:00:41 python3
+Fri Nov 1 20:38:02 MSK 2019
+Fri Nov 1 21:38:01 MSK 2019
+12804 ?        00:00:46 python3
+Fri Nov 1 22:38:01 MSK 2019
+13622 ?        00:02:00 python3
+Fri Nov 1 23:38:01 MSK 2019
+14520 ?        00:00:38 python3
+Sat Nov 2 00:38:01 MSK 2019
+15365 ?        00:00:35 python3
+Sat Nov 2 01:38:01 MSK 2019
+16183 ?        00:00:35 python3
+Sat Nov 2 02:38:02 MSK 2019
+17003 ?        00:00:35 python3
+Sat Nov 2 03:38:01 MSK 2019
+Sat Nov 2 04:38:01 MSK 2019
+18694 ?        00:00:35 python3
+Sat Nov 2 05:38:01 MSK 2019
+19955 ?        00:00:38 python3
+Sat Nov 2 06:38:01 MSK 2019
+20915 ?        00:00:36 python3
+Sat Nov 2 07:38:01 MSK 2019
+21772 ?        00:00:34 python3
+Sat Nov 2 08:38:01 MSK 2019
+22592 ?        00:00:39 python3
+Sat Nov 2 09:38:01 MSK 2019
+23543 ?        00:00:36 python3
+Sat Nov 2 10:38:01 MSK 2019
+24430 ?        00:00:34 python3
+Sat Nov 2 11:38:01 MSK 2019
+25301 ?        00:00:35 python3
+Sat Nov 2 12:38:01 MSK 2019
+26132 ?        00:00:37 python3
+Sat Nov 2 13:38:01 MSK 2019
+26967 ?        00:00:36 python3
+Sat Nov 2 14:38:01 MSK 2019
+27788 ?        00:00:36 python3
+Sat Nov 2 15:38:01 MSK 2019
+28662 ?        00:00:35 python3
+Sat Nov 2 16:38:01 MSK 2019
+29501 ?        00:00:34 python3
+Sat Nov 2 17:38:01 MSK 2019
+30303 ?        00:00:40 python3
+Sat Nov 2 18:38:01 MSK 2019
+31162 ?        00:00:36 python3
+Sat Nov 2 19:38:01 MSK 2019
+32022 ?        00:00:35 python3
+Sat Nov 2 20:38:01 MSK 2019
+  459 ?        00:00:35 python3
+Sat Nov 2 21:38:01 MSK 2019
+ 1322 ?        00:00:41 python3
+Sat Nov 2 22:38:01 MSK 2019
+ 2155 ?        00:01:58 python3
+Sat Nov 2 23:38:01 MSK 2019
+ 2977 ?        00:00:37 python3
+Sun Nov 3 00:38:01 MSK 2019
+ 3855 ?        00:00:34 python3
+Sun Nov 3 01:38:01 MSK 2019
+ 4686 ?        00:00:33 python3
+Sun Nov 3 02:38:01 MSK 2019
+ 5537 ?        00:00:35 python3
+Sun Nov 3 03:38:01 MSK 2019
+ 6388 ?        00:00:36 python3
+Sun Nov 3 04:38:01 MSK 2019
+ 7260 ?        00:00:36 python3
+Sun Nov 3 05:38:02 MSK 2019
+ 8151 ?        00:00:34 python3
+Sun Nov 3 06:38:01 MSK 2019
+ 9069 ?        00:00:36 python3
+Sun Nov 3 07:38:01 MSK 2019
+ 9895 ?        00:00:36 python3
+Sun Nov 3 08:38:01 MSK 2019
+10754 ?        00:00:40 python3
+Sun Nov 3 09:38:01 MSK 2019
+11672 ?        00:00:36 python3
+Sun Nov 3 10:38:01 MSK 2019
+12522 ?        00:00:35 python3
+Sun Nov 3 11:38:01 MSK 2019
+13354 ?        00:00:36 python3
+Sun Nov 3 12:38:01 MSK 2019
+14241 ?        00:00:37 python3
+Sun Nov 3 13:38:01 MSK 2019
+15062 ?        00:00:36 python3
+Sun Nov 3 14:38:02 MSK 2019
+16289 ?        00:00:36 python3
+Sun Nov 3 15:38:01 MSK 2019
+Sun Nov 3 16:38:01 MSK 2019
+17984 ?        00:00:35 python3
+Sun Nov 3 17:38:01 MSK 2019
+18856 ?        00:00:40 python3
+Sun Nov 3 18:38:01 MSK 2019
+19685 ?        00:00:36 python3
+Sun Nov 3 19:38:01 MSK 2019
+20534 ?        00:00:35 python3
+Sun Nov 3 20:38:01 MSK 2019

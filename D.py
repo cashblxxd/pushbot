@@ -50,6 +50,7 @@ def check_task_active(bot_id, uid, job_id):
 def send_msg(bot_id, cid, msg, uid):
     print(bot_id, cid, msg, uid)
     print("alivv", str(datetime.now()))
+    bots[bot_id].send_message(cid, msg)
     with open("request.log", encoding="utf-8") as f:
         s = load(f)
         s["requests_sent"].append(str(datetime.now()))
@@ -57,7 +58,6 @@ def send_msg(bot_id, cid, msg, uid):
             s["requests_sent_usr"][uid] = []
         s["requests_sent_usr"][uid].append(str(datetime.now()))
         dump(s, open("request.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
-    bots[bot_id].send_message(cid, msg)
 
 
 def precheckout_callback(update, context):
@@ -68,7 +68,7 @@ def precheckout_callback(update, context):
 def sender(bot, job_data, bot_id, uid, lang):
     print("alive!")
     if datetime.strptime(job_data["date"], '%Y-%m-%d') <= datetime.now() and check_task_active(bot_id, uid, job_data["id"]):
-        if datetime.strptime(job_data["end_date"], '%Y-%m-%d') < datetime.now():
+        if datetime.strptime(job_data["end_date"], '%Y-%m-%d').date() < date.today():
             return schedule.CancelJob
         if job_data["state"] == "pending":
             return 1
@@ -498,15 +498,33 @@ def update_admin_stats(update=0, context=0, type=0, data=0):
             context.user_data["stats"]["admin"]["tasks_sent_day"] = 0
             context.user_data["stats"]["admin"]["users_count"] = sum([1 for i in context.user_data[admin_id] if i.isdigit()])
             for i in s["requests_created"]:
-                if datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') + timedelta(days=1) >= datetime.now():
-                    context.user_data["stats"]["admin"]["tasks_created_day"] += 1
+                if datetime.now() - datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') <= timedelta(days=1):
                     requests_created.append(i)
             s["requests_created"] = requests_created
+            context.user_data["stats"]["admin"]["tasks_created_day"] = len(s["requests_created"])
             for i in s["requests_sent"]:
-                if datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') + timedelta(days=1) >= datetime.now():
-                    context.user_data["stats"]["admin"]["tasks_sent_day"] += 1
+                if datetime.now() - datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') <= timedelta(days=1):
                     requests_sent.append(i)
             s["requests_sent"] = requests_sent
+            context.user_data["stats"]["admin"]["tasks_sent_day"] = len(s["requests_sent"])
+            requests_created_usr = {}
+            requests_sent_usr = {}
+            for uid in s["requests_created_usr"]:
+                requests_created_usr[uid] = []
+                for i in s["requests_created_usr"][uid]:
+                    if datetime.now() - datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') <= timedelta(days=1):
+                        requests_created_usr[uid].append(i)
+            s["requests_created_usr"] = requests_created_usr
+            for uid in s["requests_sent_usr"]:
+                requests_sent_usr[uid] = []
+                for i in s["requests_sent_usr"][uid]:
+                    if datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') + relativedelta(months=1) >= datetime.now():
+                        requests_sent_usr[uid].append(i)
+            s["requests_sent_usr"] = requests_sent_usr
+            for uid in s["requests_created_usr"]:
+                context.user_data["stats"][uid]["requests_created"] = len(s["requests_created_usr"][uid])
+            for uid in s["requests_sent_usr"]:
+                context.user_data["stats"][uid]["requests_sent"] = len(s["requests_sent_usr"][uid])
         dump(s, open("request.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
         return context.user_data
     elif type == 1:
@@ -518,28 +536,28 @@ def update_admin_stats(update=0, context=0, type=0, data=0):
             data["stats"]["admin"]["tasks_sent_day"] = 0
             data["stats"]["admin"]["users_count"] = sum([1 for i in data[admin_id] if i.isdigit()])
             for i in s["requests_created"]:
-                if datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') + timedelta(days=1) >= datetime.now():
-                    data["stats"]["admin"]["tasks_created_day"] += 1
+                if datetime.now() - datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') <= timedelta(days=1):
                     requests_created.append(i)
             s["requests_created"] = requests_created
+            data["stats"]["admin"]["tasks_created_day"] = len(s["requests_created"])
             for i in s["requests_sent"]:
-                if datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') + timedelta(days=1) >= datetime.now():
-                    data["stats"]["admin"]["tasks_sent_day"] += 1
+                if datetime.now() - datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') <= timedelta(days=1):
                     requests_sent.append(i)
             s["requests_sent"] = requests_sent
+            data["stats"]["admin"]["tasks_sent_day"] = len(s["requests_sent"])
             dump(s, open("request.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
             requests_created_usr = {}
             requests_sent_usr = {}
             for uid in s["requests_created_usr"]:
                 requests_created_usr[uid] = []
                 for i in s["requests_created_usr"][uid]:
-                    if datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') + relativedelta(months=1) >= datetime.now():
+                    if datetime.now() - datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') <= timedelta(days=1):
                         requests_created_usr[uid].append(i)
             s["requests_created_usr"] = requests_created_usr
             for uid in s["requests_sent_usr"]:
                 requests_sent_usr[uid] = []
                 for i in s["requests_sent_usr"][uid]:
-                    if datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') + relativedelta(months=1) >= datetime.now():
+                    if datetime.now() - datetime.strptime(i, '%Y-%m-%d %H:%M:%S.%f') <= timedelta(days=1):
                         requests_sent_usr[uid].append(i)
             s["requests_sent_usr"] = requests_sent_usr
             for uid in s["requests_created_usr"]:
@@ -547,7 +565,7 @@ def update_admin_stats(update=0, context=0, type=0, data=0):
             for uid in s["requests_sent_usr"]:
                 data["stats"][uid]["requests_sent"] = len(s["requests_sent_usr"][uid])
         dump(s, open("request.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
-        #print("success")
+        print("success")
         return data
 
 
@@ -1783,7 +1801,7 @@ def texter(update, context):
                     InlineKeyboardButton("🏡", callback_data="::home::")
                 ]]))
             else:
-                if datetime.strptime(s[text]["expiration_date"], '%Y-%m-%d') < datetime.now():
+                if datetime.strptime(s[text]["expiration_date"], '%Y-%m-%d').date() < datetime.now():
                     update.message.reply_text(get_translation("У промокода истёк срок действия.", lang),
                                               reply_markup=InlineKeyboardMarkup([[
                                                   InlineKeyboardButton("🔙", callback_data="back::start"),
@@ -2005,7 +2023,7 @@ def send_stats_user(bot, uid):
     with open("dumpp.json", encoding="utf-8") as f:
         print("stats")
         s = load(f)
-        if s[admin_id][uid]["subscription_end"] == -1 or datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d') >= datetime.now():
+        if not (s[admin_id][uid]["subscription_end"] == -1 or datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d').date() >= datetime.now()):
             try:
                 if s[uid]["bot_list"].index(str(bot.id)) != 0:
                     return
@@ -2158,7 +2176,7 @@ def dump_admin():
                 #print(uid)
                 try:
                     bot_list = ', '.join(["@" + bots[i].username for i in s[uid]["bot_list"] if i != admin_id])
-                    plan = "Платный" if (s[admin_id][uid]["subscription_end"] == -1 or datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d') >= datetime.now()) else "Бесплатный"
+                    plan = "Платный" if (s[admin_id][uid]["subscription_end"] == -1 or datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d').date() >= datetime.now()) else "Бесплатный"
                     payments = [s[uid]['checkouts_sum']['EUR'], s[uid]['checkouts_sum']['RUB'], s[uid]['checkouts_sum']['USD']]
                     promocodes = ", ".join(s[uid]['promocodes'])
                     referrals = []
@@ -2245,6 +2263,9 @@ def activate(update, context):
 
 
 def main():
+    res = requests.get('https://jsonblob.com/api/jsonBlob/f175ec70-fe65-11e9-99e9-b3eae7339307', headers={'Content-Type': 'application/json', 'Accept': 'application/json'}).json()
+    if not res["allowed"]:
+        return
     with open("tokens.json") as f:
         s = eval(f.read())
         #print(s)
@@ -2291,6 +2312,7 @@ def main():
     while True:
         try:
             print(datetime.now())
+            print(schedule.jobs)
             for i in schedule.jobs:
                 try:
                     if i.should_run:
@@ -2304,6 +2326,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
 

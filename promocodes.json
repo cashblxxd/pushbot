@@ -1,14 +1,4 @@
 {
-    "Halyava1mes": {
-        "duration": "1months",
-        "activated": 2,
-        "expiration_date": "2019-09-18"
-    },
-    "Halyavasept": {
-        "duration": "1months",
-        "activated": 1,
-        "expiration_date": "2019-09-20"
-    },
     "redmilliarder": {
         "duration": "2weeks",
         "activated": 7,
@@ -18,5 +8,15 @@
         "duration": "1months",
         "activated": 2,
         "expiration_date": "2019-11-01"
+    },
+    "redredredred": {
+        "duration": "3months",
+        "activated": 1,
+        "expiration_date": "2019-10-31"
+    },
+    "VLADKOZACHENKO": {
+        "duration": "2weeks",
+        "activated": 1,
+        "expiration_date": "2019-10-31"
     }
 }
