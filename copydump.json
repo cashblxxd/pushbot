@@ -1,11 +1,11 @@
 {
     "stats": {
         "admin": {
-            "users_count": 104,
-            "checkout_count": 3,
+            "users_count": 105,
+            "checkout_count": 4,
             "promocode_usage_count": 18,
             "tasks_created_day": 0,
-            "tasks_sent_day": 27
+            "tasks_sent_day": 29
         },
         "640028321": {
             "requests_created": 0,
@@ -13,11 +13,11 @@
         },
         "220142491": {
             "requests_created": 0,
-            "requests_sent": 0
+            "requests_sent": 2
         },
         "106052": {
             "requests_created": 0,
-            "requests_sent": 9
+            "requests_sent": 13
         },
         "65002558": {
             "requests_created": 0,
@@ -61,7 +61,7 @@
         },
         "300726560": {
             "requests_created": 0,
-            "requests_sent": 6
+            "requests_sent": 8
         },
         "886484284": {
             "requests_created": 0,
@@ -277,7 +277,7 @@
         },
         "243751435": {
             "requests_created": 0,
-            "requests_sent": 4
+            "requests_sent": 2
         },
         "303663342": {
             "requests_created": 0,
@@ -1701,7 +1701,7 @@
         },
         "161340015": {
             "requests_created": 0,
-            "requests_sent": 2
+            "requests_sent": 0
         },
         "828666363": {
             "requests_created": 0,
@@ -2418,6 +2418,102 @@
         "785217735": {
             "requests_created": 0,
             "requests_sent": 0
+        },
+        "318077028": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "729873120": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "898130955": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "817577489": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "762284094": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "739751990": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "955846681": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "904337146": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "834242245": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "754944154": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "800415585": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "897426821": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "280310323": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "893876436": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "839503528": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "898482608": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "1061028436": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "701947557": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "563905941": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "914983333": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "884137450": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "848192719": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "1018129123": {
+            "requests_created": 0,
+            "requests_sent": 0
+        },
+        "1054051263": {
+            "requests_created": 0,
+            "requests_sent": 0
         }
     },
     "658196407": {
@@ -2434,7 +2530,7 @@
             "id": 0,
             "state": "token",
             "subscription_end": "2019-10-30",
-            "lang": "ru",
+            "lang": "e",
             "referrer": "",
             "referrals": {
                 "228870510": {
@@ -2470,6 +2566,10 @@
                 "372765358": {
                     "date_added": "2019-09-08 11:40:39",
                     "payment_date": -1
+                },
+                "701947557": {
+                    "date_added": "2",
+                    "payment_date": -1
                 }
             },
             "task_bot": "877449221"
@@ -2477,8 +2577,8 @@
         "106052": {
             "id": 0,
             "state": "token",
-            "subscription_end": "2020-01-29",
-            "lang": "ru",
+            "subscription_end": "2020-02-29",
+            "lang": "e",
             "referrer": "",
             "referrals": {
                 "65002558": {
@@ -2518,7 +2618,7 @@
                     "payment_date": -1
                 }
             },
-            "task_bot": "924727275"
+            "task_bot": "862615750"
         },
         "65002558": {
             "id": 0,
@@ -3452,6 +3552,15 @@
             "referrer": "",
             "referrals": {},
             "task_bot": "658196407"
+        },
+        "701947557": {
+            "id": 0,
+            "state": "token",
+            "subscription_end": "2019-11-07",
+            "lang": "en",
+            "referrer": "220142491",
+            "referrals": {},
+            "task_bot": "658196407"
         }
     },
     "640028321": {
@@ -3502,16 +3611,16 @@
             "202011111",
             "1029991008"
         ],
-        "state": "promocode::2weeks::2019-10-31",
+        "state": "promocode::1months::2019-11-08",
         "sheet": "https://docs.google.com/spreadsheets/d/1-cRLEx9uAgLz5JPSI9KRCIZ38yUJmEVWppANOhEgouw",
         "date_registered": "2019-08-29",
         "promocodes": [
             "redredredred"
         ],
-        "checkouts_count": 2,
+        "checkouts_count": 3,
         "checkouts_sum": {
             "EUR": 0,
-            "RUB": 580,
+            "RUB": 870,
             "USD": 0
         },
         "timezone": 0
@@ -3886,10 +3995,13 @@
             },
             "-1001314416716": {
                 "title": "#sgf2019"
+            },
+            "-373571747": {
+                "title": "liftogram"
             }
         },
         "106052": {
-            "id": 20,
+            "id": 22,
             "state": "pending",
             "subscription_end": "2019-09-03",
             "lang": "ru",
@@ -4115,6 +4227,28 @@
                 "selected_hr": "22",
                 "selected_min": "18",
                 "end_date": "2019-10-31"
+            },
+            "20": {
+                "chat_id": "-1001419020405",
+                "state": "running",
+                "id": "20",
+                "desc": "Доброе утро!☀️\nНе забудь прислать скинуть селфи, когда придешь на локацию.\n\nУдачного дня! Покажи сегодня, как надо работать!💪",
+                "date": "2019-11-04",
+                "frequency": "each_days",
+                "selected_hr": "09",
+                "selected_min": "40",
+                "end_date": "2021-02-28"
+            },
+            "21": {
+                "chat_id": "-373571747",
+                "state": "running",
+                "id": "21",
+                "desc": "Привет, Артем!🤚\n\nМы хотим сделать большую компанию и нам надо каждый день трекать задачи. \n\nСкажи, какие задачи сегодня выполнил и что будешь делать завтра?🤙",
+                "date": "2019-11-04",
+                "frequency": "each_days",
+                "selected_hr": "22",
+                "selected_min": "45",
+                "end_date": "2021-02-28"
             }
         },
         "783671777": {
@@ -8355,6 +8489,195 @@
             "referrer": "",
             "referrals": {},
             "task_bot": "658196407"
+        },
+        "318077028": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-04",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "729873120": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-04",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "898130955": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-04",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "817577489": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-04",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "762284094": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-04",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "739751990": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-05",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "955846681": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-05",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "904337146": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-05",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "834242245": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-06",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "754944154": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-06",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "800415585": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-06",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "897426821": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-06",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "893876436": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-06",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "839503528": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-07",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "898482608": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-07",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "1061028436": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-07",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "563905941": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-07",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "914983333": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-07",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "884137450": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-07",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "848192719": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-07",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "1054051263": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-07",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
         }
     },
     "124570271": {
@@ -10125,20 +10448,6 @@
             "referrer": "",
             "referrals": {},
             "task_bot": "658196407",
-            "0": {
-                "chat_id": "-244316242",
-                "state": "running",
-                "id": "0",
-                "desc": "5 числа каждого месяца оплата аренды\n3 числа каждого месяца отчет Альфакселератор \nОтчет Антону по расходам каждый месяц",
-                "date": "2019-10-03",
-                "frequency": "custom_days",
-                "selected_days": [
-                    "3"
-                ],
-                "selected_hr": "12",
-                "selected_min": "00",
-                "end_date": "2020-02-29"
-            },
             "1": {
                 "chat_id": "-368373418",
                 "state": "running",
@@ -10235,17 +10544,6 @@
                 "selected_hr": "13",
                 "selected_min": "40",
                 "end_date": "2019-09-27"
-            },
-            "10": {
-                "chat_id": "-244316242",
-                "state": "running",
-                "id": "10",
-                "desc": "Аня! Не забудь выложить задание на следующий день для марафона изобилия!🌞🌞❤️❤️",
-                "date": "2019-10-10",
-                "frequency": "each_days",
-                "selected_hr": "20",
-                "selected_min": "00",
-                "end_date": "2019-11-10"
             },
             "11": {
                 "chat_id": "-396009649",
@@ -17500,6 +17798,15 @@
             "referrer": "",
             "referrals": {},
             "task_bot": "658196407"
+        },
+        "280310323": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-06",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
         }
     },
     "355407862": {
@@ -17903,6 +18210,15 @@
             "id": 0,
             "state": "pending",
             "subscription_end": "2019-11-01",
+            "lang": "ru",
+            "referrer": "",
+            "referrals": {},
+            "task_bot": "658196407"
+        },
+        "1018129123": {
+            "id": 0,
+            "state": "pending",
+            "subscription_end": "2019-11-07",
             "lang": "ru",
             "referrer": "",
             "referrals": {},
@@ -18348,6 +18664,342 @@
         "state": "pending",
         "sheet": "",
         "date_registered": "2019-11-03",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "318077028": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-04",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "729873120": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-04",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "898130955": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-04",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "817577489": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-04",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "762284094": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-04",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "739751990": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-05",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "955846681": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-05",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "904337146": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-05",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "834242245": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-06",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "754944154": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-06",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "800415585": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-06",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "897426821": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-06",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "280310323": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-06",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "893876436": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-06",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "839503528": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-07",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "898482608": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-07",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "1061028436": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-07",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "701947557": {
+        "bot_list": [],
+        "state": "gtable",
+        "sheet": "",
+        "date_registered": "2019-11-07",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "563905941": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-07",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "914983333": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-07",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "884137450": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-07",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "848192719": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-07",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "1018129123": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-07",
+        "promocodes": [],
+        "checkouts_count": 0,
+        "checkouts_sum": {
+            "EUR": 0,
+            "RUB": 0,
+            "USD": 0
+        },
+        "timezone": 0
+    },
+    "1054051263": {
+        "bot_list": [],
+        "state": "pending",
+        "sheet": "",
+        "date_registered": "2019-11-07",
         "promocodes": [],
         "checkouts_count": 0,
         "checkouts_sum": {

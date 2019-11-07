@@ -18,5 +18,20 @@
         "duration": "2weeks",
         "activated": 1,
         "expiration_date": "2019-10-31"
+    },
+    "Тест 111": {
+        "duration": "2weeks",
+        "activated": 0,
+        "expiration_date": "2019-10-31"
+    },
+    "1111111": {
+        "duration": "2weeks",
+        "activated": 0,
+        "expiration_date": "2019-10-31"
+    },
+    "VLADKOZACH1": {
+        "duration": "1months",
+        "activated": 0,
+        "expiration_date": "2019-11-08"
     }
 }

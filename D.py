@@ -1426,15 +1426,15 @@ def button(update, context):
                                                                                      callback_data="back::start"),
                                                                 InlineKeyboardButton("🏡", callback_data="::home::")
                                                             ], [
-                                                                InlineKeyboardButton("1 месяц", callback_data="buy::1months")
+                                                                InlineKeyboardButton(get_translation("1 месяц", lang), callback_data="buy::1months")
                                                             ], [
-                                                                InlineKeyboardButton("3 месяца (15% скидка)", callback_data="buy::3months")
+                                                                InlineKeyboardButton(get_translation("3 месяца (15% скидка)", lang), callback_data="buy::3months")
                                                             ], [
-                                                                InlineKeyboardButton("6 месяцев (20% скидка)", callback_data="buy::6months")
+                                                                InlineKeyboardButton(get_translation("6 месяцев (20% скидка)", lang), callback_data="buy::6months")
                                                             ], [
-                                                                InlineKeyboardButton("12 месяцев (30% скидка)", callback_data="buy::12months")
+                                                                InlineKeyboardButton(get_translation("12 месяцев (30% скидка)", lang), callback_data="buy::12months")
                                                             ], [
-                                                                InlineKeyboardButton("На всю жизнь", callback_data="buy::-1")
+                                                                InlineKeyboardButton(get_translation("На всю жизнь", lang), callback_data="buy::-1")
                                                             ]]), parse_mode=ParseMode.MARKDOWN)
             elif data == "menu::add_task":
                 keyboard = [
@@ -1459,18 +1459,17 @@ def button(update, context):
         elif data.startswith("buy::"):
             data = data.lstrip("buy::")
             r = {
-                "1months": ("1 месяц", 290),
-                "3months": ("3 месяца (15% скидка)", 740),
-                "6months": ("6 месяцев (20% скидка)", 1392),
-                "12months": ("12 месяцев (30% скидка)", 2436),
-                "-1": ("На всю жизнь", 4500)
+                "1months": (get_translation("1 месяц", lang), 649),
+                "3months": (get_translation("3 месяца (15% скидка)"), 1649),
+                "6months": (get_translation("6 месяцев (20% скидка)"), 2999),
+                "12months": (get_translation("12 месяцев (30% скидка)"), 5449),
+                "-1": (get_translation("На всю жизнь"), 9749)
             }
             i, j = r[data]
-            context.bot.send_message(uid, f"QIWI: [{get_translation('Ссылка', lang)}]({get_link('RUB', uid, j)})" + get_translation("\nБанковская карта:", lang), parse_mode=ParseMode.MARKDOWN)
+            #context.bot.send_message(uid, f"QIWI: [{get_translation('Ссылка', lang)}]({get_link('RUB', uid, j)})" + get_translation("\nБанковская карта:", lang), parse_mode=ParseMode.MARKDOWN)
             context.bot.send_invoice(uid, get_translation(i, lang), "🎁", data,
                                          "390540012:LIVE:7276", "test-payment", "RUB",
                                          [LabeledPrice(i, j * 100)])
-
         elif data.startswith("messages::"):
             action, bot_idt, uid, job_id = data.strip("messages::").split("::")
             if action == "pause":

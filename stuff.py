@@ -248,7 +248,9 @@ tr = {
     "\nБанковская карта:": "\nBank card:",
     "Введите вашу временную зону:": "Enter your timezone:",
     "Ваша таблица: ": "Your spreadsheet: ",
-    "Выберите чат": "Choose chat"
+    "Выберите чат": "Choose chat",
+    "1 month": "1 month"
 }
+
 
 
