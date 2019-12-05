@@ -5,7 +5,6 @@ from oauth2client.service_account import ServiceAccountCredentials
 #import logging
 from pprint import pprint
 from uuid import uuid4
-from datetime import date
 from telegram import ParseMode
 import traceback
 from telegram.ext import CallbackQueryHandler
@@ -14,7 +13,7 @@ from telegram.ext import InlineQueryHandler
 from telegram import InlineQueryResultArticle, InputTextMessageContent
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import telegramcalendar
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from json import load, dump
 from calendr import week, days, time_hours, time_minutes
 import schedule
@@ -597,7 +596,7 @@ def check_payments():
                         s["payments"] = []
                     if ' '.join(comment) not in s["payments"]:
                         s["payments"].append(' '.join(comment))
-                        uid, date, time = comment
+                        uid, datex, time = comment
                         with open("dumpp.json", encoding="utf-8") as f:
                             k = load(f)
                             if uid not in k:
@@ -1702,16 +1701,16 @@ def button(update, context):
             context.user_data[uid]["state"] = 'end_date'
             update.callback_query.edit_message_text(text=get_translation("Выберите дату окончания рассылки:", lang), reply_markup=telegramcalendar.create_calendar(start_or_end="end"))
         else:
-            selected, date = telegramcalendar.process_calendar_selection(update, context)
+            selected, datex = telegramcalendar.process_calendar_selection(update, context)
             if selected:
                 if context.user_data[uid]["state"].startswith("promocode::"):
-                    context.user_data[uid]["state"] += "::" + str(date).split()[0]
+                    context.user_data[uid]["state"] += "::" + str(datex).split()[0]
                     #print(context.user_data[uid]["state"])
                 elif context.user_data[uid]["state"] == 'end_date':
-                    context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['end_date'] = str(date).split()[0]
+                    context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['end_date'] = str(datex).split()[0]
                 else:
-                    context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['date'] = str(date).split()[0]
-                update.callback_query.edit_message_text(text=get_translation("Вы выбрали ", lang) + "%s" % (date.strftime("%d/%m/%Y")), reply_markup=InlineKeyboardMarkup(
+                    context.user_data[bot_idd][uid][str(context.user_data[bot_idd][uid]["id"])]['date'] = str(datex).split()[0]
+                update.callback_query.edit_message_text(text=get_translation("Вы выбрали ", lang) + "%s" % (datex.strftime("%d/%m/%Y")), reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton(get_translation("Подтвердить", lang), callback_data="confirm_date")],
                      [InlineKeyboardButton(get_translation("Выбрать другую", lang), callback_data="change_date")]]
                 ))
@@ -1726,6 +1725,7 @@ def texter(update, context):
     bot_id = str(context.bot.id)
     bot_idd = context.user_data[admin_id][uid]["task_bot"]
     lang = context.user_data[admin_id][uid]["lang"]
+    print(context.user_data[uid]["state"])
     if context.user_data[uid]["state"] == "admin::gtable":
         sheet_link = update.message.text
         try:
@@ -1751,12 +1751,12 @@ def texter(update, context):
     elif context.user_data[uid]["state"].startswith("promocode::"):
         with open("promocodes.json", encoding="utf-8") as f:
             s = load(f)
-            i, date = context.user_data[uid]["state"].strip("promocode::").split("::")
+            i, datex = context.user_data[uid]["state"].strip("promocode::").split("::")
             text = update.message.text
             s[text] = {
                 "duration": i,
                 "activated": 0,
-                "expiration_date": date
+                "expiration_date": datex
             }
             update.message.reply_text(get_translation("Промокод успешно создан", lang),
                                       reply_markup=InlineKeyboardMarkup([[
@@ -1800,30 +1800,38 @@ def texter(update, context):
                     InlineKeyboardButton("🏡", callback_data="::home::")
                 ]]))
             else:
-                if datetime.strptime(s[text]["expiration_date"], '%Y-%m-%d').date() < datetime.now():
-                    update.message.reply_text(get_translation("У промокода истёк срок действия.", lang),
-                                              reply_markup=InlineKeyboardMarkup([[
-                                                  InlineKeyboardButton("🔙", callback_data="back::start"),
-                                                  InlineKeyboardButton("🏡", callback_data="::home::")
-                                              ]]))
-                elif text in context.user_data[uid]["promocodes"]:
-                    update.message.reply_text(get_translation("Вы уже вводили этот промокод", lang),
-                                             reply_markup=InlineKeyboardMarkup([[
-                                                 InlineKeyboardButton("🔙", callback_data="back::start"),
-                                                 InlineKeyboardButton("🏡", callback_data="::home::")
-                                             ]]))
-                else:
-                    context.user_data[uid]["state"] = "pending"
-                    s[text]["activated"] += 1
-                    context.user_data["stats"]["admin"]["promocode_usage_count"] += 1
-                    context.user_data[uid]["promocodes"].append(text)
-                    if context.user_data[admin_id][uid]["subscription_end"] != -1:
-                        context.user_data[admin_id][uid]["subscription_end"] = str(datetime.strptime(context.user_data[admin_id][uid]["subscription_end"], ('%Y-%m-%d' if len(context.user_data[admin_id][uid]["subscription_end"].split()) == 1 else "%Y-%m-%d %H:%M:%S.%f")) + t[s[text]["duration"]]).split()[0]
-                    update.message.reply_text(get_translation("Промокод успешно активирован", lang), reply_markup=InlineKeyboardMarkup([[
-                        InlineKeyboardButton("🔙", callback_data="back::start"),
-                        InlineKeyboardButton("🏡", callback_data="::home::")
-                    ]]))
-                    dump(s, open("promocodes.json", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
+                print("dhawuidha")
+                try:
+                    if datetime.strptime(s[text]["expiration_date"], '%Y-%m-%d').date() < date.today():
+                        print("dwadw")
+                        update.message.reply_text(get_translation("У промокода истёк срок действия.", lang),
+                                                  reply_markup=InlineKeyboardMarkup([[
+                                                      InlineKeyboardButton("🔙", callback_data="back::start"),
+                                                      InlineKeyboardButton("🏡", callback_data="::home::")
+                                                  ]]))
+                    elif text in context.user_data[uid]["promocodes"]:
+                        print("kpop")
+                        update.message.reply_text(get_translation("Вы уже вводили этот промокод", lang),
+                                                 reply_markup=InlineKeyboardMarkup([[
+                                                     InlineKeyboardButton("🔙", callback_data="back::start"),
+                                                     InlineKeyboardButton("🏡", callback_data="::home::")
+                                                 ]]))
+                    else:
+                        print("dhawuidha")
+                        context.user_data[uid]["state"] = "pending"
+                        s[text]["activated"] += 1
+                        context.user_data["stats"]["admin"]["promocode_usage_count"] += 1
+                        context.user_data[uid]["promocodes"].append(text)
+                        print(context.user_data[uid]["promocodes"])
+                        if context.user_data[admin_id][uid]["subscription_end"] != -1:
+                            context.user_data[admin_id][uid]["subscription_end"] = str(datetime.strptime(context.user_data[admin_id][uid]["subscription_end"], ('%Y-%m-%d' if len(context.user_data[admin_id][uid]["subscription_end"].split()) == 1 else "%Y-%m-%d %H:%M:%S.%f")) + t[s[text]["duration"]]).split()[0]
+                        update.message.reply_text(get_translation("Промокод успешно активирован", lang), reply_markup=InlineKeyboardMarkup([[
+                            InlineKeyboardButton("🔙", callback_data="back::start"),
+                            InlineKeyboardButton("🏡", callback_data="::home::")
+                        ]]))
+                        dump(s, open("promocodes.json", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
+                except Exception as e:
+                    print(e)
     elif context.user_data[uid]["state"] == "ref":
         rfid = update.message.text.strip("@")
         with open("users.json", encoding="utf-8") as f:
@@ -2022,11 +2030,18 @@ def send_stats_user(bot, uid):
     with open("dumpp.json", encoding="utf-8") as f:
         print("stats")
         s = load(f)
-        if not (s[admin_id][uid]["subscription_end"] == -1 or datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d').date() >= datetime.now()):
+        if not (s[admin_id][uid]["subscription_end"] == -1 or datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d').date() >= date.today()):
             try:
                 if s[uid]["bot_list"].index(str(bot.id)) != 0:
                     return
             except Exception:
+                return
+        with open("muted_chats.json", encoding="utf-8") as f:
+            muted = load(f)[uid]
+            for i in muted:
+                if not muted[i]["muted"]:
+                    break
+            else:
                 return
         sheet_link = s[uid]["sheet"]
         lang = s[admin_id][uid]["lang"]
@@ -2050,8 +2065,6 @@ def send_stats_user(bot, uid):
                 InlineKeyboardButton("🏡", callback_data="::home::")
             ]]))
             return
-        with open("muted_chats.json", encoding="utf-8") as f:
-            muted = load(f)[uid]
         for i in sh.worksheets():
             if f"{get_translation('Ответы', lang)}_" in i.title and "(@" in i.title:
                 #print(1)
@@ -2175,7 +2188,7 @@ def dump_admin():
                 #print(uid)
                 try:
                     bot_list = ', '.join(["@" + bots[i].username for i in s[uid]["bot_list"] if i != admin_id])
-                    plan = "Платный" if (s[admin_id][uid]["subscription_end"] == -1 or datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d').date() >= datetime.now()) else "Бесплатный"
+                    plan = "Платный" if (s[admin_id][uid]["subscription_end"] == -1 or datetime.strptime(s[admin_id][uid]["subscription_end"], '%Y-%m-%d').date() >= date.today()) else "Бесплатный"
                     payments = [s[uid]['checkouts_sum']['EUR'], s[uid]['checkouts_sum']['RUB'], s[uid]['checkouts_sum']['USD']]
                     promocodes = ", ".join(s[uid]['promocodes'])
                     referrals = []
@@ -2311,7 +2324,7 @@ def main():
     while True:
         try:
             print(datetime.now())
-            print(schedule.jobs)
+            #print(schedule.jobs)
             for i in schedule.jobs:
                 try:
                     if i.should_run:

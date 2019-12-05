@@ -31,7 +31,12 @@
     },
     "VLADKOZACH1": {
         "duration": "1months",
+        "activated": 3,
+        "expiration_date": "2019-11-09"
+    },
+    "friendz": {
+        "duration": "3months",
         "activated": 0,
-        "expiration_date": "2019-11-08"
+        "expiration_date": "2019-12-31"
     }
 }
