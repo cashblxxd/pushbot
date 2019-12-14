@@ -1888,7 +1888,7 @@ def texter(update, context):
     elif context.user_data[uid]['state'] == "token":
         text = update.message.text
         print("recved", text)
-        if len(text.split(":")) != 2 or len(text) != 45 or not text.split(":")[0].isdigit():
+        if len(text.split(":")) != 2 or not text.split(":")[0].isdigit():
             update.message.reply_text(get_translation("Неверный API токен. Попробуйте ещё раз", lang), reply_markup=InlineKeyboardMarkup([[
                             InlineKeyboardButton("🔙", callback_data="back::referrer"),
                             InlineKeyboardButton("🏡", callback_data="::home::")
@@ -2053,18 +2053,7 @@ def send_stats_user(bot, uid):
             'client_secret.json', scope)
         gc = gspread.authorize(credentials)
         sh = gc.open_by_url(sheet_link)
-        try:
-            print(uid, get_translation("Ежедневная статистика, присылаемая администратору бота", lang))
-            bot.send_message(uid, get_translation("Ежедневная статистика, присылаемая администратору бота", lang), reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("🏡", callback_data="::home::")
-            ]]))
-        except Exception as e:
-            bots[admin_id].send_message(uid, get_translation("Пожалуйста, напишите клиентскому боту ",
-                                                             lang) + f"@{bot.username}" + get_translation(
-                " без этого он не сможет отправить Вам статистику"), reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("🏡", callback_data="::home::")
-            ]]))
-            return
+        lst = []
         for i in sh.worksheets():
             if f"{get_translation('Ответы', lang)}_" in i.title and "(@" in i.title:
                 #print(1)
@@ -2082,9 +2071,7 @@ def send_stats_user(bot, uid):
                         if not mtd:
                             a = '\n'.join([f"{keys[i]}: {vals[i]}" for i in range(min(len(keys), len(vals)))])
                             try:
-                                bot.send_message(uid, a, reply_markup=InlineKeyboardMarkup([[
-                                    InlineKeyboardButton("🏡", callback_data="::home::")
-                                ]]))
+                                lst.append((uid, a))
                             except Exception as e:
                                 bots[admin_id].send_message(uid, get_translation("Пожалуйста, напишите клиентскому боту ", lang) + f"@{bot.username}" + get_translation(" без этого он не сможет отправить Вам статистику"), reply_markup=InlineKeyboardMarkup([[
                                     InlineKeyboardButton("🏡", callback_data="::home::")
@@ -2092,6 +2079,24 @@ def send_stats_user(bot, uid):
                                 return
                 except Exception as e:
                     print(e)
+        if lst:
+            try:
+                print(uid, get_translation("Ежедневная статистика, присылаемая администратору бота", lang))
+                bot.send_message(uid, get_translation("Ежедневная статистика, присылаемая администратору бота", lang),
+                                 reply_markup=InlineKeyboardMarkup([[
+                                     InlineKeyboardButton("🏡", callback_data="::home::")
+                                 ]]))
+                for uid, a in lst:
+                    bot.send_message(uid, a, reply_markup=InlineKeyboardMarkup([[
+                        InlineKeyboardButton("🏡", callback_data="::home::")
+                    ]]))
+            except Exception as e:
+                bots[admin_id].send_message(uid, get_translation("Пожалуйста, напишите клиентскому боту ",
+                                                                 lang) + f"@{bot.username}" + get_translation(
+                    " без этого он не сможет отправить Вам статистику"), reply_markup=InlineKeyboardMarkup([[
+                    InlineKeyboardButton("🏡", callback_data="::home::")
+                ]]))
+                return
 
 
 def add_bot(token, from_main=False, uid=""):
@@ -2338,6 +2343,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
 
