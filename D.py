@@ -240,10 +240,12 @@ def commit(update, context, type):
     if bot_id not in user_data:
         user_data[bot_id] = {"owner": "", "chat_list": {}}
         notbot = True
+    newusr = False
     if type == "message" or type == "command":
         uid = str(update.message.from_user.id)
         if uid not in user_data[bot_id]:
             user_data[bot_id][uid] = {"id": 0, "state": "pending", "subscription_end": str(datetime.now()).split()[0], "lang": "ru", "referrer": "", "referrals": {}, "task_bot": admin_id}
+            newusr = True
         if uid not in user_data:
             user_data[uid] = {"bot_list": [], "state": "pending", "sheet": "", "date_registered": str(date.today()), "promocodes": [], "checkouts_count": 0, "checkouts_sum": {"EUR": 0, "RUB": 0, "USD": 0}, "timezone": 0}
         if not user_data[bot_id]["owner"]:
@@ -1899,7 +1901,7 @@ def texter(update, context):
             print(bid, bid not in context.user_data[uid]['bot_list'], context.user_data[uid]['bot_list'])
             if len(context.user_data[uid]['bot_list']) == 0:
                 if context.user_data[admin_id][uid]["subscription_end"] != -1:
-                    context.user_data[admin_id][uid]["subscription_end"] = str(datetime.strptime(context.user_data[admin_id][uid]["subscription_end"], ('%Y-%m-%d' if len(context.user_data[admin_id][uid]["subscription_end"].split()) == 1 else "%Y-%m-%d %H:%M:%S.%f")) + relativedelta(weeks=1)).split()[0]
+                    context.user_data[admin_id][uid]["subscription_end"] = str(datetime.strptime(context.user_data[admin_id][uid]["subscription_end"], ('%Y-%m-%d' if len(context.user_data[admin_id][uid]["subscription_end"].split()) == 1 else "%Y-%m-%d %H:%M:%S.%f")) + relativedelta(months=2)).split()[0]
             if bid not in context.user_data[uid]['bot_list']:
                 context.user_data[uid]['bot_list'].append(bid)
             #pprint(context.user_data)
@@ -1915,6 +1917,11 @@ def texter(update, context):
                 d = get_translation(d, lang)
             update.message.reply_text(d)
             update.message.reply_text(get_translation("Теперь создадим запрос\nПросто зайдите в пункт меню “Добавить задачу” и там все поймете.", lang), reply_markup=get_menu(lang, str(update.message.chat_id) in admin_user_id))
+            update.message.reply_text(get_translation(
+                "Кроме того, мы дали вам 2 месяца бесплатного безлимитного доступа. Пользуйтесь на здоровье😊",
+                lang), reply_markup=InlineKeyboardMarkup([[
+                            InlineKeyboardButton("🏡", callback_data="::home::")
+                        ]]))
             print("complete", bid, context.user_data[uid]['bot_list'])
     try:
         context.user_data = commit(update, context, "message")
@@ -2343,6 +2350,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
 

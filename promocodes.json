@@ -38,5 +38,10 @@
         "duration": "3months",
         "activated": 0,
         "expiration_date": "2019-12-31"
+    },
+    "2MES": {
+        "duration": "2months",
+        "activated": 0,
+        "expiration_date": "2020-03-31"
     }
 }
