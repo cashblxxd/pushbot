@@ -5927,3 +5927,139 @@ Thu Jan 16 16:38:01 MSK 2020
 22323 pts/1    00:00:43 python3
 22929 pts/1    00:00:51 python3
 Thu Jan 16 17:38:02 MSK 2020
+25195 pts/1    00:01:18 python3 <defunct>
+Thu Jan 16 18:38:01 MSK 2020
+28586 ?        00:18:32 python3
+Thu Jan 16 19:38:01 MSK 2020
+29358 ?        00:00:58 python3 <defunct>
+Thu Jan 16 20:38:01 MSK 2020
+30547 ?        00:00:57 python3 <defunct>
+Thu Jan 16 21:38:01 MSK 2020
+31773 ?        00:00:57 python3 <defunct>
+Thu Jan 16 22:38:01 MSK 2020
+ 2062 pts/0    00:00:04 python3 <defunct>
+Thu Jan 16 23:38:01 MSK 2020
+ 3006 pts/0    00:01:25 python3
+Fri Jan 17 00:38:01 MSK 2020
+ 4197 ?        00:01:25 python3
+Fri Jan 17 01:38:02 MSK 2020
+ 5456 ?        00:01:06 python3
+Fri Jan 17 02:38:01 MSK 2020
+ 6751 ?        00:01:02 python3
+Fri Jan 17 03:38:01 MSK 2020
+ 8006 ?        00:01:09 python3
+Fri Jan 17 04:38:01 MSK 2020
+ 9261 ?        00:01:05 python3
+Fri Jan 17 05:38:01 MSK 2020
+10499 ?        00:01:06 python3
+Fri Jan 17 06:38:01 MSK 2020
+11784 ?        00:01:08 python3
+Fri Jan 17 07:38:01 MSK 2020
+13036 ?        00:01:16 python3
+Fri Jan 17 08:38:01 MSK 2020
+14247 ?        00:01:17 python3 <defunct>
+Fri Jan 17 09:38:01 MSK 2020
+15522 ?        00:01:34 python3 <defunct>
+Fri Jan 17 10:38:01 MSK 2020
+16775 ?        00:01:33 python3
+Fri Jan 17 11:38:01 MSK 2020
+18072 ?        00:01:53 python3
+Fri Jan 17 12:38:01 MSK 2020
+19333 ?        00:01:57 python3 <defunct>
+Fri Jan 17 13:38:01 MSK 2020
+20649 ?        00:04:05 python3
+Fri Jan 17 14:38:01 MSK 2020
+21983 ?        00:01:33 python3
+Fri Jan 17 15:38:01 MSK 2020
+23312 ?        00:01:29 python3
+Fri Jan 17 16:38:01 MSK 2020
+24639 ?        00:01:25 python3
+Fri Jan 17 17:38:01 MSK 2020
+26398 ?        00:01:45 python3
+Fri Jan 17 18:38:01 MSK 2020
+28640 ?        00:01:08 python3 <defunct>
+Fri Jan 17 19:38:01 MSK 2020
+29987 ?        00:01:10 python3 <defunct>
+Fri Jan 17 20:38:01 MSK 2020
+31369 ?        00:01:11 python3 <defunct>
+Fri Jan 17 21:38:01 MSK 2020
+32751 ?        00:01:10 python3 <defunct>
+Fri Jan 17 22:38:01 MSK 2020
+ 1675 ?        00:01:11 python3 <defunct>
+Fri Jan 17 23:38:01 MSK 2020
+ 5386 pts/0    00:00:10 python3
+Sat Jan 18 00:38:02 MSK 2020
+ 6025 ?        00:01:20 python3
+Sat Jan 18 01:38:01 MSK 2020
+ 7401 ?        00:01:15 python3
+Sat Jan 18 02:38:01 MSK 2020
+ 9154 ?        00:01:02 python3
+Sat Jan 18 03:38:01 MSK 2020
+10503 ?        00:00:57 python3
+Sat Jan 18 04:38:01 MSK 2020
+11859 ?        00:00:59 python3
+Sat Jan 18 05:38:01 MSK 2020
+13222 ?        00:00:58 python3
+Sat Jan 18 06:38:01 MSK 2020
+14600 ?        00:01:05 python3
+Sat Jan 18 07:38:01 MSK 2020
+16030 ?        00:01:01 python3
+Sat Jan 18 08:38:01 MSK 2020
+17394 ?        00:01:04 python3
+Sat Jan 18 09:38:02 MSK 2020
+18827 ?        00:01:03 python3 <defunct>
+Sat Jan 18 10:38:01 MSK 2020
+20298 ?        00:01:20 python3
+Sat Jan 18 11:38:01 MSK 2020
+21681 ?        00:01:08 python3
+Sat Jan 18 12:38:01 MSK 2020
+23107 ?        00:01:03 python3
+Sat Jan 18 13:38:01 MSK 2020
+24508 ?        00:01:20 python3 <defunct>
+Sat Jan 18 14:38:01 MSK 2020
+25925 ?        00:01:09 python3 <defunct>
+Sat Jan 18 15:38:01 MSK 2020
+27374 ?        00:01:14 python3
+Sat Jan 18 16:38:01 MSK 2020
+28755 ?        00:01:10 python3
+Sat Jan 18 17:38:01 MSK 2020
+30144 ?        00:01:16 python3
+Sat Jan 18 18:38:01 MSK 2020
+31510 ?        00:01:05 python3
+Sat Jan 18 19:38:01 MSK 2020
+  436 ?        00:01:22 python3 <defunct>
+Sat Jan 18 20:38:01 MSK 2020
+ 1851 ?        00:02:17 python3
+Sat Jan 18 21:38:01 MSK 2020
+ 3297 ?        00:01:57 python3
+Sat Jan 18 22:38:01 MSK 2020
+ 4767 ?        00:04:16 python3
+Sat Jan 18 23:38:01 MSK 2020
+ 6276 ?        00:01:24 python3
+Sun Jan 19 00:38:02 MSK 2020
+ 8167 ?        00:01:30 python3
+Sun Jan 19 01:38:01 MSK 2020
+ 9660 ?        00:01:17 python3
+Sun Jan 19 02:38:01 MSK 2020
+11172 ?        00:01:33 python3
+Sun Jan 19 03:38:01 MSK 2020
+12713 ?        00:01:14 python3
+Sun Jan 19 04:38:01 MSK 2020
+14305 ?        00:01:15 python3
+Sun Jan 19 05:38:02 MSK 2020
+15810 ?        00:01:14 python3
+Sun Jan 19 06:38:01 MSK 2020
+17277 ?        00:01:21 python3
+Sun Jan 19 07:38:01 MSK 2020
+18847 ?        00:01:16 python3
+Sun Jan 19 08:38:01 MSK 2020
+20328 ?        00:01:16 python3
+Sun Jan 19 09:38:01 MSK 2020
+21886 ?        00:01:26 python3
+Sun Jan 19 10:38:01 MSK 2020
+23423 ?        00:01:35 python3
+Sun Jan 19 11:38:01 MSK 2020
+25021 ?        00:01:29 python3
+Sun Jan 19 12:38:01 MSK 2020
+26545 ?        00:01:46 python3
+Sun Jan 19 13:38:01 MSK 2020

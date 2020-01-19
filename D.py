@@ -523,9 +523,11 @@ def update_admin_stats(update=0, context=0, type=0, data=0):
                         requests_sent_usr[uid].append(i)
             s["requests_sent_usr"] = requests_sent_usr
             for uid in s["requests_created_usr"]:
-                context.user_data["stats"][uid]["requests_created"] = len(s["requests_created_usr"][uid])
+                if uid in context.user_data["stats"] and uid in s["requests_created_usr"]:
+                    context.user_data["stats"][uid]["requests_created"] = len(s["requests_created_usr"][uid])
             for uid in s["requests_sent_usr"]:
-                context.user_data["stats"][uid]["requests_sent"] = len(s["requests_sent_usr"][uid])
+                if uid in context.user_data["stats"] and uid in s["requests_created_usr"]:
+                    context.user_data["stats"][uid]["requests_sent"] = len(s["requests_sent_usr"][uid])
         dump(s, open("request.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
         return context.user_data
     elif type == 1:
@@ -838,7 +840,7 @@ def button(update, context):
                             except Exception as e:
                                 print(s[i])
                                 print(e)
-                            keyboard.append([InlineKeyboardButton(p, callback_data="send_message::" + s[i])])
+                            keyboard.append()
                 update.callback_query.edit_message_text(get_translation('Выберите чат:', lang),
                                           reply_markup=InlineKeyboardMarkup(keyboard))
             elif data == "admin::create_promocode":
@@ -852,6 +854,14 @@ def button(update, context):
                             [InlineKeyboardButton("3 месяца", callback_data="promocode::3months")],
                             ]
                 update.callback_query.edit_message_text("Промокоды", reply_markup=InlineKeyboardMarkup(keyboard))
+            elif data == "admin::pall":
+                context.user_data[uid]["state"] = "send_message::all"
+                update.callback_query.edit_message_text(get_translation("Введите текст сообщения", lang),
+                                                        reply_markup=InlineKeyboardMarkup([[
+                                                            InlineKeyboardButton("🔙",
+                                                                                 callback_data="back::send_message"),
+                                                            InlineKeyboardButton("🏡", callback_data="::home::")
+                                                        ]]))
         elif data.startswith("promocode::"):
             if data == "promocode::list":
                 a = []
@@ -1235,7 +1245,7 @@ def button(update, context):
                     InlineKeyboardButton("📝", callback_data="admin::gtable"),
                     InlineKeyboardButton("📢", callback_data="admin::post"),
                     InlineKeyboardButton("🏡", callback_data="::home::")
-                ]]))
+                ], [InlineKeyboardButton("СООБЩЕНИЕ ВСЕМ", callback_data="admin::pall")]]))
             elif data.startswith("menu::message::"):
                 bot_idt = data.strip("menu::message::")
                 if bot_idt == admin_id:
@@ -2350,6 +2360,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
 

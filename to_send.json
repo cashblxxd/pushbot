@@ -1,3 +1,33 @@
 {
-    "to_send": []
+    "to_send": [
+        [
+            {
+                "chat_id": "-327999899",
+                "state": "running",
+                "id": "0",
+                "desc": "Привет! Скажи мне, что ты сделала для проекта за эту неделю? Let's rock it!🚀🚀🚀",
+                "frequency": "custom_week_days",
+                "selected_week": [
+                    "mo_week"
+                ],
+                "selected_hr": "11",
+                "selected_min": "00",
+                "end_date": "2020-12-31"
+            },
+            "220142491"
+        ],
+        [
+            {
+                "chat_id": "-269634898",
+                "state": "running",
+                "id": "0",
+                "desc": "Вечер в хату",
+                "date": "2020-01-17",
+                "selected_hr": "01",
+                "selected_min": "00",
+                "end_date": "2020-01-17"
+            },
+            "278387919"
+        ]
+    ]
 }
