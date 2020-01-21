@@ -28,6 +28,32 @@
                 "end_date": "2020-01-17"
             },
             "278387919"
+        ],
+        [
+            {
+                "chat_id": "-354621471",
+                "state": "running",
+                "id": "0",
+                "date": "2020-01-20",
+                "frequency": "seven_days",
+                "selected_hr": "19",
+                "selected_min": "00",
+                "end_date": "2020-02-07"
+            },
+            "129575011"
+        ],
+        [
+            {
+                "chat_id": "-333078647",
+                "state": "running",
+                "id": "0",
+                "desc": "Проверка",
+                "frequency": "each_days",
+                "selected_hr": "20",
+                "selected_min": "30",
+                "end_date": "2020-01-31"
+            },
+            "918744020"
         ]
     ]
 }

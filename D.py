@@ -1029,9 +1029,12 @@ def button(update, context):
                 for i in context.user_data[uid]["bot_list"]:
                     if i == admin_id:
                         continue
-                    c = bots[i]
-                    keyboard.append(
-                        [InlineKeyboardButton(f"{c.first_name} (@{c.username})", callback_data=f"add_task::{i}")])
+                    try:
+                        c = bots[i]
+                        keyboard.append(
+                            [InlineKeyboardButton(f"{c.first_name} (@{c.username})", callback_data=f"add_task::{i}")])
+                    except Exception:
+                        continue
                 keyboard.append([InlineKeyboardButton(get_translation("Добавить бота🖥️", lang),
                                                       callback_data="menu::add_bot::from_task")])
                 update.callback_query.edit_message_text(get_translation("Выберите бота", lang),
@@ -1045,8 +1048,11 @@ def button(update, context):
                     for i in context.user_data[uid]["bot_list"]:
                         if i == admin_id:
                             continue
-                        data = bots[i]
-                        a.append([InlineKeyboardButton(f"{data.first_name} @{data.username}", callback_data=f"menu::messages::{i}")])
+                        try:
+                            data = bots[i]
+                            a.append([InlineKeyboardButton(f"{data.first_name} @{data.username}", callback_data=f"menu::messages::{i}")])
+                        except Exception:
+                            continue
                     a.append([InlineKeyboardButton(get_translation("Добавить бота🖥️", lang),
                                                    callback_data="menu::add_bot::from_bots")])
                     if len(a) == 2:
@@ -1063,9 +1069,12 @@ def button(update, context):
                     for i in context.user_data[uid]["bot_list"]:
                         if i == admin_id:
                             continue
-                        c = bots[i]
-                        keyboard.append(
-                            [InlineKeyboardButton(f"{c.first_name} (@{c.username})", callback_data=f"add_task::{i}")])
+                        try:
+                            c = bots[i]
+                            keyboard.append(
+                                [InlineKeyboardButton(f"{c.first_name} (@{c.username})", callback_data=f"add_task::{i}")])
+                        except Exception:
+                            continue
                     keyboard.append([InlineKeyboardButton(get_translation("Добавить бота🖥️", lang),
                                                           callback_data="menu::add_bot::from_task")])
                     update.callback_query.edit_message_text(get_translation("Выберите бота", lang),
@@ -1082,9 +1091,12 @@ def button(update, context):
                 for i in context.user_data[uid]["bot_list"]:
                     if i == admin_id:
                         continue
-                    c = bots[i]
-                    keyboard.append(
-                        [InlineKeyboardButton(f"{c.first_name} (@{c.username})", callback_data=f"add_task::{i}")])
+                    try:
+                        c = bots[i]
+                        keyboard.append(
+                            [InlineKeyboardButton(f"{c.first_name} (@{c.username})", callback_data=f"add_task::{i}")])
+                    except Exception:
+                        continue
                 keyboard.append([InlineKeyboardButton(get_translation("Добавить бота🖥️", lang),
                                                       callback_data="menu::add_bot::from_task")])
                 update.callback_query.edit_message_text(get_translation("Выберите бота", lang),
@@ -1095,8 +1107,11 @@ def button(update, context):
                 for i in context.user_data[uid]["bot_list"]:
                     if i == admin_id:
                         continue
-                    data = bots[i]
-                    a.append([InlineKeyboardButton(f"{data.first_name} @{data.username}", callback_data=f"menu::messages::{i}")])
+                    try:
+                        data = bots[i]
+                        a.append([InlineKeyboardButton(f"{data.first_name} @{data.username}", callback_data=f"menu::messages::{i}")])
+                    except Exception:
+                        continue
                 a.append([InlineKeyboardButton(get_translation("Добавить бота🖥️", lang),
                                                callback_data="menu::add_bot::from_bots")])
                 if len(a) == 2:
@@ -1420,8 +1435,12 @@ def button(update, context):
                 for i in context.user_data[uid]["bot_list"]:
                     if i == admin_id:
                         continue
-                    data = bots[i]
-                    a.append([InlineKeyboardButton(f"{data.first_name} @{data.username}", callback_data=f"menu::messages::{i}")])
+                    try:
+                        data = bots[i]
+                        a.append([InlineKeyboardButton(f"{data.first_name} @{data.username}",
+                                                       callback_data=f"menu::messages::{i}")])
+                    except Exception:
+                        continue
                 a.append([InlineKeyboardButton(get_translation("Добавить бота🖥️", lang), callback_data="menu::add_bot::from_my_bots")])
                 if len(a) == 2:
                     update.callback_query.edit_message_text(get_translation("Ботов пока нет", lang), reply_markup=InlineKeyboardMarkup(a))
@@ -1455,8 +1474,12 @@ def button(update, context):
                 for i in context.user_data[uid]["bot_list"]:
                     if i == admin_id:
                         continue
-                    c = bots[i]
-                    keyboard.append([InlineKeyboardButton(f"{c.first_name} (@{c.username})", callback_data=f"add_task::{i}")])
+                    try:
+                        c = bots[i]
+                        keyboard.append(
+                            [InlineKeyboardButton(f"{c.first_name} (@{c.username})", callback_data=f"add_task::{i}")])
+                    except Exception:
+                        continue
                 keyboard.append([InlineKeyboardButton(get_translation("Добавить бота🖥️", lang), callback_data="menu::add_bot::from_task")])
                 update.callback_query.edit_message_text(get_translation("Выберите бота", lang), reply_markup=InlineKeyboardMarkup(keyboard))
         elif data.startswith("add_task::"):
