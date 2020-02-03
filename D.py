@@ -572,9 +572,23 @@ def update_admin_stats(update=0, context=0, type=0, data=0):
                         requests_sent_usr[uid].append(i)
             s["requests_sent_usr"] = requests_sent_usr
             for uid in s["requests_created_usr"]:
+                if uid not in s["requests_created_usr"]:
+                    s["requests_created_usr"][uid] = []
+                if uid not in data["stats"]:
+                    data["stats"][uid] = {
+                        "requests_created": 0,
+                        "requests_sent": 0
+                    }
                 data["stats"][uid]["requests_created"] = len(s["requests_created_usr"][uid])
             for uid in s["requests_sent_usr"]:
-                data["stats"][uid]["requests_sent"] = len(s["requests_sent_usr"][uid])
+                if uid not in s["requests_sent_usr"]:
+                    s["requests_sent_usr"][uid] = []
+                if uid not in data["stats"]:
+                    data["stats"][uid] = {
+                        "requests_created": 0,
+                        "requests_sent": 0
+                    }
+                data["stats"][uid]["requests_sent"] = len(s["requests_sent_usr"].get(uid, []))
         dump(s, open("request.log", "w+", encoding="utf-8"), ensure_ascii=False, indent=4)
         print("success")
         return data
@@ -2390,7 +2404,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    #main()
+    dump_admin()
 
 
 
