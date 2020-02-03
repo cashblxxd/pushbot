@@ -33,7 +33,7 @@ def get_tz():
 
 
 bots = {}
-admin_gspread_link = "https://docs.google.com/spreadsheets/d/1UxPtaJDXWsxtd5EpICIFIe0m_lu5wSt5FPNWPR3Gmgk/edit?usp=sharing"
+admin_gspread_link = "https://docs.google.com/spreadsheets/d/1jrXY8SonICCcK9g5HLuOWvWVDf1owyrWGRgMld_sOqA/edit#gid=0"
 with open("client_secret.json", encoding="utf-8") as f:
     s = load(f)
     GSPREAD_ACCOUNT_EMAIL = s["client_email"]
@@ -358,8 +358,13 @@ admin_user_id = ["640028321", "106052"]
 
 
 def load_db():
-    with open('dumpp.json', 'r+', encoding='utf-8') as f:
-        return load(f)
+    try:
+        with open('dumpp.json', 'r+', encoding='utf-8') as f:
+            return load(f)
+    except Exception:
+        from shutil import copy2
+        copy2("copydump.json", "dumpp.json")
+        return load_db()
 
 
 def dump_db(context):
@@ -438,24 +443,27 @@ def error(update, context):
 
 
 def new_chat(update, context):
-    context.user_data = commit(update, context, "message")
-    uid = str(update.message.from_user.id)
-    bot_id = str(context.bot.id)
-    lang = context.user_data[admin_id][uid]["lang"]
-    if str(update.message.new_chat_members[0].id) == bot_id:
-        print(bot_id)
-        context.user_data[bot_id]["chat_list"][update.message.chat_id] = {
-            'title': update.message.chat.title
-        }
-        pprint(context.user_data[bot_id])
-        with open("muted_chats.json", encoding="utf-8") as f:
-            s = load(f)
-            if str(update.message.chat_id) not in s[context.user_data[bot_id]["owner"]]:
-                s[context.user_data[bot_id]["owner"]][str(update.message.chat_id)] = {'title': update.message.chat.title, 'muted': 0}
-            dump(s, open('muted_chats.json', 'w+', encoding='utf-8'), ensure_ascii=False, indent=4)
-        print(bot_id)
+    try:
         context.user_data = commit(update, context, "message")
-        pprint(context.user_data[bot_id])
+        uid = str(update.message.from_user.id)
+        bot_id = str(context.bot.id)
+        lang = context.user_data[admin_id][uid]["lang"]
+        if str(update.message.new_chat_members[0].id) == bot_id:
+            print(bot_id)
+            context.user_data[bot_id]["chat_list"][update.message.chat_id] = {
+                'title': update.message.chat.title
+            }
+            pprint(context.user_data[bot_id])
+            with open("muted_chats.json", encoding="utf-8") as f:
+                s = load(f)
+                if str(update.message.chat_id) not in s[context.user_data[bot_id]["owner"]]:
+                    s[context.user_data[bot_id]["owner"]][str(update.message.chat_id)] = {'title': update.message.chat.title, 'muted': 0}
+                dump(s, open('muted_chats.json', 'w+', encoding='utf-8'), ensure_ascii=False, indent=4)
+            print(bot_id)
+            context.user_data = commit(update, context, "message")
+            pprint(context.user_data[bot_id])
+    except Exception:
+        print(e)
 
 
 def check_subscription(update, context, type):
@@ -1897,19 +1905,19 @@ def texter(update, context):
                 for i in s:
                     if s[i] != "106052":
                         try:
-                            bots[admin_id].send_message(i, update.message.text, reply_markup=InlineKeyboardMarkup([[
+                            bots[admin_id].send_message(s[i], update.message.text, reply_markup=InlineKeyboardMarkup([[
                                                             InlineKeyboardButton("🏡", callback_data="::home::")
                                                         ]]))
+                            print(i, "sent")
                         except Exception as e:
+                            print(e)
                             pass
-                            #print(e)
         else:
             try:
                 bots[admin_id].send_message(data.lstrip('send_message::'), update.message.text, reply_markup=InlineKeyboardMarkup([[
                                                         InlineKeyboardButton("🏡", callback_data="::home::")
                                                     ]]))
             except Exception as e:
-                pass
                 print(e)
         update.message.reply_text(get_translation("Рассылка прошла успешно", lang),
                                   reply_markup=InlineKeyboardMarkup([[
@@ -2324,7 +2332,7 @@ def main():
     if not res["allowed"]:
         return
     with open("tokens.json") as f:
-        s = eval(f.read())
+        s = load(f)
         #print(s)
         for i in s:
             #print(i)
@@ -2383,6 +2391,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
 
