@@ -6788,3 +6788,879 @@ Mon Feb 3 14:38:01 MSK 2020
 Mon Feb 3 15:38:01 MSK 2020
 27338 ?        00:01:45 python3
 Mon Feb 3 16:38:01 MSK 2020
+32323 pts/0    00:00:49 python3
+Mon Feb 3 17:38:01 MSK 2020
+Mon Feb 3 18:38:01 MSK 2020
+Mon Feb 3 19:38:01 MSK 2020
+ 3865 ?        00:00:58 python3
+Mon Feb 3 20:38:01 MSK 2020
+ 5324 ?        00:01:57 python3
+Mon Feb 3 21:38:01 MSK 2020
+ 7282 ?        00:01:46 python3
+Mon Feb 3 22:38:01 MSK 2020
+ 9204 ?        00:05:50 python3
+Mon Feb 3 23:38:01 MSK 2020
+11093 ?        00:01:45 python3
+Tue Feb 4 00:38:01 MSK 2020
+13003 ?        00:01:45 python3
+Tue Feb 4 01:38:01 MSK 2020
+14889 ?        00:01:46 python3
+Tue Feb 4 02:38:01 MSK 2020
+16819 ?        00:01:44 python3
+Tue Feb 4 03:38:01 MSK 2020
+19108 ?        00:01:44 python3
+Tue Feb 4 04:38:01 MSK 2020
+21024 ?        00:01:44 python3
+Tue Feb 4 05:38:01 MSK 2020
+22901 ?        00:01:44 python3
+Tue Feb 4 06:38:01 MSK 2020
+24859 ?        00:01:42 python3
+Tue Feb 4 07:38:01 MSK 2020
+26753 ?        00:01:39 python3
+Tue Feb 4 08:38:01 MSK 2020
+28669 ?        00:01:41 python3
+Tue Feb 4 09:38:01 MSK 2020
+30605 ?        00:01:46 python3
+Tue Feb 4 10:38:01 MSK 2020
+32512 ?        00:01:48 python3
+Tue Feb 4 11:38:01 MSK 2020
+ 1987 ?        00:01:58 python3
+Tue Feb 4 12:38:01 MSK 2020
+ 3859 ?        00:01:47 python3
+Tue Feb 4 13:38:01 MSK 2020
+ 5771 ?        00:02:37 python3
+Tue Feb 4 14:38:01 MSK 2020
+ 7634 ?        00:01:48 python3
+Tue Feb 4 15:38:01 MSK 2020
+ 9579 ?        00:01:49 python3
+Tue Feb 4 16:38:01 MSK 2020
+11455 ?        00:01:49 python3
+Tue Feb 4 17:38:01 MSK 2020
+13419 ?        00:01:50 python3
+Tue Feb 4 18:38:01 MSK 2020
+15329 ?        00:01:49 python3
+Tue Feb 4 19:38:01 MSK 2020
+17192 ?        00:02:15 python3
+Tue Feb 4 20:38:01 MSK 2020
+19114 ?        00:01:58 python3
+Tue Feb 4 21:38:01 MSK 2020
+21014 ?        00:01:49 python3
+Tue Feb 4 22:38:01 MSK 2020
+22922 ?        00:05:58 python3
+Tue Feb 4 23:38:01 MSK 2020
+24970 ?        00:01:47 python3
+Wed Feb 5 00:38:02 MSK 2020
+26913 ?        00:01:47 python3
+Wed Feb 5 01:38:01 MSK 2020
+28820 ?        00:01:48 python3
+Wed Feb 5 02:38:01 MSK 2020
+30712 ?        00:01:47 python3
+Wed Feb 5 03:38:01 MSK 2020
+32584 ?        00:01:47 python3
+Wed Feb 5 04:38:02 MSK 2020
+ 2054 ?        00:01:48 python3
+Wed Feb 5 05:38:01 MSK 2020
+ 3914 ?        00:01:48 python3
+Wed Feb 5 06:38:01 MSK 2020
+ 6308 ?        00:01:48 python3
+Wed Feb 5 07:38:01 MSK 2020
+ 8224 ?        00:01:47 python3
+Wed Feb 5 08:38:02 MSK 2020
+10135 ?        00:01:46 python3
+Wed Feb 5 09:38:01 MSK 2020
+12079 ?        00:01:48 python3
+Wed Feb 5 10:38:01 MSK 2020
+13971 ?        00:01:48 python3 <defunct>
+Wed Feb 5 11:38:01 MSK 2020
+15938 ?        00:01:48 python3
+Wed Feb 5 12:38:01 MSK 2020
+17820 ?        00:02:07 python3
+Wed Feb 5 13:38:01 MSK 2020
+19722 ?        00:03:21 python3
+Wed Feb 5 14:38:01 MSK 2020
+21596 ?        00:01:48 python3
+Wed Feb 5 15:38:01 MSK 2020
+23503 ?        00:01:52 python3
+Wed Feb 5 16:38:01 MSK 2020
+25396 ?        00:01:47 python3
+Wed Feb 5 17:38:01 MSK 2020
+27363 ?        00:01:55 python3
+Wed Feb 5 18:38:01 MSK 2020
+29299 ?        00:01:56 python3
+Wed Feb 5 19:38:01 MSK 2020
+31225 ?        00:02:31 python3
+Wed Feb 5 20:38:01 MSK 2020
+  671 ?        00:02:02 python3
+Wed Feb 5 21:38:01 MSK 2020
+ 2624 ?        00:01:49 python3
+Wed Feb 5 22:38:01 MSK 2020
+ 4488 ?        00:06:03 python3
+Wed Feb 5 23:38:02 MSK 2020
+ 6380 ?        00:01:48 python3
+Thu Feb 6 00:38:01 MSK 2020
+ 8302 ?        00:01:47 python3
+Thu Feb 6 01:38:01 MSK 2020
+10167 ?        00:01:47 python3
+Thu Feb 6 02:38:01 MSK 2020
+12078 ?        00:01:48 python3
+Thu Feb 6 03:38:02 MSK 2020
+14020 ?        00:01:48 python3
+Thu Feb 6 04:38:01 MSK 2020
+15964 ?        00:01:47 python3
+Thu Feb 6 05:38:01 MSK 2020
+17877 ?        00:01:47 python3
+Thu Feb 6 06:38:01 MSK 2020
+19887 ?        00:01:48 python3
+Thu Feb 6 07:38:02 MSK 2020
+21862 ?        00:01:50 python3
+Thu Feb 6 08:38:01 MSK 2020
+23730 ?        00:01:50 python3
+Thu Feb 6 09:38:01 MSK 2020
+25710 ?        00:01:47 python3
+Thu Feb 6 10:38:01 MSK 2020
+27614 ?        00:01:48 python3
+Thu Feb 6 11:38:01 MSK 2020
+29542 ?        00:02:27 python3
+Thu Feb 6 12:38:01 MSK 2020
+31442 ?        00:02:13 python3
+Thu Feb 6 13:38:01 MSK 2020
+  922 ?        00:02:25 python3
+Thu Feb 6 14:38:01 MSK 2020
+ 2858 ?        00:01:55 python3
+Thu Feb 6 15:38:01 MSK 2020
+ 4761 ?        00:01:49 python3
+Thu Feb 6 16:38:01 MSK 2020
+ 6665 ?        00:02:00 python3
+Thu Feb 6 17:38:01 MSK 2020
+ 8987 ?        00:01:47 python3
+Thu Feb 6 18:38:01 MSK 2020
+10890 ?        00:02:00 python3
+Thu Feb 6 19:38:01 MSK 2020
+12851 ?        00:02:08 python3
+Thu Feb 6 20:38:01 MSK 2020
+14838 ?        00:01:59 python3
+Thu Feb 6 21:38:01 MSK 2020
+16748 ?        00:01:49 python3
+Thu Feb 6 22:38:02 MSK 2020
+18628 ?        00:05:50 python3
+Thu Feb 6 23:38:01 MSK 2020
+20526 ?        00:01:48 python3
+Fri Feb 7 00:38:01 MSK 2020
+22456 ?        00:01:48 python3
+Fri Feb 7 01:38:01 MSK 2020
+24340 ?        00:01:49 python3
+Fri Feb 7 02:38:02 MSK 2020
+26293 ?        00:01:52 python3
+Fri Feb 7 03:38:01 MSK 2020
+28181 ?        00:01:52 python3
+Fri Feb 7 04:38:01 MSK 2020
+30072 ?        00:01:50 python3
+Fri Feb 7 05:38:01 MSK 2020
+31980 ?        00:01:51 python3 <defunct>
+Fri Feb 7 06:38:02 MSK 2020
+ 1601 ?        00:01:53 python3
+Fri Feb 7 07:38:01 MSK 2020
+ 3493 ?        00:01:51 python3
+Fri Feb 7 08:38:01 MSK 2020
+ 5431 ?        00:01:53 python3
+Fri Feb 7 09:38:01 MSK 2020
+ 7433 ?        00:01:51 python3
+Fri Feb 7 10:38:01 MSK 2020
+ 9357 ?        00:01:51 python3
+Fri Feb 7 11:38:01 MSK 2020
+11232 ?        00:01:52 python3
+Fri Feb 7 12:38:01 MSK 2020
+13124 ?        00:01:53 python3
+Fri Feb 7 13:38:02 MSK 2020
+15033 ?        00:02:29 python3
+Fri Feb 7 14:38:01 MSK 2020
+17341 ?        00:01:51 python3
+Fri Feb 7 15:38:01 MSK 2020
+19283 ?        00:01:51 python3
+Fri Feb 7 16:38:01 MSK 2020
+21243 ?        00:01:52 python3
+Fri Feb 7 17:38:01 MSK 2020
+23159 ?        00:01:54 python3
+Fri Feb 7 18:38:01 MSK 2020
+25071 ?        00:02:02 python3
+Fri Feb 7 19:38:01 MSK 2020
+27003 ?        00:02:10 python3
+Fri Feb 7 20:38:01 MSK 2020
+28906 ?        00:01:57 python3
+Fri Feb 7 21:38:01 MSK 2020
+30863 ?        00:01:51 python3
+Fri Feb 7 22:38:01 MSK 2020
+  315 ?        00:05:46 python3
+Fri Feb 7 23:38:01 MSK 2020
+ 2280 ?        00:01:48 python3
+Sat Feb 8 00:38:01 MSK 2020
+ 4192 ?        00:01:51 python3
+Sat Feb 8 01:38:01 MSK 2020
+ 6127 ?        00:01:48 python3
+Sat Feb 8 02:38:01 MSK 2020
+ 8039 ?        00:01:48 python3
+Sat Feb 8 03:38:01 MSK 2020
+ 9973 ?        00:01:45 python3
+Sat Feb 8 04:38:01 MSK 2020
+11897 ?        00:01:48 python3
+Sat Feb 8 05:38:01 MSK 2020
+13836 ?        00:02:08 python3 <defunct>
+Sat Feb 8 06:38:01 MSK 2020
+16263 ?        00:01:53 python3
+Sat Feb 8 07:38:01 MSK 2020
+18186 ?        00:01:46 python3
+Sat Feb 8 08:38:01 MSK 2020
+20084 ?        00:01:49 python3
+Sat Feb 8 09:38:01 MSK 2020
+22087 ?        00:01:51 python3
+Sat Feb 8 10:38:01 MSK 2020
+24027 ?        00:01:51 python3
+Sat Feb 8 11:38:01 MSK 2020
+25926 ?        00:02:14 python3
+Sat Feb 8 12:38:02 MSK 2020
+27872 ?        00:02:14 python3 <defunct>
+Sat Feb 8 13:38:01 MSK 2020
+29820 ?        00:04:12 python3
+Sat Feb 8 14:38:01 MSK 2020
+31769 ?        00:02:02 python3
+Sat Feb 8 15:38:01 MSK 2020
+ 1243 ?        00:01:58 python3
+Sat Feb 8 16:38:01 MSK 2020
+ 3140 ?        00:01:46 python3
+Sat Feb 8 17:38:01 MSK 2020
+ 5062 ?        00:01:52 python3
+Sat Feb 8 18:38:01 MSK 2020
+ 6984 ?        00:02:45 python3
+Sat Feb 8 19:38:01 MSK 2020
+ 8898 ?        00:01:52 python3
+Sat Feb 8 20:38:02 MSK 2020
+10831 ?        00:02:01 python3
+Sat Feb 8 21:38:01 MSK 2020
+12797 ?        00:01:53 python3
+Sat Feb 8 22:38:01 MSK 2020
+14733 ?        00:05:43 python3
+Sat Feb 8 23:38:01 MSK 2020
+16637 ?        00:01:47 python3
+Sun Feb 9 00:38:01 MSK 2020
+18621 ?        00:01:48 python3
+Sun Feb 9 01:38:01 MSK 2020
+20540 ?        00:01:47 python3
+Sun Feb 9 02:38:01 MSK 2020
+22473 ?        00:01:47 python3
+Sun Feb 9 03:38:01 MSK 2020
+24357 ?        00:01:47 python3
+Sun Feb 9 04:38:01 MSK 2020
+26691 ?        00:01:46 python3
+Sun Feb 9 05:38:01 MSK 2020
+28686 ?        00:01:55 python3
+Sun Feb 9 06:38:01 MSK 2020
+30595 ?        00:01:51 python3
+Sun Feb 9 07:38:01 MSK 2020
+32618 ?        00:01:53 python3
+Sun Feb 9 08:38:01 MSK 2020
+ 2108 ?        00:02:07 python3
+Sun Feb 9 09:38:01 MSK 2020
+ 4084 ?        00:01:56 python3
+Sun Feb 9 10:38:01 MSK 2020
+ 6075 ?        00:02:05 python3
+Sun Feb 9 11:38:01 MSK 2020
+ 8068 ?        00:02:30 python3
+Sun Feb 9 12:38:01 MSK 2020
+10019 ?        00:02:01 python3
+Sun Feb 9 13:38:01 MSK 2020
+11927 ?        00:02:28 python3
+Sun Feb 9 14:38:01 MSK 2020
+13854 ?        00:01:51 python3
+Sun Feb 9 15:38:01 MSK 2020
+15839 ?        00:01:49 python3
+Sun Feb 9 16:38:01 MSK 2020
+17902 ?        00:01:48 python3
+Sun Feb 9 17:38:01 MSK 2020
+19913 ?        00:01:49 python3
+Sun Feb 9 18:38:01 MSK 2020
+21854 ?        00:02:29 python3
+Sun Feb 9 19:38:01 MSK 2020
+23820 ?        00:01:49 python3
+Sun Feb 9 20:38:01 MSK 2020
+25796 ?        00:02:02 python3
+Sun Feb 9 21:38:01 MSK 2020
+27755 ?        00:02:03 python3
+Sun Feb 9 22:38:01 MSK 2020
+29749 ?        00:05:36 python3
+Sun Feb 9 23:38:01 MSK 2020
+31685 ?        00:01:50 python3
+Mon Feb 10 00:38:02 MSK 2020
+ 1192 ?        00:01:52 python3
+Mon Feb 10 01:38:01 MSK 2020
+ 3115 ?        00:01:51 python3
+Mon Feb 10 02:38:01 MSK 2020
+ 5094 ?        00:01:52 python3
+Mon Feb 10 03:38:01 MSK 2020
+ 7052 ?        00:01:51 python3
+Mon Feb 10 04:38:01 MSK 2020
+ 9049 ?        00:01:55 python3
+Mon Feb 10 05:38:01 MSK 2020
+11060 ?        00:01:53 python3
+Mon Feb 10 06:38:01 MSK 2020
+13081 ?        00:01:48 python3
+Mon Feb 10 07:38:01 MSK 2020
+15428 ?        00:01:48 python3
+Mon Feb 10 08:38:01 MSK 2020
+17370 ?        00:02:05 python3
+Mon Feb 10 09:38:01 MSK 2020
+19378 ?        00:02:34 python3 <defunct>
+Mon Feb 10 10:38:01 MSK 2020
+21299 ?        00:01:54 python3
+Mon Feb 10 11:38:01 MSK 2020
+23295 ?        00:02:11 python3
+Mon Feb 10 12:38:01 MSK 2020
+25229 ?        00:02:08 python3
+Mon Feb 10 13:38:01 MSK 2020
+27197 ?        00:02:29 python3
+Mon Feb 10 14:38:01 MSK 2020
+29180 ?        00:02:18 python3
+Mon Feb 10 15:38:01 MSK 2020
+31140 ?        00:02:21 python3
+Mon Feb 10 16:38:01 MSK 2020
+  624 ?        00:02:10 python3
+Mon Feb 10 17:38:01 MSK 2020
+ 2579 ?        00:02:30 python3
+Mon Feb 10 18:38:01 MSK 2020
+ 4520 ?        00:02:02 python3
+Mon Feb 10 19:38:01 MSK 2020
+ 6498 ?        00:02:22 python3
+Mon Feb 10 20:38:01 MSK 2020
+ 8430 ?        00:03:28 python3
+Mon Feb 10 21:38:01 MSK 2020
+10366 ?        00:02:00 python3
+Mon Feb 10 22:38:01 MSK 2020
+12339 ?        00:06:23 python3
+Mon Feb 10 23:38:01 MSK 2020
+14270 ?        00:01:59 python3
+Tue Feb 11 00:38:01 MSK 2020
+16231 ?        00:02:00 python3
+Tue Feb 11 01:38:01 MSK 2020
+18204 ?        00:01:58 python3
+Tue Feb 11 02:38:01 MSK 2020
+20145 ?        00:01:58 python3
+Tue Feb 11 03:38:02 MSK 2020
+22102 ?        00:01:59 python3
+Tue Feb 11 04:38:01 MSK 2020
+24096 ?        00:02:00 python3
+Tue Feb 11 05:38:01 MSK 2020
+26094 ?        00:02:00 python3
+Tue Feb 11 06:38:01 MSK 2020
+28173 ?        00:02:03 python3
+Tue Feb 11 07:38:02 MSK 2020
+30108 ?        00:02:02 python3
+Tue Feb 11 08:38:01 MSK 2020
+32042 ?        00:02:09 python3
+Tue Feb 11 09:38:01 MSK 2020
+ 1652 ?        00:02:58 python3
+Tue Feb 11 10:38:01 MSK 2020
+ 3823 ?        00:02:14 python3
+Tue Feb 11 11:38:01 MSK 2020
+ 5809 ?        00:02:29 python3
+Tue Feb 11 12:38:01 MSK 2020
+ 7768 ?        00:02:29 python3
+Tue Feb 11 13:38:01 MSK 2020
+ 9750 ?        00:02:49 python3
+Tue Feb 11 14:38:01 MSK 2020
+11730 ?        00:02:18 python3
+Tue Feb 11 15:38:01 MSK 2020
+13677 ?        00:02:18 python3 <defunct>
+Tue Feb 11 16:38:01 MSK 2020
+15650 ?        00:02:29 python3
+Tue Feb 11 17:38:01 MSK 2020
+18005 ?        00:02:39 python3
+Tue Feb 11 18:38:01 MSK 2020
+20009 ?        00:02:08 python3
+Tue Feb 11 19:38:01 MSK 2020
+21992 ?        00:03:06 python3
+Tue Feb 11 20:38:01 MSK 2020
+24085 ?        00:02:17 python3
+Tue Feb 11 21:38:01 MSK 2020
+26010 ?        00:02:00 python3
+Tue Feb 11 22:38:01 MSK 2020
+27980 ?        00:06:29 python3
+Tue Feb 11 23:38:01 MSK 2020
+29975 ?        00:02:01 python3
+Wed Feb 12 00:38:01 MSK 2020
+32002 ?        00:02:06 python3
+Wed Feb 12 01:38:01 MSK 2020
+ 1510 ?        00:02:07 python3
+Wed Feb 12 02:38:01 MSK 2020
+ 3472 ?        00:02:03 python3
+Wed Feb 12 03:38:01 MSK 2020
+ 5454 ?        00:01:56 python3
+Wed Feb 12 04:38:01 MSK 2020
+ 7412 ?        00:02:13 python3
+Wed Feb 12 05:38:01 MSK 2020
+ 9367 ?        00:01:56 python3
+Wed Feb 12 06:38:01 MSK 2020
+11418 ?        00:01:55 python3
+Wed Feb 12 07:38:01 MSK 2020
+13818 ?        00:01:53 python3
+Wed Feb 12 08:38:01 MSK 2020
+15791 ?        00:01:59 python3
+Wed Feb 12 09:38:01 MSK 2020
+17854 ?        00:02:44 python3
+Wed Feb 12 10:38:01 MSK 2020
+19796 ?        00:02:06 python3
+Wed Feb 12 11:38:01 MSK 2020
+21764 ?        00:02:25 python3
+Wed Feb 12 12:38:01 MSK 2020
+23766 ?        00:02:22 python3
+Wed Feb 12 13:38:01 MSK 2020
+25724 ?        00:02:50 python3
+Wed Feb 12 14:38:01 MSK 2020
+27681 ?        00:02:16 python3
+Wed Feb 12 15:38:01 MSK 2020
+29646 ?        00:02:09 python3
+Wed Feb 12 16:38:01 MSK 2020
+31628 ?        00:02:12 python3
+Wed Feb 12 17:38:01 MSK 2020
+ 1200 ?        00:02:44 python3
+Wed Feb 12 18:38:01 MSK 2020
+ 3139 ?        00:02:31 python3 <defunct>
+Wed Feb 12 19:38:01 MSK 2020
+ 5119 ?        00:02:33 python3
+Wed Feb 12 20:38:01 MSK 2020
+ 7097 ?        00:02:15 python3
+Wed Feb 12 21:38:01 MSK 2020
+ 9055 ?        00:02:07 python3
+Wed Feb 12 22:38:01 MSK 2020
+10996 ?        00:06:44 python3
+Wed Feb 12 23:38:01 MSK 2020
+12940 ?        00:02:02 python3
+Thu Feb 13 00:38:01 MSK 2020
+14944 ?        00:01:57 python3
+Thu Feb 13 01:38:01 MSK 2020
+16898 ?        00:01:57 python3
+Thu Feb 13 02:38:01 MSK 2020
+18867 ?        00:02:01 python3
+Thu Feb 13 03:38:01 MSK 2020
+20859 ?        00:02:05 python3
+Thu Feb 13 04:38:01 MSK 2020
+23204 ?        00:02:05 python3
+Thu Feb 13 05:38:01 MSK 2020
+25151 ?        00:02:01 python3
+Thu Feb 13 06:38:01 MSK 2020
+27264 ?        00:01:56 python3
+Thu Feb 13 07:38:01 MSK 2020
+29235 ?        00:01:58 python3
+Thu Feb 13 08:38:01 MSK 2020
+31184 ?        00:02:01 python3
+Thu Feb 13 09:38:01 MSK 2020
+  779 ?        00:02:50 python3
+Thu Feb 13 10:38:01 MSK 2020
+ 2743 ?        00:02:06 python3
+Thu Feb 13 11:38:01 MSK 2020
+ 4716 ?        00:02:23 python3
+Thu Feb 13 12:38:01 MSK 2020
+ 6772 ?        00:02:20 python3
+Thu Feb 13 13:38:01 MSK 2020
+ 8726 ?        00:02:50 python3
+Thu Feb 13 14:38:01 MSK 2020
+10676 ?        00:02:25 python3
+Thu Feb 13 15:38:01 MSK 2020
+12675 ?        00:02:07 python3
+Thu Feb 13 16:38:01 MSK 2020
+14639 ?        00:02:06 python3
+Thu Feb 13 17:38:01 MSK 2020
+16586 ?        00:02:29 python3
+Thu Feb 13 18:38:01 MSK 2020
+18542 ?        00:02:00 python3
+Thu Feb 13 19:38:01 MSK 2020
+20519 ?        00:02:20 python3
+Thu Feb 13 20:38:02 MSK 2020
+22512 ?        00:02:11 python3
+Thu Feb 13 21:38:01 MSK 2020
+24483 ?        00:01:59 python3
+Thu Feb 13 22:38:01 MSK 2020
+26474 ?        00:06:13 python3
+Thu Feb 13 23:38:01 MSK 2020
+28455 ?        00:02:04 python3
+Fri Feb 14 00:38:01 MSK 2020
+30417 ?        00:02:07 python3
+Fri Feb 14 01:38:01 MSK 2020
+32363 ?        00:02:09 python3
+Fri Feb 14 02:38:01 MSK 2020
+ 2278 ?        00:02:08 python3
+Fri Feb 14 03:38:02 MSK 2020
+ 4247 ?        00:02:05 python3
+Fri Feb 14 04:38:01 MSK 2020
+ 6191 ?        00:02:07 python3
+Fri Feb 14 05:38:01 MSK 2020
+ 8175 ?        00:02:04 python3
+Fri Feb 14 06:38:01 MSK 2020
+10147 ?        00:01:56 python3
+Fri Feb 14 07:38:01 MSK 2020
+12195 ?        00:01:57 python3
+Fri Feb 14 08:38:01 MSK 2020
+14158 ?        00:02:03 python3
+Fri Feb 14 09:38:01 MSK 2020
+16228 ?        00:02:54 python3
+Fri Feb 14 10:38:01 MSK 2020
+18239 ?        00:02:08 python3
+Fri Feb 14 11:38:01 MSK 2020
+20199 ?        00:02:19 python3
+Fri Feb 14 12:38:01 MSK 2020
+22252 ?        00:02:19 python3
+Fri Feb 14 13:38:01 MSK 2020
+24204 ?        00:02:47 python3
+Fri Feb 14 14:38:01 MSK 2020
+26168 ?        00:02:28 python3
+Fri Feb 14 15:38:01 MSK 2020
+28158 ?        00:02:01 python3
+Fri Feb 14 16:38:01 MSK 2020
+30111 ?        00:01:59 python3
+Fri Feb 14 17:38:01 MSK 2020
+32055 ?        00:02:43 python3
+Fri Feb 14 18:38:01 MSK 2020
+ 1571 ?        00:02:23 python3 <defunct>
+Fri Feb 14 19:38:01 MSK 2020
+ 3531 ?        00:02:30 python3
+Fri Feb 14 20:38:01 MSK 2020
+ 5473 ?        00:02:14 python3
+Fri Feb 14 21:38:01 MSK 2020
+ 7429 ?        00:01:59 python3
+Fri Feb 14 22:38:01 MSK 2020
+ 9391 ?        00:05:52 python3
+Fri Feb 14 23:38:01 MSK 2020
+11422 ?        00:01:57 python3
+Sat Feb 15 00:38:01 MSK 2020
+13414 ?        00:02:02 python3
+Sat Feb 15 01:38:01 MSK 2020
+15428 ?        00:02:11 python3
+Sat Feb 15 02:38:01 MSK 2020
+17411 ?        00:02:09 python3
+Sat Feb 15 03:38:01 MSK 2020
+19402 ?        00:02:06 python3
+Sat Feb 15 04:38:01 MSK 2020
+21357 ?        00:02:07 python3
+Sat Feb 15 05:38:01 MSK 2020
+23376 ?        00:02:03 python3
+Sat Feb 15 06:38:01 MSK 2020
+25452 ?        00:01:58 python3
+Sat Feb 15 07:38:01 MSK 2020
+27423 ?        00:01:59 python3
+Sat Feb 15 08:38:01 MSK 2020
+29390 ?        00:02:04 python3 <defunct>
+Sat Feb 15 09:38:01 MSK 2020
+31807 ?        00:02:10 python3
+Sat Feb 15 10:38:01 MSK 2020
+ 1321 ?        00:02:10 python3
+Sat Feb 15 11:38:01 MSK 2020
+ 3329 ?        00:02:06 python3
+Sat Feb 15 12:38:01 MSK 2020
+ 5337 ?        00:01:59 python3
+Sat Feb 15 13:38:01 MSK 2020
+ 7304 ?        00:09:57 python3
+Sat Feb 15 14:38:01 MSK 2020
+ 9289 ?        00:01:59 python3
+Sat Feb 15 15:38:01 MSK 2020
+11252 ?        00:02:09 python3
+Sat Feb 15 16:38:01 MSK 2020
+13241 ?        00:02:11 python3
+Sat Feb 15 17:38:01 MSK 2020
+15234 ?        00:02:07 python3
+Sat Feb 15 18:38:01 MSK 2020
+17195 ?        00:02:14 python3
+Sat Feb 15 19:38:01 MSK 2020
+19172 ?        00:02:12 python3
+Sat Feb 15 20:38:01 MSK 2020
+21176 ?        00:02:17 python3
+Sat Feb 15 21:38:01 MSK 2020
+23152 ?        00:02:02 python3
+Sat Feb 15 22:38:01 MSK 2020
+25205 ?        00:06:22 python3
+Sat Feb 15 23:38:01 MSK 2020
+27216 ?        00:02:04 python3
+Sun Feb 16 00:38:01 MSK 2020
+29218 ?        00:02:09 python3
+Sun Feb 16 01:38:01 MSK 2020
+31203 ?        00:02:11 python3
+Sun Feb 16 02:38:01 MSK 2020
+  743 ?        00:02:08 python3
+Sun Feb 16 03:38:01 MSK 2020
+ 2762 ?        00:02:10 python3
+Sun Feb 16 04:38:01 MSK 2020
+ 4793 ?        00:02:09 python3
+Sun Feb 16 05:38:01 MSK 2020
+ 6812 ?        00:02:02 python3
+Sun Feb 16 06:38:01 MSK 2020
+ 8866 ?        00:02:26 python3 <defunct>
+Sun Feb 16 07:38:01 MSK 2020
+10864 ?        00:02:02 python3
+Sun Feb 16 08:38:01 MSK 2020
+12857 ?        00:02:02 python3
+Sun Feb 16 09:38:01 MSK 2020
+14933 ?        00:02:08 python3
+Sun Feb 16 10:38:01 MSK 2020
+16923 ?        00:02:08 python3
+Sun Feb 16 11:38:01 MSK 2020
+18927 ?        00:02:07 python3
+Sun Feb 16 12:38:01 MSK 2020
+20989 ?        00:02:08 python3
+Sun Feb 16 13:38:01 MSK 2020
+22992 ?        00:02:46 python3
+Sun Feb 16 14:38:01 MSK 2020
+25064 ?        00:02:01 python3
+Sun Feb 16 15:38:01 MSK 2020
+27093 ?        00:01:57 python3
+Sun Feb 16 16:38:02 MSK 2020
+29090 ?        00:01:59 python3
+Sun Feb 16 17:38:01 MSK 2020
+31438 ?        00:02:01 python3
+Sun Feb 16 18:38:01 MSK 2020
+ 1015 ?        00:02:07 python3
+Sun Feb 16 19:38:01 MSK 2020
+ 2956 ?        00:02:06 python3
+Sun Feb 16 20:38:01 MSK 2020
+ 5022 ?        00:02:14 python3
+Sun Feb 16 21:38:01 MSK 2020
+ 7006 ?        00:01:58 python3
+Sun Feb 16 22:38:01 MSK 2020
+ 9034 ?        00:06:06 python3
+Sun Feb 16 23:38:01 MSK 2020
+11046 ?        00:02:00 python3
+Mon Feb 17 00:38:01 MSK 2020
+13109 ?        00:01:57 python3
+Mon Feb 17 01:38:01 MSK 2020
+15093 ?        00:01:59 python3
+Mon Feb 17 02:38:01 MSK 2020
+17101 ?        00:01:58 python3
+Mon Feb 17 03:38:01 MSK 2020
+19129 ?        00:02:05 python3
+Mon Feb 17 04:38:01 MSK 2020
+21176 ?        00:02:05 python3
+Mon Feb 17 05:38:01 MSK 2020
+23241 ?        00:02:03 python3
+Mon Feb 17 06:38:01 MSK 2020
+25341 ?        00:01:58 python3
+Mon Feb 17 07:38:01 MSK 2020
+27328 ?        00:01:59 python3
+Mon Feb 17 08:38:01 MSK 2020
+29308 ?        00:02:03 python3
+Mon Feb 17 09:38:01 MSK 2020
+31380 ?        00:02:42 python3
+Mon Feb 17 10:38:01 MSK 2020
+  953 ?        00:01:59 python3
+Mon Feb 17 11:38:01 MSK 2020
+ 2937 ?        00:02:18 python3
+Mon Feb 17 12:38:01 MSK 2020
+ 4926 ?        00:02:15 python3
+Mon Feb 17 13:38:01 MSK 2020
+ 6975 ?        00:03:19 python3
+Mon Feb 17 14:38:01 MSK 2020
+ 8977 ?        00:02:27 python3
+Mon Feb 17 15:38:01 MSK 2020
+10962 ?        00:02:09 python3
+Mon Feb 17 16:38:01 MSK 2020
+12942 ?        00:02:13 python3
+Mon Feb 17 17:38:01 MSK 2020
+15400 ?        00:02:45 python3
+Mon Feb 17 18:38:01 MSK 2020
+17489 ?        00:02:12 python3
+Mon Feb 17 19:38:01 MSK 2020
+19486 ?        00:02:32 python3
+Mon Feb 17 20:38:01 MSK 2020
+21468 ?        00:02:17 python3
+Mon Feb 17 21:38:01 MSK 2020
+23487 ?        00:01:59 python3
+Mon Feb 17 22:38:01 MSK 2020
+25495 ?        00:06:13 python3
+Mon Feb 17 23:38:01 MSK 2020
+27483 ?        00:01:58 python3
+Tue Feb 18 00:38:01 MSK 2020
+29474 ?        00:01:57 python3
+Tue Feb 18 01:38:01 MSK 2020
+31495 ?        00:01:58 python3
+Tue Feb 18 02:38:01 MSK 2020
+ 1045 ?        00:01:57 python3
+Tue Feb 18 03:38:01 MSK 2020
+ 3048 ?        00:01:57 python3
+Tue Feb 18 04:38:01 MSK 2020
+ 5085 ?        00:01:58 python3
+Tue Feb 18 05:38:01 MSK 2020
+ 7055 ?        00:02:00 python3
+Tue Feb 18 06:38:02 MSK 2020
+ 9101 ?        00:01:57 python3
+Tue Feb 18 07:38:01 MSK 2020
+11193 ?        00:01:58 python3
+Tue Feb 18 08:38:01 MSK 2020
+13214 ?        00:02:04 python3
+Tue Feb 18 09:38:01 MSK 2020
+15305 ?        00:02:47 python3
+Tue Feb 18 10:38:01 MSK 2020
+17354 ?        00:02:10 python3
+Tue Feb 18 11:38:01 MSK 2020
+19355 ?        00:02:24 python3
+Tue Feb 18 12:38:01 MSK 2020
+21703 ?        00:02:24 python3
+Tue Feb 18 13:38:01 MSK 2020
+23700 ?        00:03:01 python3
+Tue Feb 18 14:38:01 MSK 2020
+25756 ?        00:02:17 python3
+Tue Feb 18 15:38:01 MSK 2020
+27773 ?        00:01:58 python3
+Tue Feb 18 16:38:01 MSK 2020
+29744 ?        00:02:00 python3
+Tue Feb 18 17:38:01 MSK 2020
+31755 ?        00:02:30 python3
+Tue Feb 18 18:38:01 MSK 2020
+ 1274 ?        00:02:09 python3
+Tue Feb 18 19:38:01 MSK 2020
+ 3275 ?        00:02:18 python3
+Tue Feb 18 20:38:01 MSK 2020
+ 5343 ?        00:02:10 python3
+Tue Feb 18 21:38:01 MSK 2020
+ 7392 ?        00:01:58 python3
+Tue Feb 18 22:38:01 MSK 2020
+ 9379 ?        00:06:21 python3
+Tue Feb 18 23:38:01 MSK 2020
+11523 ?        00:01:58 python3
+Wed Feb 19 00:38:01 MSK 2020
+13535 ?        00:01:58 python3
+Wed Feb 19 01:38:01 MSK 2020
+15515 ?        00:01:57 python3
+Wed Feb 19 02:38:01 MSK 2020
+17484 ?        00:01:58 python3
+Wed Feb 19 03:38:01 MSK 2020
+19458 ?        00:01:59 python3
+Wed Feb 19 04:38:01 MSK 2020
+21448 ?        00:02:07 python3
+Wed Feb 19 05:38:01 MSK 2020
+23452 ?        00:02:10 python3
+Wed Feb 19 06:38:01 MSK 2020
+25510 ?        00:02:06 python3
+Wed Feb 19 07:38:01 MSK 2020
+27475 ?        00:02:00 python3
+Wed Feb 19 08:38:01 MSK 2020
+29440 ?        00:02:06 python3
+Wed Feb 19 09:38:01 MSK 2020
+31479 ?        00:02:43 python3
+Wed Feb 19 10:38:01 MSK 2020
+ 1028 ?        00:01:59 python3
+Wed Feb 19 11:38:01 MSK 2020
+ 2992 ?        00:02:23 python3
+Wed Feb 19 12:38:01 MSK 2020
+ 4965 ?        00:02:22 python3 <defunct>
+Wed Feb 19 13:38:01 MSK 2020
+ 6933 ?        00:02:42 python3
+Wed Feb 19 14:38:01 MSK 2020
+ 9253 ?        00:02:24 python3
+Wed Feb 19 15:38:01 MSK 2020
+11237 ?        00:02:10 python3
+Wed Feb 19 16:38:02 MSK 2020
+13207 ?        00:02:08 python3
+Wed Feb 19 17:38:01 MSK 2020
+15174 ?        00:02:42 python3
+Wed Feb 19 18:38:01 MSK 2020
+17174 ?        00:01:59 python3
+Wed Feb 19 19:38:01 MSK 2020
+19150 ?        00:02:21 python3
+Wed Feb 19 20:38:01 MSK 2020
+21128 ?        00:02:13 python3
+Wed Feb 19 21:38:01 MSK 2020
+23074 ?        00:02:00 python3
+Wed Feb 19 22:38:01 MSK 2020
+25350 ?        00:06:32 python3
+Wed Feb 19 23:38:02 MSK 2020
+27344 ?        00:02:00 python3
+Thu Feb 20 00:38:01 MSK 2020
+29362 ?        00:01:59 python3
+Thu Feb 20 01:38:01 MSK 2020
+31354 ?        00:01:58 python3
+Thu Feb 20 02:38:01 MSK 2020
+  912 ?        00:01:58 python3
+Thu Feb 20 03:38:01 MSK 2020
+ 2910 ?        00:01:57 python3
+Thu Feb 20 04:38:01 MSK 2020
+ 4865 ?        00:01:57 python3
+Thu Feb 20 05:38:01 MSK 2020
+ 6881 ?        00:02:02 python3
+Thu Feb 20 06:38:01 MSK 2020
+ 8859 ?        00:02:04 python3
+Thu Feb 20 07:38:01 MSK 2020
+10904 ?        00:02:06 python3
+Thu Feb 20 08:38:01 MSK 2020
+12877 ?        00:02:08 python3
+Thu Feb 20 09:38:02 MSK 2020
+14918 ?        00:02:55 python3
+Thu Feb 20 10:38:01 MSK 2020
+16910 ?        00:02:07 python3
+Thu Feb 20 11:38:01 MSK 2020
+18883 ?        00:02:18 python3
+Thu Feb 20 12:38:01 MSK 2020
+20869 ?        00:02:13 python3
+Thu Feb 20 13:38:01 MSK 2020
+22867 ?        00:02:36 python3
+Thu Feb 20 14:38:01 MSK 2020
+24814 ?        00:02:13 python3
+Thu Feb 20 15:38:01 MSK 2020
+26780 ?        00:01:59 python3 <defunct>
+Thu Feb 20 16:38:01 MSK 2020
+28763 ?        00:01:59 python3
+Thu Feb 20 17:38:01 MSK 2020
+31129 ?        00:02:29 python3
+Thu Feb 20 18:38:01 MSK 2020
+  642 ?        00:02:00 python3
+Thu Feb 20 19:38:01 MSK 2020
+ 2629 ?        00:02:17 python3
+Thu Feb 20 20:38:01 MSK 2020
+ 4619 ?        00:02:12 python3
+Thu Feb 20 21:38:01 MSK 2020
+ 6590 ?        00:02:01 python3
+Thu Feb 20 22:38:01 MSK 2020
+ 8623 ?        00:06:37 python3
+Thu Feb 20 23:38:01 MSK 2020
+10599 ?        00:01:59 python3
+Fri Feb 21 00:38:01 MSK 2020
+12666 ?        00:02:01 python3
+Fri Feb 21 01:38:01 MSK 2020
+14649 ?        00:01:58 python3
+Fri Feb 21 02:38:01 MSK 2020
+16627 ?        00:01:58 python3
+Fri Feb 21 03:38:01 MSK 2020
+18950 ?        00:01:59 python3
+Fri Feb 21 04:38:01 MSK 2020
+20917 ?        00:01:59 python3
+Fri Feb 21 05:38:01 MSK 2020
+22888 ?        00:01:59 python3
+Fri Feb 21 06:38:01 MSK 2020
+25009 ?        00:01:59 python3
+Fri Feb 21 07:38:01 MSK 2020
+27052 ?        00:02:02 python3
+Fri Feb 21 08:38:01 MSK 2020
+29064 ?        00:02:02 python3
+Fri Feb 21 09:38:01 MSK 2020
+31130 ?        00:02:49 python3
+Fri Feb 21 10:38:01 MSK 2020
+  666 ?        00:02:03 python3
+Fri Feb 21 11:38:01 MSK 2020
+ 2690 ?        00:02:18 python3
+Fri Feb 21 12:38:01 MSK 2020
+ 4679 ?        00:02:17 python3
+Fri Feb 21 13:38:01 MSK 2020
+ 6661 ?        00:02:55 python3
+Fri Feb 21 14:38:01 MSK 2020
+ 8655 ?        00:02:30 python3
+Fri Feb 21 15:38:01 MSK 2020
+10631 ?        00:02:05 python3
+Fri Feb 21 16:38:01 MSK 2020
+12605 ?        00:02:03 python3
+Fri Feb 21 17:38:01 MSK 2020
+14561 ?        00:02:38 python3
+Fri Feb 21 18:38:01 MSK 2020
+16596 ?        00:02:17 python3
+Fri Feb 21 19:38:01 MSK 2020
+18588 ?        00:02:25 python3
+Fri Feb 21 20:38:01 MSK 2020
+20583 ?        00:02:16 python3
+Fri Feb 21 21:38:01 MSK 2020
+22569 ?        00:02:03 python3
+Fri Feb 21 22:38:01 MSK 2020
+24591 ?        00:06:43 python3
+Fri Feb 21 23:38:01 MSK 2020

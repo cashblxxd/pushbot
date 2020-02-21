@@ -2404,8 +2404,8 @@ def main():
 
 
 if __name__ == '__main__':
-    #main()
-    dump_admin()
+    main()
+#    dump_admin()
 
 
 
