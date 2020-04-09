@@ -432,9 +432,11 @@ def to_text(job_data, lang, bot_id, timezone):
     if hrr < 0: hrr += 24
     if hrr > 23: hrr %= 24
     hrr = str(hrr)
+    datestart = '' if "date" not in job_data else f"Дата начала работы: {job_data['date']}\n"
     if lang == "ru":
-        return f"Чат: {bots[bot_id].get_chat(job_data['chat_id']).title}\nСостояние: {'Работает' if job_data['state'] == 'running' else 'приостановлено'}\nСообщение: {job_data['desc']}\nДата начала работы: {job_data['date']}\n{get_freq_text(job_data, lang)}\nВремя рассылок: {hrr + ':' + job_data['selected_min']}\nДата завершения: {job_data['end_date']}"
-    return f"Chat: {bots[bot_id].get_chat(job_data['chat_id']).title}\nState: {'Running' if job_data['state'] == 'running' else 'Paused'}\nMessage: {job_data['desc']}\nDate of start: {job_data['date']}\n{get_freq_text(job_data, lang)}\nMailing time: {hrr + ':' + job_data['selected_min']}\nDate of end: {job_data['end_date']}"
+        return f"Чат: {bots[bot_id].get_chat(job_data['chat_id']).title}\nСостояние: {'Работает' if job_data['state'] == 'running' else 'приостановлено'}\nСообщение: {job_data['desc']}\n{datestart}{get_freq_text(job_data, lang)}\nВремя рассылок: {hrr + ':' + job_data['selected_min']}\nДата завершения: {job_data['end_date']}"
+    datestart = '' if "date" not in job_data else f"Date of start: {job_data['date']}\n"
+    return f"Chat: {bots[bot_id].get_chat(job_data['chat_id']).title}\nState: {'Running' if job_data['state'] == 'running' else 'Paused'}\nMessage: {job_data['desc']}\n{datestart}{get_freq_text(job_data, lang)}\nMailing time: {hrr + ':' + job_data['selected_min']}\nDate of end: {job_data['end_date']}"
 
 
 def error(update, context):
@@ -1346,10 +1348,15 @@ def button(update, context):
                         InlineKeyboardButton("🏡", callback_data="::home::")
                     ]]))
                 for i in context.user_data[bot_idt][uid]:
+                    print(i)
                     if i.isdigit() and str(context.user_data[bot_idt][uid][i]["chat_id"]) == chat_idt:
-                        res = to_text(context.user_data[bot_idt][uid][i], lang, bot_idt, context.user_data[uid]["timezone"])
+                        empty = False
+                        print(i)
+                        try:
+                            res = to_text(context.user_data[bot_idt][uid][i], lang, bot_idt, context.user_data[uid]["timezone"])
+                        except Exception as e:
+                            print(e)
                         if context.user_data[bot_idt][uid][i]["state"] == "running":
-                            empty = False
                             context.bot.send_message(uid, res, reply_markup=InlineKeyboardMarkup([[
                                     InlineKeyboardButton("🏡", callback_data="::home::")
                                 ],
@@ -1359,7 +1366,6 @@ def button(update, context):
                                                       callback_data=f"messages::delete::{bot_idt}::{uid}::{i}")]
                             ]))
                         elif context.user_data[bot_idt][uid][i]["state"] == "paused":
-                            empty = False
                             context.bot.send_message(uid, res, reply_markup=InlineKeyboardMarkup([[
                                     InlineKeyboardButton("🏡", callback_data="::home::")
                                 ],
@@ -1515,11 +1521,11 @@ def button(update, context):
         elif data.startswith("buy::"):
             data = data.lstrip("buy::")
             r = {
-                "1months": (get_translation("1 месяц", lang), 649),
-                "3months": (get_translation("3 месяца (15% скидка)"), 1649),
-                "6months": (get_translation("6 месяцев (20% скидка)"), 2999),
-                "12months": (get_translation("12 месяцев (30% скидка)"), 5449),
-                "-1": (get_translation("На всю жизнь"), 9749)
+                "1months": (get_translation("1 месяц", lang), 249),
+                "3months": (get_translation("3 месяца (15% скидка)"), 635),
+                "6months": (get_translation("6 месяцев (20% скидка)"), 1195),
+                "12months": (get_translation("12 месяцев (30% скидка)"), 2092),
+                "-1": (get_translation("На всю жизнь"), 4500)
             }
             i, j = r[data]
             #context.bot.send_message(uid, f"QIWI: [{get_translation('Ссылка', lang)}]({get_link('RUB', uid, j)})" + get_translation("\nБанковская карта:", lang), parse_mode=ParseMode.MARKDOWN)
