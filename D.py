@@ -1204,8 +1204,8 @@ def button(update, context):
                     [InlineKeyboardButton(get_translation('7 дней', lang), callback_data="seven_days")],
                     [InlineKeyboardButton(get_translation('Выходные', lang), callback_data="out_days")],
                     [InlineKeyboardButton(get_translation('Будние', lang), callback_data="busy_days")],
-                    [InlineKeyboardButton(get_translation('Каждое конкретный день в неделе', lang), callback_data="custom_week_days")],
-                    [InlineKeyboardButton(get_translation('Последний день месяца.', lang), callback_data="month_end_days")],
+                    [InlineKeyboardButton(get_translation('Каждый конкретный день в неделе', lang), callback_data="custom_week_days")],
+                    [InlineKeyboardButton(get_translation('Последний день месяца', lang), callback_data="month_end_days")],
                     [InlineKeyboardButton(get_translation('Каждое конкретное число в месяце', lang), callback_data="custom_days")],
                     [InlineKeyboardButton("🏡", callback_data="::home::")]
                 ]))
@@ -1223,8 +1223,8 @@ def button(update, context):
                         [InlineKeyboardButton(get_translation('7 дней', lang), callback_data="seven_days")],
                         [InlineKeyboardButton(get_translation('Выходные', lang), callback_data="out_days")],
                         [InlineKeyboardButton(get_translation('Будние', lang), callback_data="busy_days")],
-                        [InlineKeyboardButton(get_translation('Каждое конкретный день в неделе', lang), callback_data="custom_week_days")],
-                        [InlineKeyboardButton(get_translation('Последний день месяца.', lang), callback_data="month_end_days")],
+                        [InlineKeyboardButton(get_translation('Каждый конкретный день в неделе', lang), callback_data="custom_week_days")],
+                        [InlineKeyboardButton(get_translation('Последний день месяца', lang), callback_data="month_end_days")],
                         [InlineKeyboardButton(get_translation('Каждое конкретное число в месяце', lang), callback_data="custom_days")],
                         [InlineKeyboardButton("🏡", callback_data="::home::")]
                     ]))
@@ -1696,8 +1696,8 @@ def button(update, context):
                     [InlineKeyboardButton(get_translation('7 дней', lang), callback_data="seven_days")],
                     [InlineKeyboardButton(get_translation('Выходные', lang), callback_data="out_days")],
                     [InlineKeyboardButton(get_translation('Будние', lang), callback_data="busy_days")],
-                    [InlineKeyboardButton(get_translation('Каждое конкретный день в неделе', lang), callback_data="custom_week_days")],
-                    [InlineKeyboardButton(get_translation('Последний день месяца.', lang), callback_data="month_end_days")],
+                    [InlineKeyboardButton(get_translation('Каждый конкретный день в неделе', lang), callback_data="custom_week_days")],
+                    [InlineKeyboardButton(get_translation('Последний день месяца', lang), callback_data="month_end_days")],
                     [InlineKeyboardButton(get_translation('Каждое конкретное число в месяце', lang), callback_data="custom_days")],
                     [InlineKeyboardButton("🏡", callback_data="::home::")]
                 ]))
