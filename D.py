@@ -804,6 +804,11 @@ def button(update, context):
         data = update.callback_query.data
         lang = context.user_data[admin_id][uid]["lang"]
         bot_idd = context.user_data[admin_id][uid]["task_bot"]
+        if data == "menu::feedback":
+            update.callback_query.edit_message_text(get_translation("Чат: https://t.me/pushistbotchat \nМенеджер-помощник @kristina_kadntseva", lang),
+                                                        reply_markup=InlineKeyboardMarkup([[
+                                                            InlineKeyboardButton("🏡", callback_data="::home::")
+                                                        ]]))
         if data.startswith("mute_toggle::"):
             cid = data.strip("mute_toggle::")
             with open("muted_chats.json", encoding="utf-8") as f:
@@ -990,7 +995,9 @@ def button(update, context):
                                                                 get_translation("Сменить язык🎌", lang),
                                                                 callback_data="menu::lang")],
                                                             [InlineKeyboardButton(get_translation("Справка📖", lang),
-                                                                                  callback_data="menu::help")]]))
+                                                                                  callback_data="menu::help")],
+                                                            [InlineKeyboardButton(get_translation("Чат поддержки/обратной связи🗣️", lang),
+                                                                                  callback_data="menu::feedback")]]))
             elif data == "back::to_gtable":
                 context.user_data[uid]["state"] = "pending"
                 if context.user_data[uid]["sheet"]:
@@ -1251,7 +1258,8 @@ def button(update, context):
                 [InlineKeyboardButton(get_translation("Активировать промокод🎁", lang), callback_data="menu::promocode")],
                 [InlineKeyboardButton(get_translation("Мои рефералы📣", lang), callback_data="menu::my_referrals")],
                 [InlineKeyboardButton(get_translation("Сменить язык🎌", lang), callback_data="menu::lang")],
-                [InlineKeyboardButton(get_translation("Справка📖", lang), callback_data="menu::help")]]))
+                [InlineKeyboardButton(get_translation("Справка📖", lang), callback_data="menu::help")],
+                [InlineKeyboardButton(get_translation("Чат поддержки/обратной связи🗣️", lang), callback_data="menu::feedback")]]))
             elif data == "menu::less":
                 update.callback_query.edit_message_text(get_menu_text(update, context, uid, admin_id, lang),
                                                         reply_markup=get_menu(lang, uid in admin_user_id))

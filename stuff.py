@@ -250,7 +250,9 @@ tr = {
     "Ваша таблица: ": "Your spreadsheet: ",
     "Выберите чат": "Choose chat",
     "1 month": "1 month",
-    "Кроме того, мы дали вам 2 месяца бесплатного безлимитного доступа. Пользуйтесь на здоровье😊": "Moreover, we give you 2 months of free premium access. You're welcome😊"
+    "Кроме того, мы дали вам 2 месяца бесплатного безлимитного доступа. Пользуйтесь на здоровье😊": "Moreover, we give you 2 months of free premium access. You're welcome😊",
+    "Чат поддержки/обратной связи🗣️": "Support and feedback🗣️",
+    "Чат: https://t.me/pushistbotchat \nМенеджер-помощник @kristina_kadntseva": "Chat: https://t.me/pushistbotchat \nManager @kristina_kadntseva"
 }
 
 
